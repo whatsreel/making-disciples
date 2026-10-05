@@ -1,0 +1,22 @@
+# Files that will be PUBLIC when the page repo goes public (chunk C of the plan of record).
+# One path or glob per line, relative to the repo root. The gate's check 20 reads every text
+# file listed here for tone, plus the built page's visible text. Anything not listed stays in
+# the private notes repo: docs/ (the session paper among them) and the full CLAUDE.md.
+# A line starting with "-" is public but NOT tone-scanned, with the reason after "#".
+sources/*
+pipeline/*
+- pipeline/tone.py   # the guard's own word list
+kjv/*
+- kjv/*              # Scripture (KJV), not our wording
+CLAUDE.md   # ships as CLAUDE.md; the full private one never leaves the notes repo
+rebuild.sh
+master.json
+README.md
+public_manifest.txt
+.github/workflows/*
+.gitignore
+.gitattributes
+verify/run.sh
+verify/reviews.json
+verify/checks/*
+- verify/checks/20-tone.py   # builds poison phrases for its own selftest

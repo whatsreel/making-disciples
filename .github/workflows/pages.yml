@@ -1,0 +1,43 @@
+# Build the page from sources and publish it with GitHub Pages on every push to main.
+name: Build and publish
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency: { group: pages, cancel-in-progress: true }
+jobs:
+  build:
+    # This file also lives in the private notes repo; only the public page repo may build and deploy.
+    if: github.repository == 'whatsreel/making-disciples'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: pip install openpyxl
+      - name: Build (PDFs are skipped on the runner; only the page is published)
+        run: |
+          mkdir -p "$RUNNER_TEMP/work" "$RUNNER_TEMP/out"
+          WORK="$RUNNER_TEMP/work" OUT="$RUNNER_TEMP/out" bash ./rebuild.sh   # bash: works even if the executable bit was lost
+          mkdir -p site
+          cp "$RUNNER_TEMP/out/argument-map.html" site/index.html
+          # The page only. "How this page works" tells readers the spreadsheet is not published here (Jon, 2026-10-05),
+          # so it is built (the build checks it) but never copied into the site.
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: site }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    # Block map, not a { } flow map: GitHub could not parse ${{ }} inside braces (all runs failed in 0s).
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

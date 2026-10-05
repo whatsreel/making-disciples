@@ -1,0 +1,918 @@
+{
+ "D": [
+  {
+   "id": "C1",
+   "band": 0,
+   "case": "Matthew uses the word for disciple some seventy times before chapter 28. By the time the imperative arrives, the term already carries three years of narrative: called by name, attached, taught, corrected, sent, restored. A command cannot be obeyed apart from the meaning of its terms, so that narrative is how we know what we are being told to make.",
+   "sup": [
+    "The noun appears about seventy times in Matthew before this sentence, and roughly 260 times in the New Testament — all of it in the Gospels and Acts.",
+    "Make disciples is the only finite imperative in the verse; the other three verbs are participles.",
+    "Stated carefully, this is a lexical claim, not a claim that narrative is prescriptive. It needs no concession about Jesus’ example."
+   ],
+   "claim": "“Make disciples” contains a term Matthew already defined",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Matt 28:19; ~70 uses of mathētēs in Matthew",
+   "counter": "The word never appears in any of the twenty-one epistles.",
+   "risk": "The word does not carry the whole narrative. It denotes an attached learner-follower; the narrative shows what that looked like."
+  },
+  {
+   "id": "C1a",
+   "band": 0,
+   "claim": "A disciple is attached to a particular teacher, by name",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Mark 3:13–14; John 1:43; Matt 4:19; John 15:16",
+   "case": "The word never means a student of a subject. It means the follower of a person, and the attachment is always initiated and always specific. Matthew first, because our own rule in A1 requires an argument about Matthew to stand on Matthew: Follow me, and the disciples are those who come to him. Mark and John then confirm the sense was shared. That is the first thing the term carries into the Commission.",
+   "sup": [
+    "Matt 4:19 — Follow me, and I will make you fishers of men. The summons is to a person. This is the Matthean anchor; the rest corroborate.",
+    "John 1:43 and Matt 4:19 — Follow me. The summons is to a person, not to a program of study.",
+    "John 15:16 — ye have not chosen me, but I have chosen you. The initiative is never the disciple’s.",
+    "This is why an anonymous hearer, however regular, is not yet what the word describes."
+   ],
+   "counter": "That Christ calls does not mean we may select. The initiative in every one of these texts is his, not the church’s.",
+   "risk": "It does not follow from “Christ chose” that a church should choose. That is a separate argument, at E3."
+  },
+  {
+   "id": "C1b",
+   "band": 1,
+   "claim": "He kept them with him before he sent them anywhere",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Mark 3:14; 1 Thess 2:8; Acts 20:20; Heb 3:13",
+   "case": "Presence comes first in the appointment and it is not decoration. They watched him pray, eat, answer opponents, and handle interruption, and much of what they learned could not have been transmitted any other way. Paul describes his own ministry in the same terms, which is what lifts this off the narrative and onto firmer ground.",
+   "sup": [
+    "Mark 3:14 — that they should be with him, and that he might send them forth. The order is stated.",
+    "1 Thess 2:8 — willing to have imparted, not the gospel of God only, but also our own souls.",
+    "Acts 20:20 — taught you publickly, and from house to house. Public ministry and personal ministry, named together and distinguished.",
+    "This is the element TEAMS has no letter for, which is worth saying when the model comes up."
+   ],
+   "counter": "Paul planted churches he then wrote to from a distance, and the letters formed them. Presence is not strictly necessary for formation.",
+   "risk": "Overstated, it implies the absent apostle failed his churches. The claim is that presence is ordinary and assumed, not that it is indispensable."
+  },
+  {
+   "id": "C1c",
+   "band": 1,
+   "claim": "The teaching aimed at obedience, not at information transfer",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Support",
+   "surv": "Yes",
+   "texts": "Matt 28:20; John 13:15; 1 Cor 11:1; Phil 4:9",
+   "case": "What he taught them was how to do things — pray like this, forgive like this, serve like this — and he demonstrated before he explained. The Commission then names obedience as the content of the teaching, not its hoped-for result, which is the grammatical point made at C10.",
+   "sup": [
+    "Matt 28:20 — teaching them to observe. Keeping is the object of the teaching.",
+    "John 13:15 — I have given you an example, that ye should do as I have done to you.",
+    "1 Cor 11:1 and Phil 4:9 carry the same method past the resurrection: imitate, and practice what you saw.",
+    "C10 makes the grammatical case for this at length; this entry is the narrative half of it."
+   ],
+   "counter": "Preaching also aims at obedience, and the Spirit produces it. Nothing here requires a second structure.",
+   "risk": "It leans on C10. Where both are made, C10 carries the weight and this one supports it."
+  },
+  {
+   "id": "C1d",
+   "band": 1,
+   "claim": "He told them the cost before they were in",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Luke 9:23; Luke 14:25–33; Mark 8:34",
+   "case": "He was consistently harder on volunteers than on the reluctant. Count the cost, carry the cross daily, reckon whether you can finish the tower — he said this to crowds who wanted to join, and several went away. Any arrangement that recruits without naming the cost is doing something the word does not describe.",
+   "sup": [
+    "Luke 9:23 — if any man will come after me, let him deny himself, and take up his cross daily.",
+    "Luke 14:25–33 — said to great multitudes, and it thinned them.",
+    "Mark 8:34 — the same call, addressed to the people as well as the disciples.",
+    "This is the second element TEAMS has no letter for."
+   ],
+   "counter": "Cost is not a method of discipleship; it is a condition of discipleship. Naming it tells a session nothing about what to build.",
+   "risk": "True, and it cuts toward humility about any program: a curriculum that is pleasant to complete may not be forming anyone."
+  },
+  {
+   "id": "C1e",
+   "band": 1,
+   "claim": "He corrected them, and restored them after failure",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "Both",
+   "use": "Support",
+   "surv": "Yes",
+   "texts": "Matt 16:23; Luke 22:31–32; John 21:15–19; Gal 6:1; Jas 5:19–20",
+   "case": "Get thee behind me, Satan, said to the man he had just called blessed. Then, after the denial, a charcoal fire and three questions. Correction and restoration are one motion in the Gospels, and the epistles command both of them to the church — which is where D4 picks this up as discipline.",
+   "sup": [
+    "Matt 16:23 — the sharpest rebuke in the Gospels, aimed at a disciple, not at one of his critics.",
+    "John 21:15–19 — three questions answering three denials. Restoration is specific, not general.",
+    "Gal 6:1 — restore such an one in the spirit of meekness, addressed to ye which are spiritual.",
+    "Jas 5:19–20 — if any do err, and one convert him. The action belongs to any brother."
+   ],
+   "counter": "This is what church discipline is for, and we already have courts and a Book of Church Order to do it.",
+   "risk": "That counter is correct and is conceded here. It leads to D4: strengthening discipline and equipping parents."
+  },
+  {
+   "id": "C1f",
+   "band": 1,
+   "claim": "He sent them out and took the report when they came back",
+   "lands": "firm on sending-and-report; contested on scope",
+   "what": "Modeled, equipped, sent",
+   "who": "Every member, under officers",
+   "use": "Support",
+   "surv": "Partly",
+   "texts": "Matt 10:1; Mark 6:30; Luke 10:17–20; Acts 13:1–3; 14:26–27; 2 Tim 2:2",
+   "case": "Sending happened during the training, not after it, and it came with a debrief — they returned and told him all things. Acts shows the same shape in a church rather than around a person: Antioch sends, and receives the report. Concede at once that Antioch sent Barnabas and Saul, and Saul is an apostle on this paper's own account, so Acts 13 gives the shape and not the scope. For ordinary members being sent, Acts 8:4 is the better text: those scattered, explicitly not the apostles, preached as they went.",
+   "sup": [
+    "Matt 10:1 and Mark 6:30 — sent, then they gathered themselves together unto Jesus and told him all things.",
+    "Luke 10:17–20 — the seventy-two return with a report, and he corrects what they are rejoicing in.",
+    "Acts 13:1–3 and 14:26–27 — a church sends and a church receives the account. The pattern outlives the Twelve.",
+    "2 Tim 2:2 — the same teach others also."
+   ],
+   "counter": "The sendings in the Gospels are apostolic commissions with authority over unclean spirits. Not every member is sent that way.",
+   "risk": "The scope limit belongs up front. The transferable part is a church that sends and expects an account, plus Acts 8:4, where the people who carried the word out of Jerusalem were not officers. It is not the authority attached to the Twelve, and it is not Acts 13, which commissions apostles."
+  },
+  {
+   "id": "C3",
+   "band": 0,
+   "case": "The word denotes an attached learner-follower, not a member of an audience. Mark has the Twelve appointed first of all to be with him. Luke 14 counts the cost of following, not of attending. Nothing in the term describes someone present at a teaching event.",
+   "sup": [
+    "Mark 3:14 puts with him before sent them.",
+    "Luke 14:25–33 counts the cost of following, not of attending.",
+    "John 13:23 — the disciple leaning on his breast. The vocabulary is proximity throughout."
+   ],
+   "claim": "A disciple is defined by attachment and formation, not attendance",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Mark 3:14; Luke 14:25–33",
+   "counter": "It names a status, not a method. Knowing a disciple is attached does not tell a session what to build.",
+   "risk": "It establishes less than advocates of any model want it to."
+  },
+  {
+   "id": "C10",
+   "band": 0,
+   "case": "The verb is not teach; it is command. And the thing being taught is keeping — obedience is not the hoped-for result of the instruction, it is its content. Since nobody is taught to do a thing purely by being told it, Paul's summary has four parts: learned, received, heard, and seen in me. Three of the four require presence.",
+   "sup": [
+    "The verb is commanded, not taught — the object is Christ’s commands, not his curriculum.",
+    "To keep is the grammatical object of teaching, so obedience is the content of the instruction rather than its hoped-for effect.",
+    "John 14:15 and 1 John 2:3–4 use the same verb as the test of knowing him.",
+    "Phil 4:9 has four parts — learned, received, heard, seen in me. Three require presence."
+   ],
+   "claim": "“Teaching them to observe,” not “teaching them all I taught you”",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Matt 28:20; John 14:15; Jas 1:22; Phil 4:9",
+   "counter": "Preaching aims at obedience too, and the Spirit gives the fruit, not a mentor.",
+   "risk": "Pressed hard it implies preaching without visible fruit is defective preaching, which would indict Isaiah."
+  },
+  {
+   "id": "C11",
+   "band": 0,
+   "case": "An aorist participle standing before an aorist imperative in narrative is attendant circumstance: the participle takes on the imperative's mood. This exact form appears fifteen times in the New Testament and never once means while you go. So going is not a soft frame around the command. It carries the command's force.",
+   "sup": [
+    "Seven times in Matthew (2:8, 9:13, 11:4, 21:6, 22:15, 27:66, 28:19) and fifteen in the New Testament. In every one it is a completed going — never while you go.",
+    "Where an imperative follows, it carries imperative force: go and search (2:8), go and learn (9:13), go and tell John (11:4). The women get the same construction in the feminine at 28:7.",
+    "Wallace, Greek Grammar Beyond the Basics, 640–645; Merkle, Southeastern Theological Review 9.2 (2018): 21–32.",
+    "A present participle was available for while you go. Matthew did not use it."
+   ],
+   "claim": "“Go” is commanded — not “as you go”",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Support",
+   "surv": "Yes",
+   "texts": "Matt 28:19; Wallace 640–645; John 20:21; Acts 1:8",
+   "counter": "The aorist will not carry a perpetual outward posture; that rests on scope and parallel texts.",
+   "risk": "The grammar is settled. The larger conclusion holds too, but it rests on scope and parallel texts, not on this participle."
+  },
+  {
+   "id": "D2",
+   "band": 0,
+   "case": "Paul says the officers were given to equip the saints for the work of ministry — on the natural reading, officers do the equipping and the saints do the ministering. That makes every-member work the design, not a concession.",
+   "sup": [
+    "The verse has three prepositional phrases, and everything turns on whether the second depends on the first.",
+    "T. D. Gordon, JETS 37/1 (1994): 69–78, argues the traditional reading, where officers do the ministry.",
+    "Hoehner argues the other way from verses 7 and 16. The dispute is live among people who know Greek well.",
+    "Titus 2:3–5, Col 3:16 and Heb 3:13 reach the same conclusion without the fight."
+   ],
+   "claim": "Eph 4:12 proves every-member ministry",
+   "lands": "contested",
+   "what": "—",
+   "who": "Every member, under officers",
+   "use": "Reference",
+   "surv": "Yes",
+   "texts": "Eph 4:12",
+   "counter": "T. D. Gordon, JETS 37/1 (1994): the syntax is genuinely disputed and the traditional reading is defensible.",
+   "risk": "This verse cannot carry the case alone. Titus 2, Col 3:16 and Heb 3:13 carry it without the dispute."
+  },
+  {
+   "id": "C4",
+   "band": 1,
+   "case": "The Twelve were sent out during their training, not after it, and the seventy-two after them. Paul tells Timothy to hand the deposit to men who will teach others still. Reproduction is inside the word, not bolted onto it afterward.",
+   "sup": [
+    "Matt 10 sends the Twelve during their training, not after it.",
+    "Luke 10 sends seventy-two more, so the practice widens past the Twelve within the narrative itself.",
+    "2 Tim 2:2 puts four generations in a single verse: Paul, Timothy, faithful men, others also."
+   ],
+   "claim": "Being sent and reproducing belongs to the definition",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "Every member, under officers",
+   "use": "Support",
+   "surv": "Partly",
+   "texts": "Matt 10; Luke 10; 2 Tim 2:2",
+   "counter": "Not every believer is sent the way the Twelve were sent.",
+   "risk": "Stated loosely, it overreaches into making every member an evangelist by office."
+  },
+  {
+   "id": "C5",
+   "band": 1,
+   "case": "The commands that constitute a disciple's life assume proximity. Exhort one another every day, bear one another's burdens, confess your sins to one another, share our own selves — not one of these can be performed from a pew or a lecture seat. Attendance feeds a disciple. It does not by itself make one.",
+   "sup": [
+    "Heb 3:13 daily exhortation; Gal 6:2 burdens; Jas 5:16 confession; 1 Thess 2:8 our own souls.",
+    "Heb 10:25 assumes assembling, so the claim is about sufficiency, never about attendance being optional."
+   ],
+   "claim": "Attendance at worship and Bible study is not discipleship",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Support",
+   "surv": "Yes",
+   "texts": "Heb 3:13; Gal 6:2; Jas 5:16; 1 Thess 2:8",
+   "counter": "No one actually holds that attendance alone is discipleship, so this hits a straw man.",
+   "risk": "It bears on a church's own practice, never on a brother's stated position."
+  },
+  {
+   "id": "C6",
+   "band": 1,
+   "case": "There is no category in the New Testament of a saved non-disciple; Acts simply calls church members the disciples. But discipleship is never a condition of justification — we are saved by grace through faith, and Christ chose us before we chose him. So a member who has never been discipled has been under-served, not found wanting.",
+   "sup": [
+    "Acts 6:1, 9:26 and 14:22 call ordinary church members the disciples — it is not a rank above Christian.",
+    "Eph 2:8–9 and Rom 4:5 put justification outside works entirely; John 15:16 puts the initiative outside us.",
+    "Heb 5:12 and Ezek 34:4 locate the failure with those who should have fed them.",
+    "Test any proposal against this: would a faithful member who joins nothing hear it as a question about his salvation?"
+   ],
+   "claim": "Members never signed up — and we are saved by grace",
+   "lands": "firm",
+   "what": "—",
+   "who": "—",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Eph 2:8–9; Rom 4:5; John 15:16; Heb 5:12",
+   "counter": "None.",
+   "risk": "Without it, any proposal can sound like works."
+  },
+  {
+   "id": "C7",
+   "band": 1,
+   "case": "Paul's stated goal is to present everyone mature in Christ, and Ephesians unpacks it: doctrinal stability, truth spoken in love, each part working properly. Hebrews adds discernment trained by constant practice. That yields five markers — doctrine, discernment, character, function, and the ability to feed someone else.",
+   "sup": [
+    "Col 1:28 — that we may present every man perfect in Christ Jesus.",
+    "Eph 4:13–16 — no longer children tossed about, speaking the truth in love, every part working.",
+    "Heb 5:14 — senses exercised by reason of use. Trained by practice, not by information.",
+    "Five markers: doctrine, discernment, character, function, reproduction. Three cannot be read off an attendance record."
+   ],
+   "claim": "What maturity actually is",
+   "lands": "firm",
+   "what": "Both",
+   "who": "—",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Col 1:28; Eph 4:13–16; Heb 5:14; 2 Pet 3:18",
+   "counter": "The markers are hard to measure, which is inconvenient for any proposal.",
+   "risk": "None, and three of the five markers cannot be read off an attendance record."
+  },
+  {
+   "id": "C8",
+   "band": 1,
+   "case": "Hebrews commands a congregation to exhort one another every day, and gives the reason: so that none is hardened by sin's deceit. The Jerusalem church met daily, in the temple and house to house. Meanwhile three in five Protestant pastors now count twice a month as regular attendance. The word no longer means what it meant.",
+   "sup": [
+    "Heb 3:13 is precept, not narrative: a congregation, reciprocal, daily, with its purpose stated.",
+    "Acts 2:46 and 5:42 — daily, in the temple and house to house.",
+    "Lifeway (2023): three in five Protestant pastors count twice a month as regular attendance.",
+    "The daily contact happened in homes, which points at households before it points at any program."
+   ],
+   "claim": "They met daily; we call twice a month regular",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "Every member, under officers",
+   "use": "Lead",
+   "surv": "Partly",
+   "texts": "Heb 3:13; Acts 2:46; 5:42",
+   "counter": "Acts 2:46 is narrative under unrepeatable conditions, and frequency is not the same as life on life.",
+   "risk": "It closes the door on “what we do is enough.” It will not open a door to a program."
+  },
+  {
+   "id": "C12",
+   "band": 1,
+   "case": "The epistles command Christians to be formed by watching particular people live, and command some to live so as to be watched. This is not inferred from Jesus' example. It is precept, written to churches, about how formation actually happens — and it sits in the part of the canon our critics say we should have been reading all along.",
+   "sup": [
+    "Heb 13:7 — remember your leaders, and considering the end of their conversation, follow their faith. Their conduct is named as a separate object of attention from their words.",
+    "Phil 3:17 — mark them which walk so. The verb is skopeite, observe closely, and the objects are ordinary believers, not apostles.",
+    "2 Thess 3:7–9 — Paul worked with his hands though he had the right not to, expressly to make himself a pattern to be copied.",
+    "1 Cor 4:16–17 — Timothy is sent to remind them of Paul's ways, not only his doctrine.",
+    "Heb 6:12 — be followers of them who through faith and patience inherit the promises."
+   ],
+   "claim": "Scripture commands formation by observed example",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "Both",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Heb 13:7; Phil 3:17; 2 Thess 3:7–9; 1 Cor 4:16–17; 11:1; Heb 6:12; 1 Thess 1:6",
+   "counter": "Michaelis (TDNT 4:659–674) reads mimetes in Paul as obedience to apostolic teaching rather than copying a life — a live scholarly position, and the one a careful reader will reach for.",
+   "risk": "It establishes that formation by example is commanded. It establishes no program, no curriculum and no structure. Heb 13:7 is officer-directed while Phil 3:17 is not; the two are not merged on the who question."
+  },
+  {
+   "id": "C13",
+   "band": 1,
+   "case": "Paul says every man three times in one sentence. The goal is not a mature congregation in aggregate but each individual presented complete. Lightfoot reads the threefold repetition as polemical — aimed at Colossian teachers forming an inner circle initiated into a higher wisdom than ordinary Christians could reach.",
+   "sup": [
+    "Col 1:28 — warning every man, and teaching every man in all wisdom, that we may present every man perfect in Christ Jesus. Panta anthropon, three times.",
+    "The verb for warning is noutheteo, the same word Paul uses of his own three-year ministry at Acts 20:31.",
+    "Lightfoot: the Colossian errorists sought an inner mystical circle of discipleship within the church, with a holiness higher than ordinary faith could attain. The repetition answers them.",
+    "So the verse supports every-member formation and strengthens the guard against inner rings at the same time."
+   ],
+   "claim": "The goal is every individual mature, and Paul says so against an inner circle",
+   "lands": "firm",
+   "what": "Both",
+   "who": "—",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Col 1:28–29; Eph 4:13; Acts 20:31",
+   "counter": "The we of the verse is Paul and his co-workers. It establishes the goal, not who is responsible for reaching it.",
+   "risk": "This verse does not justify concentrating on a few. Read in Lightfoot's context it cuts the other way."
+  },
+  {
+   "id": "C14",
+   "band": 1,
+   "case": "Paul's own summary of a three-year ministry is not that he preached faithfully. It is that he warned each individual person, continuously, at personal cost. We have been using Acts 20:20 and leaving the stronger verse eleven lines later unused.",
+   "sup": [
+    "Acts 20:31 — by the space of three years I ceased not to warn every one night and day with tears.",
+    "Hena hekaston — each one individually, not the congregation in aggregate.",
+    "Duration, frequency and cost are all specified: three years, night and day, with tears.",
+    "Pairs with Acts 20:20, publicly and from house to house, and with BCO 8-3 on elders visiting the flock."
+   ],
+   "claim": "An apostle's summary of his ministry is individual, sustained and costly",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "Officers",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Acts 20:20, 31; Col 1:28; BCO 8-3",
+   "counter": "This is Paul describing apostolic ministry to elders. It lands on the officers' side of the who question, not on every-member discipling.",
+   "risk": "It strengthens the officers' obligation rather than the every-member case. Reading it as support for every-member ministry would be a misreading."
+  },
+  {
+   "id": "D5",
+   "band": 1,
+   "case": "A young church of ordinary believers received the word, became imitators, and then became the pattern for others — with the word sounding out from them. The chain has three transmissions and the third is performed by a congregation, not by apostles or teachers.",
+   "sup": [
+    "1 Thess 1:6 — ye became followers of us, and of the Lord.",
+    "1 Thess 1:7 — so that ye were ensamples to all that believe in Macedonia and Achaia. Typos, the same word Paul uses of himself.",
+    "1 Thess 1:8 — from you sounded out the word of the Lord... in every place your faith to God-ward is spread abroad.",
+    "This carries what 2 Tim 2:2 is usually made to carry and cannot, since 2 Tim 2:2 is contested as describing the succession of teachers. 1 Thess 1 is about a congregation."
+   ],
+   "claim": "A whole congregation of ordinary believers became the example to others",
+   "lands": "firm on the fact; it is description, not command",
+   "what": "Modeled, equipped, sent",
+   "who": "Every member, under officers",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "1 Thess 1:6–8; 2 Tim 2:2; Acts 8:4",
+   "counter": "Paul is reporting what happened, not commanding them to reproduce. Description does not by itself bind.",
+   "risk": "It shows reproduction by ordinary congregations is normal and commendable. It does not show that each member is required to be discipling someone."
+  },
+  {
+   "id": "C15",
+   "band": 3,
+   "case": "Restoration is not an end in itself. Christ tells Peter what his recovery is for: strengthen thy brethren. Falling, being restored, and then strengthening others is one motion, and the last step is stated as the purpose of the first two.",
+   "sup": [
+    "Luke 22:31–32 — Satan hath desired to have you... but I have prayed for thee, that thy faith fail not: and when thou art converted, strengthen thy brethren.",
+    "A. B. Bruce on the verse: Jesus expects the frail disciple to become strong in grace, and so able and willing to help the weak — and he cherishes this expectation with respect to all, not only Peter.",
+    "That reading matters on the who axis: a Free Church professor of New Testament exegesis generalizing the expectation to every disciple.",
+    "It supplies what C1e was missing — the link from being corrected and restored to strengthening someone else."
+   ],
+   "claim": "Restoration is aimed at strengthening others",
+   "lands": "firm, on Bruce's generalizing reading",
+   "what": "Modeled, equipped, sent",
+   "who": "Every member, under officers",
+   "use": "Lead",
+   "surv": "No",
+   "texts": "Luke 22:31–32; Gal 6:1; Jas 5:19–20; 2 Cor 1:4",
+   "counter": "Said to Peter, about the apostolic band, before Pentecost. The generalization to every disciple is Bruce's inference, not the text's plain statement.",
+   "risk": "The generalization is Bruce's, not the verse's. The text says it to Peter; Bruce argues it holds of all."
+  },
+  {
+   "id": "D6",
+   "band": 3,
+   "case": "The standing objection is that the Twelve were apostles, so their formation is unrepeatable. That objection quarantines the Twelve. Jesus did not. He gave the same commission a second time to a much larger, anonymous, expressly different group — and the pattern is identical point for point.",
+   "sup": [
+    "Luke 10:1 — the Lord appointed OTHER seventy also (heterous, some manuscripts seventy-two), and sent them two and two before his face.",
+    "Same shape: sent in pairs, instructed beforehand, told to heal and announce the kingdom, returned and reported (10:17), corrected on return (10:20).",
+    "Same formula of representative authority: to the Twelve, he that receiveth you receiveth me (Matt 10:40); to the seventy, he that heareth you heareth me (Luke 10:16).",
+    "The harvest saying brackets both missions — Matt 9:37–38 before the Twelve, Luke 10:2 to the seventy. The prayer for more workers is put in the workers' mouths as they are sent."
+   ],
+   "claim": "The same commission was given twice, and the second group was not the Twelve",
+   "lands": "firm that the pattern was not apostolic in scope",
+   "what": "Modeled, equipped, sent",
+   "who": "Every member, under officers",
+   "use": "Lead",
+   "surv": "No",
+   "texts": "Luke 10:1–20; Matt 9:37–38; 10:40; Mark 6:7; Luke 9:1–10",
+   "counter": "The seventy were commissioned by Christ directly, exercised authority over demons, and were sent on a specific errand ahead of his own route to Jerusalem. Luke alone records it.",
+   "risk": "It answers the scope objection. It does not make the sending normative for every member, and it claims nothing miraculous. Bruce has no chapter on the seventy; the argument does not depend on him."
+  },
+  {
+   "id": "D1",
+   "band": 1,
+   "case": "The call to ordained office is real, and the ministry of the Word is not everyone's to exercise. Teaching carries a stricter judgment, and a church that treats every member as a teacher will produce confident error faster than it produces maturity.",
+   "sup": [
+    "Jas 3:1 — be not many masters, knowing we shall receive the greater condemnation.",
+    "Preaching and the sacraments are reserved to office in our standards, and C9 concedes that baptism is one of them.",
+    "So the dispute is where mutual admonition ends and the teaching office begins, not whether members may speak at all."
+   ],
+   "claim": "Disciple-making is reserved to officers",
+   "lands": "firm that members disciple",
+   "what": "—",
+   "who": "Officers",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Titus 2:3–5; Col 3:16; Heb 3:13",
+   "counter": "Where mutual admonition ends and the teaching office begins is genuinely unclear.",
+   "risk": "The live question is where the line falls, not whether members disciple."
+  },
+  {
+   "id": "D3",
+   "band": 1,
+   "case": "Paul tells Timothy to entrust what he heard to faithful men who will be able to teach others also. Four generations sit in one verse, and the mechanism in each is one person handing something to another person by name.",
+   "sup": [
+    "Paul, Timothy, faithful men, others also — four links, each one person entrusting something to another.",
+    "It is addressed to an officer about men able to teach, which is the scope problem.",
+    "Usable for reproduction as a principle. Not decisive for every-member work."
+   ],
+   "claim": "2 Tim 2:2 commands every-member reproduction",
+   "lands": "contested on scope",
+   "what": "—",
+   "who": "Every member, under officers",
+   "use": "Support",
+   "surv": "Yes",
+   "texts": "2 Tim 2:2",
+   "counter": "It is addressed to Timothy, an officer, about men who will teach.",
+   "risk": "Usable, not decisive. It should not be relied on for the every-member conclusion."
+  },
+  {
+   "id": "D4",
+   "band": 1,
+   "case": "Matthew 18 puts the first step of correction in an ordinary member's hands, before any court is involved. Deuteronomy and Ephesians command parents to instruct their own children, and Timothy's faith reached him through a grandmother and a mother before it reached him through Paul. Both instruments are already ours, already commanded, and already in our polity.",
+   "sup": [
+    "Matt 18:15 puts the first step in one member’s hands, alone, before any court is involved.",
+    "Gal 6:1 assigns restoration to those who are spiritual, not specifically to elders.",
+    "Deut 6:6–9 and Eph 6:4 command household instruction; 2 Tim 1:5 has Lois and Eunice before Paul.",
+    "Westminster produced a Directory for Family Worship, so this is our tradition’s own instrument, not an import."
+   ],
+   "claim": "Discipline and households are the instruments we already have",
+   "lands": "firm",
+   "what": "Modeled, equipped, sent",
+   "who": "Every member, under officers",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "Matt 18:15–17; Deut 6:6–9; Eph 6:4; 2 Tim 1:5",
+   "counter": "None serious.",
+   "risk": "None. A curriculum before this would take the far thing before the near one."
+  },
+  {
+   "id": "C2",
+   "band": 2,
+   "case": "The Shorter Catechism says the outward means by which Christ communicates the benefits of redemption are his ordinances, especially the Word, sacraments, and prayer. These are the appointed instruments. A church that preaches soundly, administers the sacraments, and prays is doing the thing God assigned it, and additions carry the risk of displacing what he actually commanded.",
+   "sup": [
+    "WSC 88: the outward means are Christ’s ordinances, especially the word, sacraments, and prayer.",
+    "WLC 154 uses the same word, especially — so all his ordinances is the category, and the three are named as chief.",
+    "WLC 160 already has hearers confer of the word among themselves, which is more than sitting still."
+   ],
+   "claim": "Discipleship is the ordinary means of grace, delivered publicly",
+   "lands": "firm against the strict form",
+   "what": "Word and sacrament, received",
+   "who": "Officers",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "WSC 88; WLC 154, 160",
+   "counter": "The standards say “all his ordinances, especially” the three — so “only three” is not the confessional position.",
+   "risk": "This is the strongest argument for the other view, and it deserves to be stated in its best form."
+  },
+  {
+   "id": "C9",
+   "band": 2,
+   "case": "Baptism is the sacrament, administered by a lawfully called minister — but our standards also say the names and effects of the sign and the thing signified pass to one another. Baptizing into the name is a transfer of possession and allegiance, and it admits a person to the visible church's care and discipline. It is a boundary crossing, not a ceremony performed and filed.",
+   "sup": [
+    "WCF 28.1 — admission into the visible church, and a sign and seal of ingrafting; 28.2 reserves it to a lawfully called minister.",
+    "WCF 27.2 — the names and effects of the sign and the thing signified pass to one another.",
+    "Into the name, one name over three persons, is the language of transferred allegiance.",
+    "Acts always baptizes into the name of the Lord Jesus (2:38; 8:16; 10:48; 19:5), and 1 Cor 1:17 has Paul not sent to baptize."
+   ],
+   "claim": "What baptizing actually means in the Commission",
+   "lands": "firm on definition, open on emphasis",
+   "what": "Both",
+   "who": "Officers",
+   "use": "Support",
+   "surv": "Yes",
+   "texts": "Matt 28:19; WCF 27.2, 28.1–2; 1 Cor 1:17; Acts 2:38",
+   "counter": "Pressed wrong it reads as low sacramentology, which costs more than it gains in a PCA room.",
+   "risk": "It is the sacrament. The point is that the sacrament places a person inside a body that now owes him something."
+  },
+  {
+   "id": "B1",
+   "band": 3,
+   "case": "Jesus spent three years forming twelve men, and the church he left behind came out of it. If we want what he produced, his method is the obvious place to look.",
+   "sup": [
+    "Mark 3:14 — appointed that they should be with him, and that he might send them forth.",
+    "Luke 6:12–13 — chosen after a night of prayer.",
+    "It is partly an argument from result: the method produced the men who planted the church."
+   ],
+   "claim": "Jesus' practice with the Twelve is normative for us",
+   "lands": "contested as a blanket claim",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Support",
+   "surv": "No",
+   "texts": "Mark 3:14; Luke 6:12–13",
+   "counter": "He also chose exactly twelve, remained celibate, and worked miracles. Nobody binds those.",
+   "risk": "Asserted flatly, it is easily answered. The sorting in A2 and A3 does the work."
+  },
+  {
+   "id": "B2",
+   "band": 3,
+   "case": "Run Jesus' practice through the four conditions. Teaching toward obedience, counting the cost, sharing life, being with before being sent, and sending and receiving the report all survive — each is commanded or repeated elsewhere. The number twelve, three years, leaving one's trade, celibacy, and miracles do not.",
+   "sup": [
+    "Survives the test: teaching toward obedience (Matt 28:20), cost (Luke 9:23), sharing life (1 Thess 2:8), with-before-sent (Mark 3:14), sending and report (Acts 13:1–3; 14:26–27).",
+    "Fails it: the number twelve, three years, leaving one’s trade, celibacy, miracles.",
+    "An individual placement can be wrong without the framework failing, and that is stated up front."
+   ],
+   "claim": "Which parts of Jesus' practice bind, and which do not",
+   "lands": "contested at the margins",
+   "what": "Both",
+   "who": "—",
+   "use": "Lead",
+   "surv": "Partly",
+   "texts": "Mark 3:14; Luke 9:23; Acts 13:1–3; 14:26–27",
+   "counter": "The sorting is where the real disagreement hides, and the criteria can be bent toward a preferred result.",
+   "risk": "An individual placement can be wrong without the framework failing. That is stated up front."
+  },
+  {
+   "id": "E1",
+   "band": 4,
+   "case": "Scripture requires ends — maturity, obedience, reproduction — and a church that adopts no means of delivering them delivers them to nobody. Intending discipleship without structuring for it is how good intentions stay intentions.",
+   "sup": [
+    "Scripture commands the ends — maturity, obedience, reproduction — and specifies no form for reaching them.",
+    "But no preaching schedule, membership class or order of service is commanded either, and nobody calls those Galatian.",
+    "The freedom argument has to be applied evenly or it proves far too much."
+   ],
+   "claim": "A structured model is required",
+   "lands": "firm against “required”",
+   "what": "—",
+   "who": "—",
+   "use": "Lead",
+   "surv": "—",
+   "texts": "Gal 3:3; 5:1",
+   "counter": "No preaching schedule, membership class, or order of service is commanded either, and nobody calls those Galatian.",
+   "risk": "The freedom argument must not be applied selectively, or it proves too much."
+  },
+  {
+   "id": "E2",
+   "band": 4,
+   "case": "The model is not arbitrary. Each letter maps to something in the Gospels: truth explained more fully to a few, equipping toward becoming like the teacher, correction and restoration, being sent on mission, and prayer. Set it against C1a–C1f, which enumerate what the word actually carries, and it covers four of the six well. It misses two.",
+   "sup": [
+    "Truth maps to Mark 4:34, where he expounded all things privately to his disciples.",
+    "Equipping to Luke 6:40; accountability to Matt 16:23 and John 21:15–19; mission to Luke 9 and 10; supplication to Luke 6:12 and John 17.",
+    "Three gaps: cost has no letter at all (Luke 9:23; 14:25–33), presence is unnamed, and restoration is not the same thing as accountability.",
+    "Even granted in full, it establishes the content. It does not make the container binding."
+   ],
+   "claim": "TEAMS codifies what the Gospels put in the word",
+   "lands": "firm way to argue; still not binding",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Support",
+   "surv": "Partly",
+   "texts": "Mark 3:14; Luke 6:12; John 21:15–19",
+   "counter": "Three gaps: cost has no letter, presence is unnamed, and restoration is not the same as accountability.",
+   "risk": "It proves the content, not the container. Codification can quietly become a substitute for the thing."
+  },
+  {
+   "id": "E3",
+   "band": 4,
+   "case": "Concentrating on a few inevitably creates an inner ring. The members inside it get the pastor's attention and a vocabulary the rest do not have, and James warns the church precisely against showing partiality within the body.",
+   "sup": [
+    "The pattern is concentric: crowds, seventy-two, twelve, three (Mark 5:37; 9:2; 14:33), one (John 13:23).",
+    "Paul chose Timothy by name — I have no man likeminded (Phil 2:20).",
+    "Exod 18:17–18 states the creaturely limit plainly: thou art not able to perform it thyself alone.",
+    "Jas 2 forbids unequal regard, not unequal time — but note that he chose fishermen and a tax collector. Selecting for potential inverts 1 Cor 1:26–29."
+   ],
+   "claim": "Structured discipleship produces two-tier Christianity",
+   "lands": "firm that selectivity is biblical",
+   "what": "—",
+   "who": "Officers",
+   "use": "Support",
+   "surv": "Partly",
+   "texts": "Mark 5:37; 9:2; Phil 2:20; Jas 2:1–9; Exod 18:17–18",
+   "counter": "Jas 2 forbids unequal regard, not unequal time — and concentration in Scripture always ran outward.",
+   "risk": "Selecting for potential inverts the pattern of 1 Cor 1:26–29. The burden is mechanisms, not principle."
+  },
+  {
+   "id": "E4",
+   "band": 4,
+   "case": "The twelve Jesus concentrated on became apostles, so a model built on copying him may quietly be selecting future leaders while calling it discipleship for everyone. Matthew's own theme runs the other way — toward the little ones, not toward leadership.",
+   "sup": [
+    "The twelve he concentrated on did become apostles, so the worry is not imaginary.",
+    "Matt 20:25–28 — it shall not be so among you.",
+    "Grams (Transformation 21.2, 2004) argues Matthew’s theme is the little ones, not leaders.",
+    "It is a guard every church can apply to itself, not an accusation against anyone."
+   ],
+   "claim": "A model may function as a leadership pipeline",
+   "lands": "firm as a caution",
+   "what": "—",
+   "who": "Officers",
+   "use": "Reference",
+   "surv": "—",
+   "texts": "Matt 20:25–28; Grams, Transformation 21.2 (2004)",
+   "counter": "Nobody arguing for every-member discipleship needs to claim the Gospels are a leadership manual.",
+   "risk": "It is a guard every church can apply to itself, not a charge against anyone."
+  },
+  {
+   "id": "F1",
+   "band": 5,
+   "case": "Lifeway's research finds markedly higher discipleship scores among people in a small group five or more times a month than among those in none. The gap is large and consistent.",
+   "sup": [
+    "Lifeway (2026): 74.1 for those in a group five or more times a month, against 60.4 for those in none.",
+    "No control group, no randomization, and the people who join groups are the people already committed.",
+    "The finding is real. The causal claim is not available from it."
+   ],
+   "claim": "Small groups produce mature disciples — the data shows it",
+   "lands": "open",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Do not use",
+   "surv": "—",
+   "texts": "Lifeway 2026",
+   "counter": "Self-selected participants, correlational design. Committed people join groups.",
+   "risk": "At most the data are “consistent with” the claim, never “evidence for” it."
+  },
+  {
+   "id": "F2",
+   "band": 5,
+   "case": "The church that developed this model reports strong outcomes over decades, and many pastors trained in it say the same.",
+   "sup": [
+    "No published study of this model’s outcomes exists — here or anywhere.",
+    "No comparative study of discipleship models exists at all.",
+    "The DMin genre has a structural problem: a pastor measures his own intervention and cannot easily produce a negative result about the category."
+   ],
+   "claim": "Life-on-life at Perimeter works",
+   "lands": "open",
+   "what": "Modeled, equipped, sent",
+   "who": "—",
+   "use": "Do not use",
+   "surv": "—",
+   "texts": "—",
+   "counter": "No study exists, here or anywhere, and the DMin genre cannot produce a negative result about its own category.",
+   "risk": "The same standard falls on the status quo. Nobody has measured that either."
+  },
+  {
+   "id": "G1",
+   "band": 5,
+   "case": "Reformed churches have produced serious, doctrinally deep Christians for four centuries through preaching, catechism, family worship, and the sacraments, without anything resembling a discipleship program.",
+   "sup": [
+    "Baxter catechized roughly fourteen families a week and wrote a book about it.",
+    "Westminster produced a Directory for Family Worship; our own BCO 8-3 provides for home visitation.",
+    "So preaching alone is false as history. But all of it is officer-led, which is the practice the other view points to, not ours."
+   ],
+   "claim": "The tradition grew deep disciples by preaching alone",
+   "lands": "firm against, and no further",
+   "what": "Word and sacrament, received",
+   "who": "Officers",
+   "use": "Support",
+   "surv": "—",
+   "texts": "Baxter; BCO 8-3; Directory for Family Worship",
+   "counter": "Baxter catechized house to house as the minister — officer-led visitation, which is the practice the other view points to.",
+   "risk": "He answers “preaching alone.” He does not support every-member ministry."
+  },
+  {
+   "id": "C16",
+   "band": 2,
+   "claim": "Our own constitution assigns these duties to private Christians first, and to elders especially",
+   "case": "BCO 8-3 says the duties of visiting, instructing, comforting and nourishing are those “which private Christians are bound to discharge by the law of love,” and are “especially incumbent” on elders. The baseline is every member; the officer’s distinction is intensity and accountability. The same paragraph names “make disciples,” “evangelize the unconverted,” and “seeking the fruit of the preached Word” as elder duties by example.",
+   "sup": [
+    "BCO 8-3: “All those duties which private Christians are bound to discharge by the law of love are especially incumbent upon them.”",
+    "BCO 8-3 names make disciples, evangelize the unconverted, demonstrate hospitality, and pray with and for the people.",
+    "BCO 12-5.d: sessions are to promote obedience to the Great Commission “in its totality.”",
+    "BCO 4-4 lists prayer first among the ordinances Christ established."
+   ],
+   "counter": "The law-of-love sentence is about general charity, not disciple-making; and 8-3 was amended in 2019, so the wording may be recent.",
+   "lands": "firm, and the first every-member argument in this column",
+   "what": "Modeled, equipped, sent",
+   "who": "Every member, under officers",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "BCO 8-3; 12-5.d; 14-1; 4-4",
+   "risk": "It is polity, not Scripture. It shows what the PCA has bound itself to; it does not by itself prove what Scripture requires. Verified against the 2019 edition; an older printing may read differently."
+  },
+  {
+   "id": "C17",
+   "band": 2,
+   "claim": "The ordinary means are three, not two; a model built on Word and sacrament has dropped one",
+   "case": "The alternative view says Word and sacrament, received — a two-item list. WSC 88 and WLC 154 name the ordinary means as “the Word, sacraments, and prayer.” BCO 4-4 lists prayer first among Christ’s ordinances; BCO 8-3 charges elders to pray with and for the people. A church that measures formation by attendance on Word and sacrament has, by its own confession, left out a third of the ordinary means.",
+   "sup": [
+    "WSC 88 / WLC 154: “especially the Word, sacraments, and prayer.”",
+    "BCO 4-4 lists prayer first among the ordinances.",
+    "BCO 8-3: elders are to “pray with and for the people.”"
+   ],
+   "counter": "Prayer is already in every service (BCO 52); WSC 88 means prayer in the assemblies, not a program. This proves nothing about what any church is missing.",
+   "lands": "firm as a confessional point; proves nothing about any particular congregation",
+   "what": "Both",
+   "who": "Both",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "WSC 88; WLC 154; BCO 4-4; 8-3; 52",
+   "risk": "It establishes that the other definition is two-thirds of the confession’s. Whether prayer has actually thinned in a given church is empirical and must be shown separately."
+  },
+  {
+   "id": "C18",
+   "band": 1,
+   "claim": "Prayer is the one thing the disciples asked, in those words, to be taught, and how Christ and the apostles formed people",
+   "case": "“Lord, teach us to pray” (Luke 11:1) is the one recorded time the disciples ask Jesus, in those words, to teach them something. Christ formed them by prayer at every decisive point — before choosing them, for Peter before his fall, in John 17. The apostles name prayer first (Acts 6:4). Epaphras, an ordinary member, labors in prayer that others may stand perfect — teleioi, the same word as Col 1:28. And before every sending the first command is to pray for labourers (Matt 9:38; Luke 10:2): mission begins in prayer.",
+   "sup": [
+    "Luke 11:1 — the one recorded “teach us,” and it is prayer. They ask him to explain parables (Matt 13:36); they never ask to be taught to preach.",
+    "Acts 6:4 — “prayer, and the ministry of the word”: prayer named first.",
+    "Col 4:12 — Epaphras, “one of you,” laboring in prayer for others’ maturity (teleioi).",
+    "Matt 9:38 / Luke 10:2 — pray for labourers before the labourers are sent.",
+    "Luke 22:32; John 17; Luke 6:12; Mark 9:29."
+   ],
+   "counter": "Establishes that prayer matters, which no one denies. Does not show prayer is a means of making disciples as distinct from general duty; Col 4:12 is a greeting, not a precept.",
+   "lands": "firm on the pattern; precept weight rests on Acts 6:4 and Matt 9:38",
+   "what": "Modeled, equipped, sent",
+   "who": "Every member, under officers",
+   "use": "Lead",
+   "surv": "Partly",
+   "texts": "Luke 11:1; Acts 6:4; Col 4:12; Matt 9:38; Luke 10:2; Luke 22:32",
+   "risk": "Epaphras is description, not command. Jesus’ own practice of prayer (Luke 6:12; 22:32; John 17) needs his example to bind; the command of Matt 9:38 does not."
+  },
+  {
+   "id": "C19",
+   "band": 1,
+   "claim": "Yes, that was Jesus. And here is each of the six done by human hands, and commanded of ordinary believers",
+   "case": "The objection to C1a–C1f is that the discipler was Christ, so nothing transfers. But for every one of the six, Scripture shows a human doing it (Paul with Timothy; 1 Thess 2:8; Acts 20:20; 2 Cor 2:7; Acts 14:27) and commands ordinary believers to do it (Phil 3:17; Titus 2:3–4; Col 3:16; Heb 10:24; Gal 6:1; Matt 9:38). The bridge is 1 Cor 11:1: Christ’s example reaches the believer through a human, and Paul calls that the design.",
+   "sup": [
+    "Attached by name: 1 Tim 1:2; 2 Tim 3:10 → commanded: Phil 3:17; Heb 13:7.",
+    "Kept with: 1 Thess 2:8; Acts 20:31 → commanded: Titus 2:3–4; 1 Thess 5:14.",
+    "Taught toward obedience: Acts 20:20 → commanded: Col 3:16; Heb 3:13.",
+    "Cost: 2 Tim 2:3 → commanded: Heb 10:24.",
+    "Restored: 2 Cor 2:7 → commanded: Gal 6:1; Jas 5:19; Matt 18:15.",
+    "Sent and reported: Acts 14:27; 15:36 → Phil 2:25; Matt 9:38.",
+    "1 Cor 11:1 — “followers of me, even as I also am of Christ.”"
+   ],
+   "counter": "Most of the human instances are Paul, an apostle; the line has moved, not vanished. And the one-another commands are general duties, not a mandate for disciple-making.",
+   "lands": "firm, and the answer to the objection most likely to be raised against C1a–C1f",
+   "what": "Modeled, equipped, sent",
+   "who": "Every member, under officers",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "1 Cor 11:1; Phil 3:17; Titus 2:3–4; Col 3:16; Gal 6:1; Heb 10:24; 1 Thess 2:8; Acts 20:20; 2 Cor 2:7; Acts 14:27",
+   "risk": "What does not transfer is everything that was Christ’s as Christ: knowledge of hearts, foreknowledge, sinlessness, authority to forgive. A human does the six fallibly, under grace and under the elders. That is a reason for oversight, not for leaving them undone."
+  }
+ ],
+ "M": [
+  {
+   "id": "A1",
+   "case": "Without an agreed method, every disagreement about a passage turns into a fresh argument about how passages work, and we relitigate it text by text for the rest of the evening. Settle it once and we can disagree about a particular verse without starting over. It also keeps everyone honest, including whoever brought the proposal: rules chosen after a conclusion has been reached are not rules, they are rationalizations.",
+   "sup": [
+    "Otherwise the method gets re-argued at every text: first whether Mark 3:14 binds, then Luke 10, then Acts 13.",
+    "A rule we would not apply to a practice we already like is not a rule.",
+    "WCF 1.6 — good and necessary consequence: a duty may be deduced from what Scripture records, not only from what it commands, if the inference is sound and follows necessarily. The mechanism the whole discussion runs on; both views are held to its two tests."
+   ],
+   "claim": "Agree on how we read Scripture first, and the rest of the conversation gets shorter",
+   "lands": "firm, and prior to everything",
+   "what": "—",
+   "who": "—",
+   "use": "Lead",
+   "surv": "—",
+   "texts": "WCF 1.6",
+   "counter": "A session short on time may reasonably want to get to the substance, and method talk can be a way of avoiding it.",
+   "risk": "It is short by design. Belabored, a discussion of method can read as stalling."
+  },
+  {
+   "id": "A2",
+   "case": "A narrative practice binds when it is commanded elsewhere, is not revised elsewhere, is not tied to unrepeatable circumstances, and recurs as a pattern rather than once. Precept governs pattern.",
+   "sup": [
+    "The four conditions: commanded elsewhere, not revised elsewhere, not tied to unrepeatable circumstances, recurring as a pattern rather than once.",
+    "Precept governs pattern. Where a command and an example pull apart, the command decides.",
+    "It is the same test that keeps foot-washing and holding goods in common from binding us."
+   ],
+   "claim": "When a narrative passage binds: four conditions",
+   "lands": "firm as a method",
+   "what": "—",
+   "who": "—",
+   "use": "Lead",
+   "surv": "—",
+   "texts": "—",
+   "counter": "The conditions can be gamed toward whatever result you wanted.",
+   "risk": "Both views must be held to it, including the author's."
+  },
+  {
+   "id": "A3",
+   "case": "Two bins force everything into required or forbidden, which is why these conversations deadlock. A third bin lets a session commend a practice wholeheartedly without binding anyone's conscience to it.",
+   "sup": [
+    "Binding on every church: teaching toward obedience, counting the cost, sharing life, being with before being sent, sending and receiving the report.",
+    "Binding on none: the number twelve, three years, leaving one’s trade, celibacy, miracles.",
+    "Wise but not binding: cohort sizes, curricula, training order — every named model, this one included."
+   ],
+   "claim": "Three bins: binding on every church, binding on none, wise but not binding",
+   "lands": "firm as a method",
+   "what": "—",
+   "who": "—",
+   "use": "Lead",
+   "surv": "—",
+   "texts": "Gal 3:3; 5:1; Jas 1:22",
+   "counter": "Agreeing on the bins settles nothing; the fight is over what goes in them.",
+   "risk": "The placements will be contested. That is the framework working, not failing."
+  },
+  {
+   "id": "A4",
+   "case": "The standing objection to every Gospel argument here is that the Twelve were apostles and nothing normative transfers. In the intercessory prayer Christ answers it himself: having prayed for the Eleven, he extends the same petitions to everyone who would later believe through their word. The transfer is not our inference. He makes it.",
+   "sup": [
+    "John 17:20 — Neither pray I for these alone, but for them also which shall believe on me through their word.",
+    "Bruce on the passage: Christ desires for the later believers the same things he has asked for his disciples — preservation in the truth, keeping from evil, sanctification by the truth.",
+    "John 17:18 — As thou hast sent me into the world, even so have I also sent them into the world. The sending language is in the same prayer.",
+    "This is a warrant for transfer, not another instance of it, which is why it belongs with the method questions rather than among the arguments."
+   ],
+   "claim": "Christ himself extends what the Twelve received to all later believers",
+   "lands": "firm as a warrant; it does not tell you which particulars transfer",
+   "what": "—",
+   "who": "—",
+   "use": "Lead",
+   "surv": "No",
+   "texts": "John 17:6, 18, 20–21; Acts 1:21–22; Eph 2:20",
+   "counter": "What is extended in John 17 is preservation, protection and sanctification — not the training methods. It licenses transfer in general without settling any particular case.",
+   "risk": "This verse does not do A2's sorting work. It answers whether anything transfers, not what. The bins still have to be argued one at a time."
+  },
+  {
+   "id": "A5",
+   "claim": "Christ’s example is commanded, not merely recorded",
+   "case": "Christ is the one person the New Testament explicitly commands us to copy, and it does so by precept in the letters rather than by narrative. 1 Peter calls him a hypogrammos — the writing-copy a child traces. So the blanket refusal, that nothing from Jesus’ example counts, is not available. The only live question is which aspects bind, and by what warrant.",
+   "sup": [
+    "1 Pet 2:21 — “leaving us an example, that ye should follow his steps”; hypogrammos occurs nowhere else in the New Testament.",
+    "1 John 2:6 — whoever claims to abide in him ought to walk as he walked.",
+    "Matt 11:29 — “learn of me” makes Christ himself, not only his doctrine, the object of learning.",
+    "1 Cor 11:1 — Paul’s imitability is derivative of Christ’s, which means C12 rests on this.",
+    "WCF 1.6 supplies the mechanism: what is not expressly set down may be deduced by good and necessary consequence."
+   ],
+   "counter": "These texts command conformity to Christ’s character, not to his methods. 1 Pet 2:21 in context concerns suffering unjustly, not ministry technique.",
+   "lands": "firm as a method; silent on every particular",
+   "what": "—",
+   "who": "—",
+   "use": "Lead",
+   "surv": "Yes",
+   "texts": "1 Pet 2:21; 1 John 2:6; Phil 2:5; Matt 11:29; 1 Cor 11:1; WCF 1.6",
+   "risk": "A door, not a room. It forecloses the blanket refusal; it establishes no particular practice. It does not replace the sorting in A2 and A3."
+  }
+ ],
+ "BANDS": [
+  {
+   "h": "Grammar and lexicon",
+   "s": "What the words mean. Holds no matter what an elder grants about Jesus’ example."
+  },
+  {
+   "h": "Precept",
+   "s": "Commands stated outright, mostly in the letters. No inference from example needed."
+  },
+  {
+   "h": "Confession and standards",
+   "s": "What we have already sworn to. Binding on us by vow."
+  },
+  {
+   "h": "What Jesus did",
+   "s": "Binds only after the sorting in A2. Scripture commands conformity to Christ (A5), so the question for each is which aspects bind, not whether any do.",
+   "past": true
+  },
+  {
+   "h": "Prudence",
+   "s": "Wise or unwise, not commanded. Persuasive only to someone already convinced.",
+   "past": true
+  },
+  {
+   "h": "Evidence and history",
+   "s": "Studies and precedent. Carries no weight in either direction.",
+   "past": true
+  }
+ ]
+}

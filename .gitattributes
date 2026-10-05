@@ -1,0 +1,4 @@
+# Keep LF everywhere: bash scripts fail on CRLF, and smoke_hub.js matches '<script>\n' in the built page.
+* text=auto eol=lf
+*.xlsx binary
+*.pdf binary

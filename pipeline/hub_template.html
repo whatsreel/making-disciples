@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Making disciples: what it means, and whose work it is</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF; --cell:#F6F6F6; --cell2:#FFFFFF;
+  --ink:#1D242B; --soft:#444B54; --rule:#BDB8AC; --rule2:#D6D1C5;
+  --members:#246B57; --officers:#A0652C; --bothc:#4F4A86; --silent:#7D7A72;
+  --strong:#246B57; --contested:#A0652C; --undec:#6B6861; --fell:#A8392F;
+  --b0:#3F6E8C; --b1:#246B57; --b2:#6B4F8A; --b3:#A0652C; --b4:#8A6A2A; --b5:#7D7A72;
+  --tap:44px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --paper:#121417; --cell:#1A1D21; --cell2:#1F2327;
+  --ink:#F3F1EC; --soft:#C6CBD2; --rule:#454B53; --rule2:#383E46;
+  --members:#7FD1B6; --officers:#E8A866; --bothc:#B3A9EA; --silent:#9A9690;
+  --strong:#7FD1B6; --contested:#E8A866; --undec:#AAA69E; --fell:#F08C82;
+  --b0:#7FB3D3; --b1:#7FD1B6; --b2:#B3A9EA; --b3:#E8A866; --b4:#D9B560; --b5:#9A9690; } }
+:root[data-theme="dark"]{
+  --paper:#121417; --cell:#1A1D21; --cell2:#1F2327;
+  --ink:#F3F1EC; --soft:#C6CBD2; --rule:#454B53; --rule2:#383E46;
+  --members:#7FD1B6; --officers:#E8A866; --bothc:#B3A9EA; --silent:#9A9690;
+  --strong:#7FD1B6; --contested:#E8A866; --undec:#AAA69E; --fell:#F08C82;
+  --b0:#7FB3D3; --b1:#7FD1B6; --b2:#B3A9EA; --b3:#E8A866; --b4:#D9B560; --b5:#9A9690; }
+*,*::before,*::after{box-sizing:border-box}   /* not inherit: content inside <details> does not inherit through its shadow slot */
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 58px); -webkit-text-size-adjust:100%}
+body{margin:0; background:var(--paper); color:var(--ink);
+  font-family:Spectral,Georgia,"Times New Roman",serif; font-size:17px; line-height:1.55}
+.wrap{max-width:900px; margin:0 auto; padding:18px 16px 90px}
+body[data-view="board"] .wrap{max-width:1240px}
+header{padding:4px 0 12px}
+h1{font-size:clamp(27px,6vw,36px); font-weight:600; line-height:1.12; margin:0 0 6px; letter-spacing:-.011em}
+.moved{display:none; margin:12px 0 0; padding:10px 14px; border:1px solid var(--officers); color:var(--ink); font-size:15px; line-height:1.5}
+.moved a{color:var(--officers); font-weight:600}
+.kicker{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; color:var(--soft); margin:0 0 6px}
+/* filter buttons (were unstyled) */
+.controls{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.controls .lab{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin-right:2px}
+button.f{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:17px; font-weight:500; padding:0 14px; min-height:var(--tap); min-width:var(--tap);
+  border:1px solid var(--rule); background:var(--cell2); color:var(--ink); cursor:pointer; border-radius:3px}
+button.f[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+/* method section (as on the earlier page) */
+.method{border:1px solid var(--rule); background:var(--cell); padding:16px; margin:0 0 22px}
+.method h2{font-size:22px; font-weight:600; margin:0 0 6px; line-height:1.25; color:var(--b0)}
+.method .msub{color:var(--ink); font-size:17px; margin:0 0 12px; line-height:1.5; max-width:64ch}
+.mcards{display:grid; gap:8px; grid-template-columns:minmax(0,1fr)}
+@media (min-width:721px){ .mcards{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))} }
+.lets{border:1px solid var(--rule2); background:var(--cell2); margin:14px 0 0}
+.lets summary{list-style:none; padding:10px 14px; min-height:var(--tap); cursor:pointer; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:17px; font-weight:600; display:flex; align-items:center; justify-content:space-between}
+.lets summary::-webkit-details-marker{display:none}
+.lets summary::after{content:"+"; color:var(--soft); font-size:18px}
+.lets[open] summary::after{content:"\2212"}
+.lets p{margin:0; padding:0 14px 12px; font-size:17px; line-height:1.55; color:var(--soft)}
+.legend{display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center; margin:10px 0 0; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft)}
+.legend .sw{width:10px; height:10px; border-radius:1px; display:inline-block; margin-right:5px; vertical-align:-1px}
+.legend .hatch{background:repeating-linear-gradient(45deg,var(--soft) 0 2px,transparent 2px 5px)}
+.sans{font-family:"IBM Plex Sans",system-ui,sans-serif}
+
+/* ---------- tabs: sticky, scrollable, thumb-sized ---------- */
+nav{position:sticky; top:env(safe-area-inset-top,0px); z-index:20;
+  background:var(--paper); border-bottom:1px solid var(--rule);
+  margin:0 -16px 18px; padding:0 8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav .row{display:flex; min-width:max-content}
+nav button{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:17px; font-weight:500;
+  background:none; border:none; border-bottom:3px solid transparent; color:var(--soft);
+  padding:0 12px; min-height:var(--tap); cursor:pointer; white-space:nowrap; line-height:1}
+nav button[aria-selected="true"]{color:var(--officers); border-bottom-color:var(--officers); font-weight:600}
+.view{display:none} .view.on{display:block}
+h2.vh{font-size:22px; font-weight:600; margin:0 0 6px; line-height:1.25; color:var(--b0)}
+p.vsay{color:var(--ink); font-size:17px; margin:0 0 16px; max-width:64ch; line-height:1.55}
+h3.sh{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:19px; font-weight:600;
+  color:var(--ink); margin:28px 0 10px; line-height:1.3}
+h3.sh.big{font-family:Spectral,Georgia,serif; font-size:22px; letter-spacing:-.005em; text-transform:none; color:var(--ink); line-height:1.25; margin:30px 0 12px}
+
+/* ---------- front door ---------- */
+.thesis{font-size:19px; line-height:1.5; margin:0 0 18px; font-weight:400}
+.change{border:1px solid var(--rule); background:var(--cell2); margin-bottom:12px; overflow:hidden}
+.change .head{display:flex; align-items:baseline; gap:10px; padding:14px 16px 0}
+.change .num{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; color:var(--soft)}
+.change h3{font-size:22px; font-weight:600; margin:0; line-height:1.2; color:var(--members)}
+.change .line{padding:6px 16px 0; font-size:17px; line-height:1.5; margin:0}
+.change .verse{margin:12px 16px 0; padding:10px 14px; border-left:3px solid var(--rule);
+  font-style:italic; font-size:17px; line-height:1.5; color:var(--ink)}
+.change .verse .ref{display:block; text-decoration:none; cursor:auto; font-style:normal; font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:15px; color:var(--soft); margin-top:4px}
+.change .ev{padding:12px 16px 0; font-size:17px; color:var(--ink); line-height:1.5; margin:0}
+.change .lead{margin:12px 16px 0; display:block; width:calc(100% - 32px); text-align:left;
+  border:1px solid var(--ink); background:var(--ink); color:var(--paper); padding:12px 14px;
+  cursor:pointer; min-height:var(--tap); border-radius:3px; font-family:Spectral,serif}
+.change .lead .lt{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600;
+  opacity:.85; display:block; margin-bottom:3px}
+.change .lead .lc{font-size:17px; line-height:1.4}
+.change .also{padding:10px 16px 14px; display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.change .also .lbl{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin-right:2px}
+.alt{border:1px dashed var(--rule); padding:12px 14px; margin:0 0 6px; background:transparent}
+.alt .altline{margin:0 0 10px; font-size:17px; line-height:1.5; color:var(--soft)}
+.limit{border-left:3px solid var(--officers); background:var(--cell); padding:12px 14px; margin:18px 0; font-size:17px; line-height:1.55}
+.three{display:grid; gap:8px}
+.three .item{display:flex; gap:12px; align-items:flex-start; border:1px solid var(--rule2); background:var(--cell2);
+  padding:12px 14px; cursor:pointer; min-height:var(--tap); text-align:left; width:100%; font-family:Spectral,serif; color:var(--ink)}
+.three .item .id{font-family:"IBM Plex Sans",system-ui,sans-serif; font-weight:600; font-size:15px; flex:none; padding-top:2px}
+.three .item .c{font-size:17px; line-height:1.4}
+.three .item .b{display:block; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin-top:3px}
+.explore{display:grid; gap:8px}
+.explore button{display:flex; flex-direction:column; align-items:flex-start; gap:2px; text-align:left;
+  border:1px solid var(--rule); background:var(--cell2); padding:12px 14px; min-height:var(--tap); cursor:pointer;
+  color:var(--ink); font-family:Spectral,serif; width:100%}
+.explore button .t{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:17px; font-weight:600}
+.explore button .d{font-size:15px; color:var(--soft); line-height:1.4}
+
+/* ---------- chips (thumb-sized) ---------- */
+.chip{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600;
+  padding:6px 12px; min-height:var(--tap); min-width:var(--tap); justify-content:center; border-radius:3px; cursor:pointer; border:1px solid var(--rule2);
+  background:var(--paper); color:var(--ink); line-height:1.2; display:inline-flex; align-items:center}
+.chip[data-v="Strong"]{border-left:3px solid var(--strong); color:var(--strong)}
+.chip[data-v="Contested"]{border-left:3px solid var(--contested); color:var(--contested)}
+.chip[data-v="Undecidable"]{border-left:3px solid var(--undec); color:var(--undec)}
+.chip.avoid{border-color:var(--fell); color:var(--fell); border-left-width:1px; text-decoration:line-through; opacity:.8}
+.chip:active{background:var(--ink); color:var(--paper)}
+.chips{display:flex; flex-wrap:wrap; gap:10px}
+
+/* ---------- cards (every argument) ---------- */
+.cards{display:grid; gap:8px; grid-template-columns:minmax(0,1fr)}
+.acard{overflow-wrap:anywhere}
+.acard{border:1px solid var(--rule2); background:var(--cell2); padding:12px 14px; cursor:pointer; text-align:left;
+  width:100%; color:var(--ink); font-family:Spectral,serif; min-height:var(--tap)}
+.acard[data-v="Strong"]{border-left:4px solid var(--strong)} .acard[data-v="Strong"] .top b{color:var(--strong)}
+.acard[data-v="Contested"]{border-left:4px solid var(--contested)} .acard[data-v="Contested"] .top b{color:var(--contested)}
+.acard[data-v="Undecidable"]{border-left:4px solid var(--undec)} .acard[data-v="Undecidable"] .top b{color:var(--undec)}
+.acard .top{display:flex; justify-content:space-between; gap:8px; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin-bottom:4px}
+.acard .top b{color:var(--ink); font-weight:600}
+.acard .cl{font-size:17px; line-height:1.4}
+.toolbar{display:flex; gap:15px; flex-wrap:wrap; margin-bottom:15px}
+input.search{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:17px; padding:10px 12px; min-height:var(--tap);
+  border:1px solid var(--rule); background:var(--cell2); color:var(--ink); flex:1 1 200px; border-radius:3px}
+select.sort{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:17px; padding:8px 10px; min-height:var(--tap);
+  border:1px solid var(--rule); background:var(--cell2); color:var(--ink); border-radius:3px}
+.count{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin:0 0 10px}
+
+/* ---------- axes ---------- */
+.axis{margin-bottom:18px}
+.axis h3{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:19px; font-weight:600; margin:0 0 4px}
+.axis .say{font-size:17px; color:var(--ink); margin:0 0 8px; line-height:1.45}
+.bar{display:flex; height:36px; border:1px solid var(--rule); background:var(--cell2); overflow:hidden}
+.seg{display:flex; align-items:center; justify-content:center; min-width:0; color:#fff;
+  font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600}
+.barkey{display:flex; flex-wrap:wrap; gap:10px 14px; margin-top:7px}
+.barkey span{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); display:inline-flex; align-items:center; gap:5px}
+.sw{width:10px; height:10px; flex:none; border-radius:1px}
+.scroller{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 -16px; padding:0 16px}
+table.grid{border-collapse:collapse; width:100%; min-width:640px}
+table.grid th,table.grid td{border:1px solid var(--rule2); vertical-align:top; padding:8px}
+table.grid thead th{background:var(--cell); font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; text-align:left; line-height:1.3}
+table.grid thead th.corner{background:transparent; border:none}
+table.grid tbody th{background:var(--cell); font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; text-align:left; width:128px; line-height:1.3}
+table.grid td{background:var(--cell2); min-width:118px} table.grid td.empty{background:transparent}
+td .n{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); display:block; margin-bottom:5px}
+.hint{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin:0 0 8px}
+
+/* ---------- stress ---------- */
+.panel{border:1px solid var(--rule); background:var(--cell2); padding:14px 16px; margin-bottom:16px}
+label.c{display:flex; gap:12px; align-items:flex-start; padding:10px 0; cursor:pointer;
+  border-top:1px solid var(--rule2); font-size:17px; line-height:1.4; min-height:var(--tap)}
+label.c:first-of-type{border-top:none}
+label.c input{margin-top:2px; flex:none; width:24px; height:24px; accent-color:var(--fell)}
+label.c .sub{display:block; font-size:15px; color:var(--soft); margin-top:2px}
+.score{border:1px solid var(--rule); background:var(--cell); padding:16px; margin-bottom:8px}
+.score .top{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin-bottom:10px}
+.vs{display:flex; border:1px solid var(--rule); background:var(--cell2)}
+.vs .side{flex:1 1 0; padding:10px 12px; min-width:0}
+.vs .side+.side{border-left:1px solid var(--rule)}
+.vs .num{font-size:27px; font-weight:600; line-height:1; letter-spacing:-.02em}
+.vs .nm{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin-top:4px; line-height:1.3}
+.vs .m .num{color:var(--members)} .vs .o .num{color:var(--officers)} .vs .b .num{color:var(--bothc)}
+.verdictline{margin:12px 0 0; font-size:17px; line-height:1.5}
+.tie{color:var(--fell)}
+/* a premise's name: plain bold text, not a box, because it does nothing when tapped (one behavior per control) */
+.pchip{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; color:var(--ink); padding:2px 0}
+.pchip+.pchip::before{content:"\00B7\00A0"; font-weight:400; color:var(--soft)}   /* plain names side by side would run together */
+.fellrow{display:flex; gap:10px; align-items:center; flex-wrap:wrap; padding:6px 0; border-top:1px solid var(--rule2); font-size:17px}
+.restson{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:0 0 12px}
+.restson.stack{flex-direction:column; align-items:flex-start; gap:2px}   /* A1's five rules: wrapped, a line began with the dot */
+.restson.stack .pchip+.pchip::before{content:none}
+.restson .lbl{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft)}
+/* What if: the three numbers stay side by side on a phone, so they stay in view while a box is ticked */
+#v-rests .vs{flex-direction:row} #v-rests .vs .side+.side{border-left:1px solid var(--rule); border-top:none}
+#v-rests .vs .side{padding:8px}
+/* ...and one line of them stays pinned under the tab strip while the boxes below are ticked */
+.standbar{position:sticky; top:calc(env(safe-area-inset-top,0px) + var(--navh,45px)); z-index:15; background:var(--paper);
+  border-bottom:1px solid var(--rule); margin:0 -16px 12px; padding:8px 16px;
+  font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; line-height:1.4; color:var(--ink)}
+.warn{border-left:3px solid var(--fell); background:var(--cell); padding:12px 14px; margin:14px 0; font-size:17px; line-height:1.55}
+.lk{border-top:1px solid var(--rule2); padding:12px 0}
+.lk .pair{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; margin-bottom:4px}
+.lk .pair em{font-style:normal; color:var(--soft); font-weight:400; padding:0 5px}
+.lk .ctx{font-size:15px; color:var(--soft); line-height:1.5; margin:0}
+
+/* ---------- board: desktop grid, mobile accordion ---------- */
+.board{display:grid; grid-template-columns:repeat(6,minmax(170px,1fr)); gap:12px; min-width:1100px}
+.col h4{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; margin:0 0 3px; line-height:1.3}
+.col .cs{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin:0 0 8px; line-height:1.35}
+.col{border-top:3px solid var(--bc,var(--ink)); padding-top:8px} .col.soft{border-top-style:dashed}
+.col h4{color:var(--bc,var(--ink))}
+.bcard{border:1px solid var(--rule2); background:var(--cell2); padding:8px; margin-bottom:6px; cursor:pointer}
+.bcard .cid{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; color:var(--soft)}
+.bcard .cc{font-size:15px; line-height:1.4; margin-top:2px}
+.bcard[data-v="Strong"]{border-left:4px solid var(--strong)} .bcard[data-v="Strong"] .cid{color:var(--strong)}
+.bcard[data-v="Contested"]{border-left:4px solid var(--contested)} .bcard[data-v="Contested"] .cid{color:var(--contested)}
+.bcard[data-v="Undecidable"]{border-left:4px solid var(--undec)} .bcard[data-v="Undecidable"] .cid{color:var(--undec)}
+.acc{display:none}
+details.col2{border:1px solid var(--rule2); background:var(--cell2); margin-bottom:8px}
+details.col2 summary{list-style:none; display:flex; justify-content:space-between; align-items:center; gap:10px;
+  padding:12px 14px; min-height:var(--tap); cursor:pointer; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:17px; font-weight:600}
+details.col2 summary::-webkit-details-marker{display:none}
+details.col2 summary .k{font-weight:400; color:var(--soft); font-size:15px}
+details.col2 summary::after{content:"+"; font-size:20px; color:var(--soft); flex:none}
+details.col2[open] summary::after{content:"\2212"}
+details.col2 .cs{padding:0 14px 8px; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); line-height:1.4; margin:0}
+details.col2 .cards{padding:0 10px 10px}
+
+/* ---------- how it fits ---------- */
+.spine{margin:0 0 8px}
+.layer{border:1px solid var(--rule); background:var(--cell2); padding:12px 14px}
+.layer .ll{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin:0 0 8px; line-height:1.4}
+.arrow{text-align:center; color:var(--soft); font-size:19px; line-height:1; padding:4px 0}
+.relgroup{margin:18px 0 0}
+.relgroup h4{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:17px; font-weight:600; color:var(--ink); margin:0 0 8px}
+.edge{display:flex; gap:10px; align-items:flex-start; border-top:1px solid var(--rule2); padding:10px 0; flex-wrap:wrap}
+.edge .pair{flex:0 1 auto; max-width:100%; display:flex; flex-wrap:wrap; gap:4px; align-items:center}
+.edge .pair em{font-style:normal; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); padding:0 2px}
+.edge .why{font-size:15px; color:var(--soft); line-height:1.45; margin:0; padding-top:6px; flex:1 1 220px}
+.dep{margin:0 0 10px}
+.dep h4{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; margin:0 0 6px; color:var(--soft)}
+.dep .row{display:flex; gap:8px; align-items:baseline; margin:0 0 6px; flex-wrap:wrap}
+.dep .row .w{font-size:15px; color:var(--soft); line-height:1.4}
+table.grid td.heat .n{color:var(--ink); font-weight:600}
+.margin{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft)}
+
+/* ---------- ask ---------- */
+.msgs{display:grid; gap:10px; margin:0 0 12px}
+.msg{padding:12px 14px; border:1px solid var(--rule2); background:var(--cell2); line-height:1.55; font-size:17px}
+.msg.me{background:var(--cell); border-color:var(--rule)}
+.msg .who{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; color:var(--soft); margin-bottom:4px}
+.msg p{margin:0 0 8px} .msg p:last-child{margin:0}
+/* an argument id inside a chat answer reads as a link in the sentence, with the same 44px press area as a scripture reference */
+.msg .chip{display:inline-block; border:none; background:none; min-height:0; min-width:var(--tap); text-align:center; padding:13px 6px; margin:-13px 1px; text-decoration:underline dotted; text-underline-offset:2px}
+.msg .chip:active{background:none; color:var(--officers)}
+.askrow{display:flex; gap:8px; align-items:flex-end}
+textarea.ask{font-family:Spectral,serif; font-size:17px; padding:10px 12px; min-height:var(--tap); max-height:160px;
+  border:1px solid var(--rule); background:var(--cell2); color:var(--ink); flex:1 1 auto; border-radius:3px; resize:vertical; line-height:1.4}
+button.go{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:17px; font-weight:600; min-height:var(--tap); padding:0 16px;
+  background:var(--ink); color:var(--paper); border:1px solid var(--ink); border-radius:3px; cursor:pointer; flex:none}
+button.go[disabled]{opacity:.5; cursor:default}
+button.stop{background:transparent; color:var(--fell); border-color:var(--fell)}
+.asknote{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin:8px 0 0; line-height:1.45}
+.starters{display:flex; flex-wrap:wrap; gap:15px; margin:0 0 15px}
+.starters button{font-family:Spectral,serif; font-size:17px; padding:8px 12px; min-height:var(--tap); border:1px solid var(--rule); background:var(--cell2); color:var(--ink); border-radius:3px; cursor:pointer; text-align:left}
+
+/* ---------- read ---------- */
+.rdtools{display:flex; gap:15px; margin:0 0 15px}
+.rdtools button{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:17px; font-weight:500; min-height:var(--tap); padding:0 15px; border:1px solid var(--rule); background:var(--cell2); color:var(--ink); border-radius:3px; cursor:pointer}
+details.rd{border:1px solid var(--rule2); background:var(--cell2); margin-bottom:8px}
+details.rd summary{list-style:none; display:flex; gap:10px; align-items:flex-start; padding:12px 14px; min-height:var(--tap); cursor:pointer}
+details.rd summary::-webkit-details-marker{display:none}
+details.rd summary .rid{font-family:"IBM Plex Sans",system-ui,sans-serif; font-weight:600; font-size:15px; flex:none; padding-top:2px}
+details.rd summary .rcl{font-size:17px; line-height:1.4; flex:1 1 auto}
+details.rd summary .rb{display:block; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin-top:3px}
+details.rd summary::after{content:"+"; font-size:20px; color:var(--soft); flex:none; line-height:1}
+details.rd[open] summary::after{content:"\2212"}
+details.rd[data-v="Strong"]{border-left:3px solid var(--strong)}
+details.rd[data-v="Contested"]{border-left:3px solid var(--contested)}
+details.rd[data-v="Undecidable"]{border-left:3px solid var(--undec)}
+details.rd .rbody{padding:0 14px 14px; border-top:1px solid var(--rule2); padding-top:12px}
+.jump{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 18px}
+.entry{border-top:1px solid var(--rule2); padding:22px 0}
+.entry h3{font-size:19px; font-weight:600; margin:0 0 4px; line-height:1.3}
+.rid{color:var(--b0)}
+.entry .eid{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); margin-bottom:6px}
+.sec{margin:0 0 12px}
+.sec h4{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; margin:0 0 4px; color:var(--soft)}
+.sec p{margin:0 0 8px; line-height:1.6} .sec p:last-child{margin:0}
+.sec ul,.sec ol{margin:0 0 8px; padding-left:19px} .sec li{margin-bottom:5px; line-height:1.55}
+.meta{display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 12px; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px}
+.tag{padding:4px 9px; border:1px solid var(--rule); border-radius:3px; color:var(--soft)}
+.tag.v-Strong{border-color:var(--strong); color:var(--strong)}
+.tag.v-Contested{border-color:var(--contested); color:var(--contested)}
+.tag.v-Undecidable{border-color:var(--undec); color:var(--undec)}
+
+/* ---------- source ---------- */
+.kv{display:grid; grid-template-columns:auto 1fr; gap:8px 15px; font-size:17px; margin-bottom:18px}
+.kv dt{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); padding-top:3px} .kv dd{margin:0}
+pre.code{background:var(--cell); border:1px solid var(--rule2); padding:12px; overflow-x:auto; font-size:12.5px; line-height:1.6; font-family:ui-monospace,Menlo,Consolas,monospace}
+
+/* ---------- detail sheet ---------- */
+#detail{position:fixed; inset:auto 0 0 0; max-height:84vh; overflow-y:auto; z-index:40;
+  background:var(--cell2); border-top:2px solid var(--ink); padding:0 16px 16px;
+  padding-bottom:calc(16px + env(safe-area-inset-bottom,0px)); display:none;
+  box-shadow:0 -8px 28px rgba(0,0,0,.16); border-radius:14px 14px 0 0}
+#detail.on{display:block}
+#detail .bar2{position:sticky; top:0; background:var(--cell2); padding:10px 0 8px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--rule2); margin-bottom:12px}
+#detail .handle{width:36px; height:4px; background:var(--rule); border-radius:2px; margin:10px auto 0}
+#detail .inner{max-width:900px; margin:0 auto}
+.closeb{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:17px; font-weight:600; background:var(--paper);
+  border:1px solid var(--rule); color:var(--ink); cursor:pointer; padding:0 16px; min-height:var(--tap); border-radius:3px}
+#scrim{position:fixed; inset:0; background:rgba(0,0,0,.28); z-index:39; display:none}
+#pop{position:fixed; inset:auto 0 0 0; z-index:60; background:var(--paper); border-top:2px solid var(--officers);
+  padding:12px 16px; padding-bottom:calc(14px + env(safe-area-inset-bottom,0px)); display:none; max-height:46vh; overflow-y:auto;
+  box-shadow:0 -8px 28px rgba(0,0,0,.18); font-size:17px; line-height:1.6}
+#pop.on{display:block}
+#pop .pr{display:flex; align-items:center; gap:8px; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; margin-bottom:6px}
+#pop .pk{font-weight:400; color:var(--soft); font-size:15px}
+#pop .pr .closeb{margin-left:auto}
+#pop p{margin:0}
+.ref{font:inherit; color:var(--officers); background:none; border:none; padding:0; cursor:pointer; text-decoration:underline dotted; text-underline-offset:2px}
+/* a scripture button inside a sentence: padding makes the press area 44px tall; the negative margin keeps the text where it was.
+   Deliberate trade-off (code review, 2026-10-04): at 17px/1.6 the press area reaches a few px into the lines above and below,
+   so a tap at the very edge can open a neighboring verse. The popover names the verse it opened and closes in one tap;
+   a target too small to hit is the worse failure for the reader this page is built for (an elder in his 70s, on a phone). */
+button.ref{padding:12px 2px; margin:-12px 0; min-width:var(--tap)}
+.dim{opacity:.22}
+#scrim.on{display:block}
+footer{margin-top:36px; padding-top:13px; border-top:1px solid var(--rule2); font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--soft); line-height:1.6}
+:focus-visible{outline:2px solid var(--officers); outline-offset:2px}
+
+/* ---------- start: the first screen (an elder in his 70s, on a phone) ---------- */
+.homelink{color:inherit; text-decoration:none; display:inline-block; min-height:var(--tap)}
+.notice{margin:10px 0 0; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--ink); line-height:1.45}
+body:not(.home) header .kicker, body:not(.home) header .notice{display:none}
+body:not(.home) header{padding:0 0 8px}
+body:not(.home) header h1{font-size:19px; margin:0}
+body.home nav{display:none}
+.golist{display:grid; gap:12px; margin:6px 0 0}
+.golist button{display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; min-height:56px;
+  padding:12px 18px; text-align:left; border:2px solid var(--ink); background:var(--cell2); color:var(--ink); border-radius:6px;
+  cursor:pointer; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:19px; font-weight:700; line-height:1.25}
+.golist button::after{content:"\203A"; font-size:28px; line-height:1; color:var(--officers); flex:none}
+.startnote{margin:22px 0 0; font-size:17px; line-height:1.5; color:var(--ink)}
+.startnote p{margin:0 0 6px}
+button.textlink{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:17px; font-weight:600; color:var(--officers); background:none; border:none;
+  padding:0 2px; min-height:var(--tap); cursor:pointer; text-decoration:underline; text-underline-offset:3px}
+.howtext{margin:0 0 10px; font-size:17px; line-height:1.5}
+
+.guide{border:2px solid var(--ink); background:var(--cell2); padding:16px; margin:0 0 22px; border-radius:6px}
+.guide ol{margin:0; padding-left:22px} .guide li{margin:0 0 10px; font-size:17px; line-height:1.5} .guide li:last-child{margin:0}
+/* ---------- sources and method ---------- */
+.cq{border-top:1px solid var(--rule2); padding:14px 0}
+.cq h4{font-size:19px; font-weight:600; margin:0 0 6px; line-height:1.35}
+.cq p{margin:0 0 10px; font-size:17px; line-height:1.55}
+ol.rules,ul.srcs{margin:0 0 12px; padding-left:22px} ol.rules li,ul.srcs li{margin-bottom:8px; line-height:1.55}
+p.body{margin:0 0 12px; max-width:64ch; line-height:1.55}
+
+@media (max-width:720px){
+  .scroller.board-scroller{display:none} .acc{display:block}
+  .vs{flex-direction:column} .vs .side+.side{border-left:none; border-top:1px solid var(--rule)}
+  .vs .num{font-size:27px}
+}
+@media (min-width:721px){ .explore{grid-template-columns:1fr 1fr} nav{overflow:visible} nav .row{flex-wrap:wrap; min-width:0} }
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="kicker">Prepared for the session</p>
+  <h1><a href="#start" id="home" class="homelink">Making disciples: what it means, and whose work it is</a></h1>
+  <p class="notice" id="notice"></p>
+  <p class="moved" id="moved"></p>
+</header>
+
+<nav><div class="row" role="tablist" id="tabs"></div></nav>
+
+<div class="view" id="v-start"></div>
+<div class="view" id="v-board"></div>
+<div class="view" id="v-brief"></div>
+<div class="view" id="v-args"></div>
+<div class="view" id="v-axes"></div>
+<div class="view" id="v-rests"></div>
+<div class="view" id="v-ask"></div>
+<div class="view" id="v-fits"></div>
+<div class="view" id="v-source"></div>
+<div class="view" id="v-how"></div>
+
+<footer id="foot"></footer>
+</div>
+<div id="scrim"></div>
+<div id="pop" role="dialog" aria-label="Scripture"></div>
+<div id="detail" aria-live="polite"><div class="inner"><div class="handle"></div><div class="bar2"><span class="sans" id="dtitle" style="font-size:15px;color:var(--soft)"></span><button class="closeb" id="dclose">Close</button></div><div id="detailInner"></div></div></div>
+
+<script id="payload" type="application/json">__DATA__</script>
+<script>
+(function(){
+"use strict";
+var D=JSON.parse(document.getElementById('payload').textContent);
+var ARGS=D.args, LINKS=D.links, BANDS=D.bands, WHATS=D.whats, WHOS=D.whos, F=D.front;
+
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function md(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/(^|[^*])\*([^*\n][^*]*?)\*(?!\*)/g,'$1<em>$2</em>');}
+function paras(s){return String(s||'').split(/\n{2,}/).map(function(p){
+  p=p.trim(); if(!p)return'';
+  if(/^[-*]\s/.test(p)) return '<ul>'+p.split(/\n/).map(function(l){return '<li>'+md(l.replace(/^[-*]\s*/,''))+'</li>';}).join('')+'</ul>';
+  if(/^\d+\.\s/.test(p)) return '<ol>'+p.split(/\n/).map(function(l){return '<li>'+md(l.replace(/^\d+\.\s*/,''))+'</li>';}).join('')+'</ol>';
+  return '<p>'+md(p).replace(/\n/g,'<br>')+'</p>';}).join('');}
+function byId(id){for(var i=0;i<ARGS.length;i++) if(ARGS[i].id===id) return ARGS[i]; return null;}
+function cnt(k,v){return ARGS.filter(function(a){return a[k]===v;}).length;}
+// verdict keys stay Strong/Contested/Undecidable (CSS, sort, filters); readers see these words (Jon, 2026-10-04)
+var RWORD={Strong:'firm',Contested:'contested',Undecidable:'open'};
+function rl(v){return 'rated '+(RWORD[v]||v);}
+function chip(id,extra){var a=byId(id); if(!a)return''; return '<button class="chip'+(extra||'')+'" data-id="'+esc(id)+'" data-v="'+esc(a.verdict)+'" title="'+esc(a.claim)+'">'+esc(id)+'</button>';}
+
+/* ---------- detail sheet ---------- */
+// What an argument rests on, in the same terms as What if: each premise that makes it fall when
+// set aside alone; then any premises that make it fall only together; then the kind it is one of,
+// and any premise it states or is. Being one of a kind is not resting on it (E1 IS from wisdom).
+function restsLine(a){
+  var r=a.restsOn||[], j=a.restsJointly||[], s=a.states||[], k=a.kinds||[], h='';
+  if(r.length) h+='<div class="restson"><span class="lbl">Rests on</span>'+r.map(pchip).join('')+'</div>';
+  j.forEach(function(set){ h+='<div class="restson"><span class="lbl">Falls only if '+(set.length===2?'both':'all')+' are set aside:</span>'+set.map(pchip).join('<span class="lbl">and</span>')+'</div>'; });
+  if(k.length) h+='<div class="restson"><span class="lbl">Kind of argument:</span>'+k.map(pchip).join('')+'</div>';
+  if(s.indexOf(a.id)>=0) h+='<div class="restson"><span class="lbl">'+(PREM[a.id].group==='fixed'?'A premise held fixed on What if':'A premise in its own right: set it aside on What if')+'</span></div>';
+  else if(s.length) h+='<div class="restson'+(s.length>2?' stack':'')+'"><span class="lbl">'+(s.every(function(p){return PREM[p]&&PREM[p].group==='rule';})?'States the reading rules:':'States:')+'</span>'+s.map(pchip).join('')+'</div>';
+  if(h) return h;
+  var q=((D.deps&&D.deps.open_questions)||[]).filter(function(x){return x.id===a.id;})[0];
+  return '<div class="restson"><span class="lbl">Not yet traced to a rule, a method or a kind. The open question:</span></div><p>'+esc(q?q.q:'')+'</p>';
+}
+// 'rests on rule' is the data's name for a link to a reading rule or method; a reader sees plain 'rests on'
+function relw(r){ return r==='rests on rule'?'rests on':r; }
+// a premise's name inside a sentence ("rested on the narrative rule"), keeping "Rule 1" as it is
+function pmid(id){ var n=pname(id); return /^The /.test(n)?'the'+n.slice(3):n; }
+function show(id){
+  var a=byId(id); if(!a) return;
+  // "Use" (Lead / Support / ...) stays in the data for the Key arguments filter; shown, it read as presenter tactics (tone list item 2)
+  var h='<div class="eid">'+esc(a.band)+'</div>'+
+    '<h3 style="font-size:22px;font-weight:600;line-height:1.3;margin:0 0 10px">'+md(a.claim)+'</h3><div class="meta">'+
+    '<span class="tag v-'+esc(a.verdict)+'">'+'Author’s rating: '+esc(a.verdictFull||RWORD[a.verdict])+'</span>'+
+    '<span class="tag">What it is: '+esc(a.what)+'</span><span class="tag">Who does it: '+esc(a.who)+'</span>'+
+    '<span class="tag">Holds without Jesus\u2019 example: '+esc(a.survives)+'</span>'+(a.texts?'<span class="tag">'+esc(a.texts)+'</span>':'')+'</div>'+
+    restsLine(a);
+  a.sections.forEach(function(s){ if(s.l&&/^Lands/.test(s.l)) return; h+='<div class="sec">'+(s.l?'<h4>'+esc(s.l)+'</h4>':'')+paras(s.t)+'</div>';});
+  if(a.sup.length) h+='<div class="sec"><h4>Supports</h4><ul>'+a.sup.map(function(x){return '<li>'+md(x)+'</li>';}).join('')+'</ul></div>';
+  if(a.risk) h+='<div class="sec"><h4>Limits of this argument</h4>'+paras(a.risk)+'</div>';
+  if(a.up&&a.up.length){ h+='<div class="dep"><h4>This argument</h4>'+a.up.map(function(u){return '<div class="row"><span class="w"><em>'+esc(relw(u.rel))+'</em></span>'+pchip(u.id)+'<span class="w">\u2014 '+md(u.why)+'</span></div>';}).join('')+'</div>'; }
+  if(a.down&&a.down.length){ h+='<div class="dep"><h4>Linked from</h4>'+a.down.map(function(u){return '<div class="row">'+chip(u.id)+'<span class="w"><em>'+esc(relw(u.rel))+' this</em> \u2014 '+md(u.why)+'</span></div>';}).join('')+'</div>'; }
+  document.getElementById('detailInner').innerHTML=h; linkify(document.getElementById('detailInner'));
+  document.getElementById('dtitle').textContent=a.id;
+  document.getElementById('detail').classList.add('on'); document.getElementById('scrim').classList.add('on');
+  document.getElementById('detail').scrollTop=0;
+}
+function hide(){document.getElementById('detail').classList.remove('on'); document.getElementById('scrim').classList.remove('on');}
+
+/* ---------- start: big, plain buttons; nothing else to read ---------- */
+var GO=[['brief','Read the summary'],['args','See every argument'],['rests','Test what holds'],['fits','See how it fits'],['board','See the board'],['source','Sources and method']];
+// Comments exist only on claude.ai (window.claude is its runtime); the public copy has none, so it says who to talk to instead.
+function commentLine(){ var s=F.start_note||{}; return (window.claude?s.comment_here:s.comment_elsewhere)||''; }
+function home(){
+  var s=F.start_note||{};
+  document.getElementById('v-start').innerHTML='<div class="golist">'+GO.map(function(g){return '<button data-go="'+g[0]+'">'+esc(g[1])+'</button>';}).join('')+'</div>'+
+    // Jon, 2026-10-05: under the buttons, so they stay put; draft + comments first, then what the page is
+    (s.draft?'<div class="startnote"><p>'+esc(s.draft)+' '+esc(commentLine())+'</p><p>'+esc(s.what)+' <button class="textlink" data-go="how">'+esc(s.how_link)+' ›</button></p></div>':'');
+  var n=document.getElementById('notice'); if(n) n.textContent=F.notice||'';
+}
+/* ---------- how this page works: one screen, opened from Start (no tab) ---------- */
+function howView(){
+  var w=F.how; if(!w) return;
+  var h='<h2 class="vh">'+esc(w.title)+'</h2><p class="vsay">'+esc(w.intro)+'</p><div class="spine">';
+  w.steps.forEach(function(st,i){
+    if(i) h+='<div class="arrow" aria-hidden="true">↓</div>';
+    h+='<div class="layer"><p class="ll"><b>'+esc(st.label)+'</b></p><p class="howtext">'+esc(st.text.replace('{n}',ARGS.length))+'</p>';
+    if(i===w.steps.length-1) h+='<div class="explore">'+GO.map(function(g){return '<button data-go="'+g[0]+'"><span class="t">'+esc(g[1])+'</span><span class="d">'+esc((w.views||{})[g[0]]||'')+'</span></button>';}).join('')+'</div>';
+    h+='</div>';
+  });
+  h+='</div><p class="body">'+esc(w.also)+'</p><p class="body">'+esc(w.draft)+' '+esc(commentLine())+'</p>';
+  document.getElementById('v-how').innerHTML=h;
+}
+
+/* ---------- in brief (the summary) ---------- */
+function brief(){
+  var h='<p class="thesis">'+esc(F.thesis)+'</p>';
+  h+='<h3 class="sh big">Three changes the evidence supports</h3>';
+  F.changes.forEach(function(c,i){
+    h+='<div class="change"><div class="head"><span class="num">'+(i+1)+'</span><h3>'+esc(c.title)+'</h3></div>'+
+      '<p class="line">'+esc(c.line)+'</p>'+
+      '<div class="verse">'+esc(c.verse)+'<span class="ref">'+esc(c.ref)+'</span></div>'+
+      '<p class="ev">'+esc(c.evidence)+'</p>'+
+      '<button class="lead" data-id="'+esc(c.lead)+'"><span class="lt">Key argument &middot; '+esc(c.lead)+' &middot; '+esc(rl(c.leadVerdict))+'</span><span class="lc">'+md(c.leadClaim)+'</span></button>'+
+      '<div class="also"><span class="lbl">Also</span>'+c.also.map(function(id){return chip(id);}).join('')+
+      (c.avoid&&c.avoid.length?'<span class="lbl" style="margin-left:6px">Rated contested &mdash; read before citing</span>'+c.avoid.map(function(id){return chip(id,' avoid');}).join(''):'')+
+      '</div></div>';
+  });
+  h+='<div class="limit"><strong>What this does not show.</strong> '+esc(F.honest_limit)+'</div>';
+  if(F.alternative){
+    // the rating on an other-view argument rates the author's answer to it, not the claim shown (live v58, ported)
+    h+='<h3 class="sh">'+esc(F.alternative.heading)+'</h3><p class="vsay">'+esc(F.alternative.line)+' The rating under each is the author’s rating of his answer to it, not of the argument itself.</p><div class="three">'+
+      F.alternative.ids.map(function(id){var a=byId(id); return '<button class="item" data-id="'+esc(id)+'"><span class="id">'+esc(id)+'</span><span class="c">'+md(a.claim)+'<span class="b">'+esc(a.band)+' &middot; The author’s answer to it: '+esc(a.verdictFull.replace(/^(firm|contested|open)\b/i,function(w){return w.toLowerCase();}))+'</span></span></button>';}).join('')+'</div>';
+  }
+  h+='<h3 class="sh">If you read only three</h3><p class="vsay">'+esc(F.read_three_why)+'</p><div class="three">'+
+    F.read_three_items.map(function(r){return '<button class="item" data-id="'+esc(r.id)+'"><span class="id">'+esc(r.id)+'</span><span class="c">'+md(r.claim)+'<span class="b">'+esc(r.band)+' &middot; '+esc(rl(r.verdict))+'</span></span></button>';}).join('')+'</div>';
+  h+='<h3 class="sh">How strong is the case?</h3>'+axesBars(true);
+  if(F.common_questions&&F.common_questions.length){   // moved here from Sources and method (Jon's comment; live v57, ported)
+    h+='<h3 class="sh">Common questions</h3>'+F.common_questions.map(function(c){var ids=cqIds(c);
+      return '<div class="cq"><h4>'+esc(c.q)+'</h4><p>'+esc(c.a)+'</p><div class="chips">'+ids.map(function(id){return chip(id);}).join('')+'</div></div>';}).join('');
+  }
+  h+='<h3 class="sh">Go deeper</h3><div class="explore">'+
+    '<button data-go="args"><span class="t">The arguments</span><span class="d">All '+ARGS.length+' in full, with counters and limits. Search and sort.</span></button>'+
+    '<button data-go="axes"><span class="t">Where it\u2019s contested</span><span class="d">What is settled and what is not.</span></button>'+
+    '<button data-go="rests"><span class="t">What if</span><span class="d">Set aside a reading rule, a method or a kind of argument, and see what falls and why.</span></button>'+
+    '<button data-go="ask" id="goask"><span class="t">Ask a question</span><span class="d">Put a question to the material. Answers cite the arguments and state the counter.</span></button>'+
+    '<button data-go="fits"><span class="t">How it fits</span><span class="d">Which arguments rest on which. The main chain, top to bottom.</span></button>'+
+    '<button data-go="board"><span class="t">The board</span><span class="d">Sorted by how little a reader must grant.</span></button>'+
+    '<button data-go="source"><span class="t">Sources and method</span><span class="d">Who wrote this, how Scripture is read here, and what is cited.</span></button></div>';
+  document.getElementById('v-brief').innerHTML=h; linkify(document.getElementById('v-brief'));
+}
+
+/* ---------- axes ---------- */
+function cls(key,v){ if(v==='\u2014') return 'silent'; if(v==='Both') return 'bothc';
+  if(key==='who') return v==='Officers'?'officers':'members'; return /^Modeled/.test(v)?'members':'officers'; }
+function bar(key,ord,title,say){
+  var total=ARGS.length;
+  var segs=ord.map(function(v){var n=cnt(key,v); if(!n)return'';
+    return '<div class="seg" style="width:'+(n/total*100).toFixed(2)+'%;background:var(--'+cls(key,v)+')" title="'+esc(v)+': '+n+'">'+(n>=3?n:'')+'</div>';}).join('');
+  var ky=ord.map(function(v){var n=cnt(key,v); if(!n)return'';
+    return '<span><i class="sw" style="background:var(--'+cls(key,v)+')"></i>'+esc(v==='\u2014'?'Silent on this':v)+' &middot; '+n+'</span>';}).join('');
+  return '<div class="axis"><h3>'+esc(title)+'</h3><p class="say">'+say+'</p><div class="bar">'+segs+'</div><div class="barkey">'+ky+'</div></div>';
+}
+function axesBars(short){
+  var mS=cnt('what','Modeled, equipped, sent'), mW=cnt('what','Word and sacrament, received'),
+      oM=cnt('who','Every member, under officers'), oO=cnt('who','Officers'), sil=cnt('who','\u2014');
+  return bar('what',WHATS,'What discipleship is','Lopsided. '+mS+' arguments say it is being modeled, equipped and sent; '+mW+' say it is Word and sacrament received.')+
+         bar('who',WHOS,'Who is responsible','Closer. '+oM+' say every member under the elders, '+oO+' say the elders \u2014 and '+sil+' of the '+ARGS.length+' say nothing about it.');
+}
+function axes(){
+  var h='<h2 class="vh">Where it\u2019s contested</h2><p class="vsay">The arguments sorted on the two questions that matter: what discipleship is, and who is responsible for it. One is close to settled. The other is not.</p>'+axesBars(false);
+  h+='<p class="hint">Rows: what it is. Columns: who does it. A dash means the argument is silent on that question. Scroll sideways on a phone.</p>';
+  var MX=0; WHATS.forEach(function(w1){WHOS.forEach(function(w2){MX=Math.max(MX,ARGS.filter(function(a){return a.what===w1&&a.who===w2;}).length);});});
+  h+='<div class="scroller"><table class="grid"><thead><tr><th class="corner"></th>';
+  WHOS.forEach(function(w){h+='<th>'+esc(w==='\u2014'?'Silent on who':w)+'</th>';});
+  h+='<th style="width:52px">Row</th></tr></thead><tbody>';
+  WHATS.forEach(function(wt){
+    h+='<tr><th>'+esc(wt==='\u2014'?'Silent on what':wt)+'</th>'; var rn=0;
+    WHOS.forEach(function(wh){var l=ARGS.filter(function(a){return a.what===wt&&a.who===wh;}); rn+=l.length;
+      if(!l.length){h+='<td class="empty"></td>';return;}
+      var pct=Math.round(8+42*(l.length/MX));
+      h+='<td class="heat"><span class="n" style="color:var(--members)">'+l.length+'</span><div class="chips">'+l.map(function(a){return chip(a.id);}).join('')+'</div></td>';});
+    h+='<td class="empty"><span class="n margin">'+rn+'</span></td></tr>';});
+  h+='<tr><th class="margin" style="background:transparent;border:none">Column</th>'+WHOS.map(function(wh){return '<td class="empty"><span class="n margin">'+cnt('who',wh)+'</span></td>';}).join('')+'<td class="empty"><span class="n margin">'+ARGS.length+'</span></td></tr>';
+  h+='</tbody></table></div>';
+  document.getElementById('v-axes').innerHTML=h;
+}
+
+/* ---------- what if ---------- */
+// What falls is computed once, by the build (pipeline/falls.py), for every combination of toggles;
+// this view only reads it. Gate check 80 proves the build's answer against a fresh computation.
+var PREM={}, PORDER=D.premOrder||[];
+((D.deps&&D.deps.premises)||[]).forEach(function(p){PREM[p.id]=p;});
+function pname(id){var p=PREM[id]; return p?p.name:id;}
+function pchip(id){ return byId(id)?chip(id):'<span class="pchip">'+esc(pname(id))+'</span>'; }
+var on={};
+// the one decoder of the precomputed table: what falls for a bitmask over the boxes (default: as ticked)
+function fellNow(mask){
+  if(mask===undefined){ mask=0; PORDER.forEach(function(p,k){ if(on[p]) mask+=Math.pow(2,k); }); }
+  var hex=(D.fallsAll||[])[mask]||'0', out={};
+  hex.split('').reverse().forEach(function(ch,j){ var v=parseInt(ch,16);
+    for(var b=0;b<4;b++) if(v>>b&1){ var a=ARGS[j*4+b]; if(a) out[a.id]=true; } });
+  return out;
+}
+function rests(){
+  // an argument that is itself the premise (A2, A4) is not counted as taken "with it"
+  // nor are a kind's own members: they ARE the kind, not arguments taken with it
+  function with_(p){ return (D.falls[p]||[]).filter(function(i){return i!==p && ((byId(i)||{}).kinds||[]).indexOf(p)<0;}).length; }
+  var nMost=Math.max.apply(null,[0].concat(PORDER.map(with_)));
+  var most=PORDER.filter(function(p){return nMost>0 && with_(p)===nMost;});
+  var open=(D.deps.open_questions||[]).filter(function(q){return byId(q.id);}).length;
+  // what can fall here at all: every box ticked
+  var canFall=Object.keys(fellNow(Math.pow(2,PORDER.length)-1)).length;
+  var groups=[['rule','Set aside a reading rule or method'],['kind','Set aside a kind of argument']];
+  // a box that removes nothing says so, or a reader ticks it, sees no change, and suspects the page
+  function idle(p){ return !(D.falls[p]||[]).length && !ARGS.some(function(a){return (a.restsJointly||[]).some(function(s){return s.indexOf(p)>=0;});}); }
+  document.getElementById('v-rests').innerHTML=
+    '<h2 class="vh">What if</h2><p class="vsay">Set aside a reading rule, a method or a kind of argument, and see which arguments fall with it and what the two questions look like without them. '+canFall+' of the '+ARGS.length+' can fall here; the rest hold whatever is ticked.</p>'+
+    '<div class="standbar" id="standbar" aria-live="polite"></div>'+
+    '<div class="score" id="score"></div>'+
+    (nMost?'<p class="hint">Set aside on its own, no rule or kind takes more than '+nMost+' arguments with it ('+esc(most.map(pname).join('; '))+').</p>':'')+
+    groups.map(function(g){ var ps=PORDER.filter(function(p){return PREM[p].group===g[0];});
+      return '<h3 class="sh">'+esc(g[1])+'</h3><div class="panel">'+ps.map(function(p){
+        return '<label class="c"><input type="checkbox" data-c="'+esc(p)+'"><span>'+esc(pname(p))+'<span class="sub">'+esc(PREM[p].say)+(idle(p)?'. Nothing is traced to it yet, so setting it aside changes nothing.':'')+'</span></span></label>';}).join('')+'</div>';}).join('')+
+    '<div id="fell"></div>'+
+    (open?'<p class="hint">'+(open===1?'One argument is':open+' arguments are')+' not yet traced to a rule, a method or a kind. They are listed with their questions on How it fits, and nothing here removes them.</p>':'');
+  navHeight();
+  scoreboard();
+}
+// the standing line pins just under the tab strip, whose height changes with font size and wrapping
+function navHeight(){ var n=document.querySelector('nav'); if(n&&n.offsetHeight) document.documentElement.style.setProperty('--navh',n.offsetHeight+'px'); }
+window.addEventListener('resize',navHeight);
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(navHeight);   // the tab strip's height changes when the web font arrives
+function scoreboard(){
+  var gone=fellNow(), fell=ARGS.filter(function(a){return gone[a.id];}), kept=ARGS.filter(function(a){return !gone[a.id];});
+  function tally(key,aLabel,bLabel,aVal,bVal){
+    var A=0,B=0,bo=0; kept.forEach(function(x){ if(x[key]===aVal)A++; else if(x[key]===bVal)B++; else if(x[key]==='Both')bo++; });
+    var line=A>B?'<strong>'+aLabel+'</strong> has more support, '+A+' to '+B+'.'
+            :A===B?'<strong class="tie">Dead even</strong>, '+A+' to '+B+'.'
+            :'<strong class="tie">'+bLabel+'</strong> has more support, '+B+' to '+A+'.';
+    return {A:A,B:B,bo:bo,line:line};
+  }
+  var W=tally('what','Formed, sent and reproducing','Word and sacrament received','Modeled, equipped, sent','Word and sacrament, received');
+  var H=tally('who','Every member under the elders','The elders alone','Every member, under officers','Officers');
+  function block(title,sub,T,aNm,bNm){
+    return '<h3 class="sh" style="margin-top:14px">'+esc(title)+'</h3><div class="top">'+esc(sub)+'</div><div class="vs">'+
+      '<div class="side m"><div class="num">'+T.A+'</div><div class="nm">'+esc(aNm)+'</div></div>'+
+      '<div class="side o"><div class="num">'+T.B+'</div><div class="nm">'+esc(bNm)+'</div></div>'+
+      '<div class="side b"><div class="num">'+T.bo+'</div><div class="nm">Both</div></div></div><p class="verdictline">'+T.line+'</p>';
+  }
+  document.getElementById('score').innerHTML=   // "N of 45 still stand" is on the pinned line just above
+    block('What discipleship is',(W.A+W.B+W.bo)+' of them speak to this.',W,'Formed, sent and reproducing','Word and sacrament received')+
+    block('Who is responsible',(H.A+H.B+H.bo)+' of them speak to this.',H,'Every member, under the elders','The elders alone');
+  // pinned while the boxes are ticked, so each number carries its side's name (no scrolling back to decode it)
+  document.getElementById('standbar').innerHTML='<strong>'+kept.length+' of '+ARGS.length+' still stand.</strong> What it is: formed and sent '+W.A+', received '+W.B+', both '+W.bo+
+    ' · Who: every member '+H.A+', elders alone '+H.B+', both '+H.bo+(fell.length?' · '+fell.length+' fell (listed below)':'');
+  var h='';
+  if(fell.length) h+='<h3 class="sh" style="margin-top:14px">What fell — '+fell.length+'</h3>'+fell.map(function(a){
+    if(on[a.id]) return '<div class="fellrow">'+chip(a.id)+'<span class="w">is itself set aside</span></div>';
+    // the reason is a set the build proved sufficient: one premise alone, or several together
+    var kind=(a.kinds||[]).filter(function(p){return on[p];});
+    // a premise counts when it is ticked or has itself fallen (A4 falls as one of a kind set aside)
+    var alone=(a.restsOn||[]).filter(function(p){return on[p]||gone[p];});
+    var joint=(a.restsJointly||[]).filter(function(s){return s.every(function(p){return on[p]||gone[p];});})[0];
+    var why=kind.length?'is one of a kind set aside: '+kind.map(pname).join('; ')
+           :alone.length?'rested on '+alone.map(pmid).join('; and on '):joint?'rested on '+joint.map(pmid).join(' and ')+', together':'fell with what it rests on';
+    return '<div class="fellrow">'+chip(a.id)+'<span class="w">'+esc(why)+'</span></div>';}).join('');
+  // a kind may name, in its 'partly' entry, the arguments it leaves standing only in part (the Twelve
+  // kind takes the No's; the Partly's stay, and its description promises they are named). One list per
+  // distinct label, each argument once, whichever kinds are ticked.
+  var partly={};
+  PORDER.forEach(function(p){ var q=PREM[p].partly; if(!on[p]||!q) return;
+    var L=partly[q.say]||(partly[q.say]=[]);
+    kept.forEach(function(a){ if(a[q.field]===q.value && L.indexOf(a.id)<0) L.push(a.id); }); });
+  Object.keys(partly).forEach(function(say){ if(partly[say].length)
+    h+='<div class="partly"><p class="hint" style="margin-top:14px">'+esc(say)+'</p><div class="chips" style="margin-bottom:14px">'+partly[say].map(function(id){return chip(id);}).join('')+'</div></div>'; });
+  document.getElementById('fell').innerHTML=h;
+}
+
+
+/* ---------- board ---------- */
+var BF={};
+var BFILTERS=[['use','Lead','Key arguments'],['survives','Yes','Holds without Jesus\u2019 example'],['verdict','Strong','Rated firm'],['verdict','Contested','Rated contested'],['what','Modeled, equipped, sent','Modeled and sent'],['what','Word and sacrament, received','Word and sacrament'],['who','Every member, under officers','Every member'],['who','Officers','The elders']];
+function bfOn(a){ var ks=Object.keys(BF).filter(function(k){return BF[k];}); return ks.every(function(k){var kv=k.split('|'); return a[kv[0]]===kv[1];}); }
+function boardFilters(){
+  var on=Object.keys(BF).filter(function(k){return BF[k];}).length;
+  var n=ARGS.filter(bfOn).length;
+  return '<div class="controls" style="margin:0 0 12px;padding:0;border:none"><span class="lab">Show</span><button class="f" data-bf="" aria-pressed="'+(!on)+'">All</button>'+
+    BFILTERS.map(function(f){var k=f[0]+'|'+f[1]; return '<button class="f" data-bf="'+esc(k)+'" aria-pressed="'+(!!BF[k])+'">'+esc(f[2])+'</button>';}).join('')+
+    '<span class="lab" style="margin-left:6px">'+(on?n+' of '+ARGS.length+' shown':'All '+ARGS.length)+'</span></div>';
+}
+function applyBoardFilter(){
+  Array.prototype.forEach.call(document.querySelectorAll('#v-board [data-id]'),function(el){
+    var a=byId(el.getAttribute('data-id')); if(!a) return; el.classList.toggle('dim',!bfOn(a)); });
+}
+function board(){
+  var soft={'What Jesus did':1,'Prudence':1,'Evidence and history':1};
+  var meth=ARGS.filter(function(a){return a.bandIdx===-1;});
+  var cols='',acc='';
+  BANDS.forEach(function(b,i){
+    var list=ARGS.filter(function(a){return a.bandIdx===i;});
+    cols+='<div class="col'+(soft[b.h]?' soft':'')+'" style="--bc:var(--b'+i+')"><h4>'+esc(b.h)+' &middot; '+list.length+'</h4><p class="cs">'+esc(b.s)+'</p>'+list.map(function(a){return '<div class="bcard" data-id="'+esc(a.id)+'" data-v="'+esc(a.verdict)+'"><div class="cid">'+esc(a.id)+'</div><div class="cc">'+md(a.claim)+'</div></div>';}).join('')+'</div>';
+    acc+='<details class="col2"'+(i===0?' open':'')+' style="border-left:4px solid var(--b'+i+')"><summary><span>'+esc(b.h)+' <span class="k">&middot; '+list.length+'</span></span></summary><p class="cs">'+esc(b.s)+'</p><div class="cards">'+list.map(function(a){return '<button class="acard" data-id="'+esc(a.id)+'" data-v="'+esc(a.verdict)+'"><div class="top"><b>'+esc(a.id)+'</b><span>'+esc(rl(a.verdict))+'</span></div><div class="cl">'+md(a.claim)+'</div></button>';}).join('')+'</div></details>';
+  });
+  var other=ARGS.filter(function(a){return a.who==='Officers'||a.what==='Word and sacrament, received';}).length;
+  document.getElementById('v-board').innerHTML=
+    // a plain guide for a first-time reader (Jon's comment "the board won't make sense to a newcomer"; live v56, ported)
+    '<section class="guide"><h2 class="vh">How to read the board</h2><ol>'+
+      '<li><b>Each card is one argument.</b> Tap it to read the argument, the Scripture behind it, and the strongest reply against it.</li>'+
+      '<li><b>The groups sort arguments by the kind of ground they stand on</b> (columns on a computer, sections on a phone). First come what the words mean, what Scripture commands outright, and what we have vowed. Last: Jesus’ example, practical wisdom, and history. The later the group, the more you must already agree before it persuades.</li>'+
+      '<li><b>The colored edge on each card is the author’s own rating:</b> green firm, orange contested, gray open. It is a starting point, not a verdict.</li>'+
+      '<li><b>Start with the '+numWord(meth.length).toLowerCase()+' questions just below.</b> They are about how to read Scripture, and they come before any argument.</li>'+
+    '</ol></section>'+
+    '<section class="method"><h2>So we are not talking past each other</h2><p class="msub">'+numWord(meth.length)+' questions about how we read Scripture, worth settling before we open a single text. Tap one to read it.</p><div class="mcards">'+
+      meth.map(function(a){return '<button class="acard" data-id="'+esc(a.id)+'" data-v="'+esc(a.verdict)+'"><div class="top"><b>'+esc(a.id)+'</b><span>'+esc(rl(a.verdict))+'</span></div><div class="cl">'+md(a.claim)+'</div></button>';}).join('')+'</div></section>'+
+    '<h2 class="vh">Every argument on the table</h2>'+
+    '<p class="vsay">'+numWord(ARGS.length)+' arguments, each stated in its strongest form \u2014 including the '+numWord(other).toLowerCase()+' that argue for the other view.</p>'+
+    '<details class="lets" style="margin:0 0 14px"><summary>Two questions run through every argument</summary><p><b>What discipleship is</b> \u2014 the ordinary means received, or modeling, equipping and being sent \u2014 and <b>who does it</b>, whether the work stops with the ordained or runs to every member under their oversight. An elder can land on one side of one question without landing on that side of the other.</p></details>'+
+    boardFilters()+
+    '<div class="legend"><span>Author’s rating:</span><span><i class="sw" style="background:var(--strong)"></i>firm</span><span><i class="sw" style="background:var(--contested)"></i>contested</span><span><i class="sw" style="background:var(--undec)"></i>open</span><span><i class="sw" style="width:22px;height:0;border-top:3px dashed var(--b3);background:none"></i>dashed columns: persuade only the already-convinced</span></div>'+
+    '<details class="lets"><summary>What do the letters mean?</summary><p>They cross-reference the written index, which is grouped by subject rather than by type \u2014 so a letter tells you where an argument lives in the paper, not where it sits on this page. <b>A</b> how we read Scripture &middot; <b>B</b> Jesus\u2019 ministry &middot; <b>C</b> what discipleship is &middot; <b>D</b> who does it &middot; <b>E</b> models and structure &middot; <b>F</b> evidence &middot; <b>G</b> history.</p></details>'+
+    '<div class="scroller board-scroller" style="margin-top:14px"><div class="board">'+cols+'</div></div><div class="acc" style="margin-top:14px">'+acc+'</div>';
+  applyBoardFilter();
+}
+
+/* ---------- ask ---------- */
+var SAMPLE=null, turns=[], ctl=null, asking=false;
+function corpus(){
+  return ARGS.map(function(a){
+    return a.id+' \u2014 '+a.claim+'\n  Column: '+a.band+'. Author’s rating: '+(a.verdictFull||RWORD[a.verdict])+'. What it is: '+a.what+'. Who does it: '+a.who+'. Texts: '+(a.texts||'\u2014')+
+      '\n  Case: '+(a.caseCard||'')+'\n  Counter: '+(a.counterCard||'')+(a.risk?'\n  Limit: '+a.risk:'');
+  }).join('\n\n');
+}
+function instructions(){
+  return 'You are a reference assistant for a paper prepared for a Presbyterian (PCA) church session on what it means to make disciples. Answer ONLY from the arguments below. Rules: (1) Cite argument IDs in square brackets, e.g. [C4], whenever you draw on one. (2) When an argument has a counter, state it; do not present a contested point as settled. (3) Use a neutral, courteous voice addressed to any elder weighing the question. Never speak of opponents, sides to beat, or winning; the people reading this hold both views in good faith. (4) If the question is not covered by the arguments, say so plainly rather than inventing an answer. (5) Keep answers short: two to five sentences for simple questions, a short list for comparisons. Scripture quotations below are KJV.\n\n=== THE ARGUMENTS ===\n\n'+corpus();
+}
+function linkIds(text){
+  return esc(text).replace(/\[([A-G]\d+[a-z]?)\]/g,function(m,id){var a=byId(id); return a?'<button class="chip" data-id="'+id+'" data-v="'+esc(a.verdict)+'">'+id+'</button>':m;});
+}
+function renderMsgs(partial){
+  var h=turns.map(function(t){return '<div class="msg'+(t.role==='user'?' me':'')+'"><div class="who">'+(t.role==='user'?'You':'Answer')+'</div>'+paras2(t.content)+'</div>';}).join('');
+  if(partial!==undefined) h+='<div class="msg"><div class="who">Answer</div>'+paras2(partial||'Thinking\u2026')+'</div>';
+  document.getElementById('msgs').innerHTML=h; linkify(document.getElementById('msgs'));
+}
+function paras2(s){return String(s||'').split(/\n{2,}/).map(function(p){p=p.trim(); return p?'<p>'+linkIds(p).replace(/\n/g,'<br>')+'</p>':'';}).join('');}
+function copyFor(code){
+  return code==='not_granted'?'Asking is not available in this view.'
+       : code==='rate_limited'?'Too many questions at once. Wait a moment and try again.'
+       : code==='cancelled'?'' : 'Something went wrong. Try asking again.';
+}
+function askView(){
+  document.getElementById('v-ask').innerHTML='<h2 class="vh">Ask a question</h2><p class="vsay">Put a question to the material. Answers draw only on the arguments here, cite them by ID, and state the counter where there is one. Each question uses a little of your own Claude usage; the first one asks your permission.</p>'+
+    '<div class="starters" id="starters"></div><div class="msgs" id="msgs"></div>'+
+    '<div class="askrow"><textarea class="ask" id="askbox" rows="2" placeholder="Ask about any argument, text, or objection\u2026"></textarea><button class="go" id="askgo">Ask</button></div>'+
+    '<p class="asknote" id="asknote">Tap any argument ID in an answer to read it in full.</p>';
+  var st=(F.common_questions||[]).map(function(c){return c.q;});   // one list: the same questions are answered without AI in In brief
+  document.getElementById('starters').innerHTML=st.map(function(q){return '<button data-q="'+esc(q)+'">'+esc(q)+'</button>';}).join('');
+  document.getElementById('askgo').onclick=function(){ask(document.getElementById('askbox').value);};
+  document.getElementById('askbox').addEventListener('keydown',function(e){if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)){ask(this.value);}});
+}
+function setBusy(b){
+  asking=b; var g=document.getElementById('askgo'); if(!g)return;
+  g.textContent=b?'Stop':'Ask'; g.className=b?'go stop':'go';
+  g.onclick=b?function(){if(ctl)ctl.abort();}:function(){ask(document.getElementById('askbox').value);};
+}
+async function ask(q){
+  q=(q||'').trim(); if(!q||asking) return;
+  if(!SAMPLE){document.getElementById('asknote').textContent='Asking is not available in this view.'; return;}
+  turns.push({role:'user',content:q}); document.getElementById('askbox').value='';
+  renderMsgs(''); setBusy(true);
+  var input=[{role:'user',content:instructions()},{role:'assistant',content:'Understood. I will answer only from these arguments, cite IDs, and state counters.'}].concat(turns.slice(-8));
+  ctl=new AbortController();
+  try{
+    var r=await SAMPLE(input,{cache:false, signal:ctl.signal, onText:function(t){renderMsgs(t.text);}});
+    turns.push({role:'assistant',content:r.text+(r.truncated?'\n\n(Cut short \u2014 ask for less at a time.)':'')});
+    renderMsgs();
+  }catch(e){
+    if(e&&e.text){turns.push({role:'assistant',content:e.text});}
+    renderMsgs(); var n=copyFor(e&&e.code); if(n) document.getElementById('asknote').textContent=n;
+    if(e&&e.code==='not_granted'){SAMPLE=null; hideAsk();}
+  }finally{setBusy(false); ctl=null;}
+}
+function hideAsk(){
+  var b=document.querySelector('#tabs button[data-v="ask"]'); if(b) b.style.display='none';
+  var g=document.getElementById('goask'); if(g) g.style.display='none';
+}
+function initAsk(){
+  if(!(window.claude&&window.claude.use)){hideAsk();return;}
+  window.claude.use('sample').then(function(fn){ SAMPLE=fn; if(!fn) hideAsk(); }).catch(function(){hideAsk();});
+}
+
+/* ---------- how it fits ---------- */
+function fitsView(){
+  var dep=D.deps, R=dep.relations;
+  var h='<h2 class="vh">How it fits together</h2><p class="vsay">Which arguments rest on which. These links are authored, not detected \u2014 each one can be pointed to in the index. The chain below is the load-bearing path. After it: what each reading rule, method and kind of argument carries, the arguments not yet traced, and every link, grouped by kind.</p>';
+  h+='<h3 class="sh">'+esc(dep.spine.title)+'</h3><p class="hint">'+esc(dep.spine.note)+'</p><div class="spine">';
+  dep.spine.layers.forEach(function(L,i){
+    if(i) h+='<div class="arrow">\u2193</div>';
+    h+='<div class="layer"><p class="ll">'+esc(L.label)+'</p><div class="chips">'+L.ids.map(function(id){return chip(id);}).join('')+'</div></div>';
+  });
+  h+='</div>';
+  // Each premise with the arguments that rest on it, in What if's terms (falls when it alone is set
+  // aside), then those that fall only with another premise. Rules, kinds and the fixed premise apart.
+  var oq=dep.open_questions||[], qOf={}; oq.forEach(function(q){qOf[q.id]=q.q;});
+  [['rule','What each reading rule and method carries','Every argument that falls when this alone is set aside, directly or through an argument it rests on. The links themselves, each quoting the index, are under Every link below and on each sheet.'],
+   ['kind','What each kind of argument carries','The arguments of each kind, and any that rest on them.'],
+   ['fixed','Held fixed','Never set aside on What if; these arguments rest on it.']].forEach(function(g){
+    var ps=dep.premises.filter(function(p){return p.group===g[0];}); if(!ps.length) return;
+    h+='<h3 class="sh" style="margin-top:22px">'+esc(g[1])+'</h3><p class="hint">'+esc(g[2])+'</p>';
+    ps.forEach(function(p){
+      var mem=ARGS.filter(function(a){return (a.kinds||[]).indexOf(p.id)>=0;}).map(function(a){return a.id;});
+      var ids=ARGS.filter(function(a){return (a.restsOn||[]).indexOf(p.id)>=0;}).map(function(a){return a.id;});
+      var jt=ARGS.filter(function(a){return (a.restsJointly||[]).some(function(s){return s.indexOf(p.id)>=0;});}).map(function(a){return a.id;});
+      // what else falls when it alone is set aside: through a method a kind takes (resting on A4 falls
+      // with the Twelve kind), so this heading agrees with What if's count for the same box
+      var via=(D.falls[p.id]||[]).filter(function(i){return i!==p.id && mem.indexOf(i)<0 && ids.indexOf(i)<0;});
+      function n(k,one,many){ return k===1?one:k+' '+many; }
+      var head=mem.length?n(mem.length,'one argument of this kind','arguments of this kind')+(ids.length?'; '+n(ids.length,'one more rests on it','more rest on it'):'')
+              :ids.length?n(ids.length,'one argument rests on it','arguments rest on it')
+              :via.length?n(via.length,'one argument falls with it','arguments fall with it')
+              :jt.length?'no argument rests on it alone':'no argument is traced to it yet';
+      // "more" only after a count it adds to
+      if(via.length && (mem.length||ids.length)) head+='; '+n(via.length,'one more falls with it','more fall with it');
+      h+='<div class="relgroup"><h4>'+esc(p.name)+' \u2014 '+head+'</h4>'+
+        '<p class="hint">'+esc(p.say)+'</p><div class="chips">'+mem.concat(ids,via).map(function(id){return chip(id);}).join('')+'</div>'+
+        (jt.length?'<p class="hint">Falls only if another is set aside too: '+jt.map(function(id){return chip(id);}).join('')+'</p>':'')+
+        (qOf[p.id]?'<p class="why">Open question: '+esc(qOf[p.id])+'</p>':'')+'</div>';
+    });
+  });
+  var oqa=oq.filter(function(q){return byId(q.id);});
+  if(oqa.length){
+    h+='<h3 class="sh" style="margin-top:22px">Not yet traced \u2014 '+oqa.length+(oqa.length===1?' argument':' arguments')+'</h3><p class="hint">Arguments not yet traced to a rule, a method or a kind, each with the question the author has not yet settled. None is given a guessed link.</p>';
+    oqa.forEach(function(q){ h+='<div class="edge"><div class="pair">'+chip(q.id)+'</div><p class="why">'+esc(q.q)+'</p></div>'; });
+  }
+  h+='<h3 class="sh" style="margin-top:22px">Every link, by kind</h3>';
+  Object.keys(R).forEach(function(rel){
+    var es=dep.edges.filter(function(e){return e.rel===rel;}); if(!es.length) return;
+    h+='<div class="relgroup"><h4>'+(rel==='rests on rule'?esc(R[rel]):esc(rel)+' \u2014 '+esc(R[rel]))+' \u00b7 '+es.length+'</h4>'+es.map(function(e){
+      return '<div class="edge"><div class="pair">'+chip(e.from)+'<em>'+esc(relw(rel))+'</em>'+pchip(e.to)+'</div><p class="why">'+md(e.why)+'</p></div>';}).join('')+'</div>';
+  });
+  document.getElementById('v-fits').innerHTML=h; linkify(document.getElementById('v-fits'));   // Scripture in the quotes taps open, as on the sheet
+}
+
+/* ---------- scripture popovers ---------- */
+var SCR=D.scripture||{}, REFS=Object.keys(SCR).sort(function(a,b){return b.length-a.length;});
+var RX=REFS.length?new RegExp('\\b('+REFS.map(function(r){return r.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/\s+/g,'\\s+');}).join('|')+')(?![:0-9])','g'):null;
+function linkify(root){
+  if(!RX||!root||!document.createTreeWalker) return;
+  var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){return n.parentElement&&n.parentElement.closest('.ref,#pop,script,style,button,input,textarea')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT;}});
+  var todo=[],n; while((n=w.nextNode())){RX.lastIndex=0; if(RX.test(n.nodeValue)) todo.push(n);}
+  todo.forEach(function(t){
+    var frag=document.createDocumentFragment(),last=0,m; RX.lastIndex=0;
+    while((m=RX.exec(t.nodeValue))){
+      if(m.index>last) frag.appendChild(document.createTextNode(t.nodeValue.slice(last,m.index)));
+      var b=document.createElement('button'); b.className='ref'; b.type='button'; b.textContent=m[0]; b.setAttribute('data-ref',m[0].replace(/\s+/g,' '));
+      frag.appendChild(b); last=m.index+m[0].length;
+    }
+    if(last<t.nodeValue.length) frag.appendChild(document.createTextNode(t.nodeValue.slice(last)));
+    t.parentNode.replaceChild(frag,t);
+  });
+}
+function showRef(ref){
+  var txt=SCR[ref]; if(!txt) return;
+  var p=document.getElementById('pop'); p.innerHTML='<div class="pr">'+esc(ref)+' <span class="pk">KJV</span><button class="closeb" id="popclose">Close</button></div><p>'+esc(txt)+'</p>';
+  p.classList.add('on');
+}
+
+/* ---------- read ---------- */
+function fullBody(a){
+  var h='<div class="meta"><span class="tag v-'+esc(a.verdict)+'">'+'Author’s rating: '+esc(a.verdictFull||RWORD[a.verdict])+'</span>'+(a.texts?'<span class="tag">'+esc(a.texts)+'</span>':'')+'</div>';
+  a.sections.forEach(function(s){if(s.l&&/^Lands/.test(s.l))return; h+='<div class="sec">'+(s.l?'<h4>'+esc(s.l)+'</h4>':'')+paras(s.t)+'</div>';});
+  if(a.sup.length) h+='<div class="sec"><h4>Supports</h4><ul>'+a.sup.map(function(x){return '<li>'+md(x)+'</li>';}).join('')+'</ul></div>';
+  if(a.risk) h+='<div class="sec"><h4>Limits of this argument</h4>'+paras(a.risk)+'</div>';
+  return h;
+}
+/* ---------- the arguments: "Read the case" and "Every argument" merged (Jon, 2026-10-04) ---------- */
+var q='', sortBy='kind';
+function argsView(){
+  document.getElementById('v-args').innerHTML='<h2 class="vh">The arguments</h2><p class="vsay">All '+ARGS.length+'. Each line shows the claim; tap it to open the case, the counter and the limits. Tap again to close.</p>'+
+    '<div class="toolbar"><input class="search" id="q" type="search" placeholder="Search any word\u2026" aria-label="Search the arguments" value="'+esc(q)+'">'+
+    '<select class="sort" id="sort" aria-label="Order"><option value="kind">Grouped by kind</option><option value="id">By letter and number</option><option value="verdict">By the author\u2019s rating</option><option value="who">By who does it</option></select></div>'+
+    '<div class="rdtools"><button id="rdopen">Expand all</button><button id="rdclose">Collapse all</button></div>'+
+    '<p class="count" id="cnt"></p><div id="argslist"></div>';
+  drawArgs();
+  document.getElementById('q').oninput=function(){q=this.value; drawArgs();};
+  document.getElementById('sort').onchange=function(){sortBy=this.value; drawArgs();};
+  document.getElementById('sort').value=sortBy;
+  document.getElementById('rdopen').onclick=function(){Array.prototype.forEach.call(document.querySelectorAll('#v-args details.rd'),function(d){d.open=true;});};
+  document.getElementById('rdclose').onclick=function(){Array.prototype.forEach.call(document.querySelectorAll('#v-args details.rd'),function(d){d.open=false;});};
+}
+function row(a){
+  return '<details class="rd" data-v="'+esc(a.verdict)+'" id="e-'+esc(a.id)+'"><summary><span class="rid">'+esc(a.id)+'</span><span class="rcl">'+md(a.claim)+'<span class="rb">'+esc(a.band)+' &middot; '+esc(rl(a.verdict))+'</span></span></summary><div class="rbody">'+fullBody(a)+'</div></details>';
+}
+function drawArgs(){
+  var s=q.toLowerCase();
+  var rows=ARGS.filter(function(a){ if(!s)return true; return (a.id+' '+a.claim+' '+a.band+' '+a.verdictFull+' '+a.what+' '+a.who+' '+a.texts+' '+a.sections.map(function(x){return x.t;}).join(' ')).toLowerCase().indexOf(s)>=0;});
+  var h='';
+  if(sortBy==='kind'){
+    var groups=[{h:'Method \u2014 how we read, before anything is argued',ids:rows.filter(function(a){return a.bandIdx===-1;})}];
+    BANDS.forEach(function(b,i){groups.push({h:b.h,s:b.s,ids:rows.filter(function(a){return a.bandIdx===i;})});});
+    groups.forEach(function(g){
+      if(!g.ids.length) return;
+      h+='<h3 class="sh">'+esc(g.h)+' &middot; '+g.ids.length+'</h3>'+(g.s?'<p class="hint">'+esc(g.s)+'</p>':'');
+      g.ids.forEach(function(a){h+=row(a);});
+    });
+    if(!s&&D.prefaces.length){ h+='<h3 class="sh">Notes</h3>'; D.prefaces.forEach(function(p){h+='<details class="rd"><summary><span class="rcl">'+md(p.head)+'</span></summary><div class="rbody">'+paras(p.body)+'</div></details>';}); }
+  } else {
+    var vo={Strong:0,Contested:1,Undecidable:2};
+    rows=rows.slice().sort(function(x,y){ if(sortBy==='verdict') return (vo[x.verdict]-vo[y.verdict])||x.id.localeCompare(y.id); return String(x[sortBy]).localeCompare(String(y[sortBy]))||x.id.localeCompare(y.id);});
+    rows.forEach(function(a){h+=row(a);});
+  }
+  document.getElementById('cnt').textContent=(s?rows.length+' of '+ARGS.length+' match':'All '+ARGS.length);
+  var el=document.getElementById('argslist'); el.innerHTML=h||'<p class="vsay">Nothing matches that word.</p>'; linkify(el);
+}
+
+/* ---------- source ---------- */
+function cqIds(c){
+  if(c.computed==='not_firm') return ARGS.filter(function(a){return a.verdict!=='Strong';}).map(function(a){return a.id;});
+  if(c.computed==='survives') return ARGS.filter(function(a){return a.survives==='Yes';}).map(function(a){return a.id;});
+  return c.ids||[];
+}
+function sourceView(){
+  var s=D.stats, M=D.method;
+  var h='<h2 class="vh">Sources and method</h2>';
+  if(F.author) h+='<p class="body">By '+esc(F.author)+', '+esc(F.credit)+'.</p>';
+  h+='<p class="body">'+esc(F.purpose)+'</p>';
+  h+='<h3 class="sh">The two questions</h3><p class="body">Every argument here bears on one, both or neither: <b>what discipleship is</b> — the ordinary means received, or being modeled, equipped and sent — and <b>who does it</b>, whether the work rests with the ordained or runs to every member under their oversight.</p>';
+  h+='<h3 class="sh">How Scripture is read here</h3><p class="body">The reading rules, stated before any text is argued:</p><ol class="rules">'+M.rules.map(function(r){return '<li>'+md(r)+'</li>';}).join('')+'</ol><div class="chips"><span class="sans" style="font-size:15px;color:var(--soft);align-self:center">In full:</span>'+chip(M.rulesFrom)+'</div>';
+  h+='<p class="body" style="margin-top:18px">'+numWord(M.bins.length)+' categories for anything observed in Scripture, applied before deciding what binds:</p><ol class="rules">'+M.bins.map(function(r){return '<li>'+md(r)+'</li>';}).join('')+'</ol><div class="chips"><span class="sans" style="font-size:15px;color:var(--soft);align-self:center">In full:</span>'+chip(M.binsFrom)+'</div>';
+  h+='<h3 class="sh">The author’s ratings</h3><p class="body">'+esc(F.ratings_note)+' The count: '+esc(Object.keys(s.verdicts).map(function(k){return (RWORD[k]||k)+' '+s.verdicts[k];}).join(', '))+'.</p>';
+  h+='<h3 class="sh">Sources cited</h3><ul class="srcs">'+(F.sources||[]).map(function(x){return '<li>'+esc(x.cite)+'</li>';}).join('')+'</ul>';
+  if(F.secondhand&&F.secondhand.length) h+='<h3 class="sh">Known secondhand</h3><ul class="srcs">'+F.secondhand.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';
+  if(F.paper_note) h+='<p class="body">'+esc(F.paper_note)+'</p>';
+  h+='<h3 class="sh">How it is kept honest</h3><p class="body">Every view on this page is generated from one file, built from the written index of '+s.n+' arguments ('+s.prose.toLocaleString()+' characters of prose, checked identical to the index). None is maintained by hand. Before any release a gate rebuilds the page and checks it: every argument rated, no count typed by hand, and no wording that sets one reader against another.</p>'+
+    '<h3 class="sh">What the labels mean</h3><dl class="kv"><dt>Column</dt><dd>What kind of argument it is. The columns group arguments by the ground they stand on: Grammar and lexicon, Precept, Confession and standards, What Jesus did, Prudence, and Evidence and history. A1–A5 are Method: they decide what counts as an answer.</dd><dt>Author’s rating</dt><dd>Firm, contested or open — the author’s own judgment, assigned when the argument was written.</dd><dt>What it is</dt><dd>Which answer the argument supports on the nature of discipleship.</dd><dt>Who does it</dt><dd>Which answer it supports on responsibility. A dash means silent, not neutral.</dd><dt>Holds without Jesus’ example</dt><dd>Whether the argument still holds without relying on Jesus’ example to bind: yes, partly or no. These are the author’s tags; a dash means the argument is not tagged.</dd></dl>';
+  document.getElementById('v-source').innerHTML=h; linkify(document.getElementById('v-source'));
+}
+
+/* ---------- number words ---------- */
+function numWord(n){var w=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'],t=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+  if(n<20)return w[n]; return t[Math.floor(n/10)]+(n%10?'-'+w[n%10].toLowerCase():'');}
+function setMoved(){
+  var el=document.getElementById('moved'); if(!el||!F.permanent_url) return;
+  if(location.href.indexOf(F.permanent_url)===0) return;   // already at the permanent home
+  el.innerHTML='This page now lives at <a href="'+esc(F.permanent_url)+'">'+esc(F.permanent_url)+'</a>. Please use that link; this one will not be updated.';
+  el.style.display='block';
+}
+/* ---------- tabs ---------- */
+var VIEWS=[['start','Start'],['board','The board'],['brief','In brief'],['args','The arguments'],['axes','Where it’s contested'],['rests','What if'],['ask','Ask'],['fits','How it fits'],['source','Sources and method'],['how','How this page works',true]];
+// a third entry of true: a view with no tab (opened from Start only)
+function tabs(){document.getElementById('tabs').innerHTML=VIEWS.filter(function(v){return !v[2];}).map(function(v,i){return '<button role="tab" data-v="'+v[0]+'" aria-selected="'+(i===0)+'">'+esc(v[1])+'</button>';}).join('');}
+function hashView(){var h=String((location&&location.hash)||'').replace(/^#/,''); return document.getElementById('v-'+h)?h:'';}
+// Start has no tab strip (body.home hides it); every other view shows the strip with Start first.
+// Each move is a history entry, so a phone's back button returns to the previous view.
+function select(name,fromHistory){
+  if(!document.getElementById('v-'+name)) name='start';
+  VIEWS.forEach(function(v){document.getElementById('v-'+v[0]).classList.toggle('on',v[0]===name);});
+  if(document.body){ document.body.classList.toggle('home',name==='start'); document.body.setAttribute('data-view',name); }
+  Array.prototype.forEach.call(document.querySelectorAll('#tabs button'),function(b){var sel=b.getAttribute('data-v')===name; b.setAttribute('aria-selected',String(sel)); if(sel&&b.scrollIntoView) b.scrollIntoView({inline:'center',block:'nearest'});});
+  if(!fromHistory){ try{ if(window.history&&window.history.pushState&&location.hash!=='#'+name) window.history.pushState(null,'','#'+name); }catch(err){} }
+  navHeight();
+  window.scrollTo(0,0);
+}
+if(window.addEventListener) window.addEventListener('popstate',function(){select(hashView()||'start',true);});
+document.addEventListener('click',function(e){
+  var hm=e.target.closest?e.target.closest('#home'):null; if(hm){if(e.preventDefault)e.preventDefault(); select('start');return;}
+  var t=e.target.closest?e.target.closest('#tabs button'):null; if(t){select(t.getAttribute('data-v'));return;}
+  var g=e.target.closest?e.target.closest('[data-go]'):null; if(g){select(g.getAttribute('data-go'));return;}
+  if(e.target.id==='dclose'||e.target.id==='scrim'){hide();return;}
+  if(e.target.id==='popclose'){document.getElementById('pop').classList.remove('on');return;}
+  var rf=e.target.closest?e.target.closest('.ref'):null; if(rf){showRef(rf.getAttribute('data-ref'));return;}
+  var bf=e.target.closest?e.target.closest('[data-bf]'):null;
+  if(bf){var k=bf.getAttribute('data-bf'); if(!k){BF={};} else {BF[k]=!BF[k];}
+    var old=document.querySelector('#v-board .controls'); if(old){var tmp=document.createElement('div'); tmp.innerHTML=boardFilters(); old.replaceWith(tmp.firstChild);} applyBoardFilter(); return;}
+  var sq=e.target.closest?e.target.closest('#starters button'):null; if(sq){ask(sq.getAttribute('data-q'));return;}
+  var c=e.target.closest?e.target.closest('[data-id]'):null;
+  if(c&&c.tagName!=='A'){show(c.getAttribute('data-id'));return;}
+});
+document.addEventListener('change',function(e){var cb=e.target.closest?e.target.closest('input[data-c]'):null; if(!cb)return; on[cb.getAttribute('data-c')]=cb.checked; scoreboard();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){hide(); document.getElementById('pop').classList.remove('on');}});
+
+tabs(); home(); brief(); argsView(); axes(); rests(); askView(); fitsView(); board(); sourceView(); howView(); select(hashView()||'start',true); initAsk(); setMoved();
+document.getElementById('foot').innerHTML=ARGS.length+' positions \u00b7 one source.<br>Generated from master.json \u2014 this page is not hand-maintained.';
+})();
+</script>
+</body>
+</html>

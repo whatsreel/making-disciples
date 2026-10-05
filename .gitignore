@@ -1,0 +1,13 @@
+outputs/
+work/
+site/
+*.pyc
+__pycache__/
+
+# gate: receipts regenerate every run; review receipts must never be tracked (forgeable)
+verify/.receipt.json
+verify/.reviews/
+# marks a machine that has the private notes (session paper); see pipeline/paper.py
+.notes-expected
+# a Claude Code session's machine-local settings: absolute paths that name private folders
+.claude/

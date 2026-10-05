@@ -1,0 +1,472 @@
+{
+  "_note": "Authored, not text-mined. Each edge is a structural relation that can be pointed to in the index: its 'why' is a verbatim quote from the entry of one of its two ends (gate check 80). Relations: 'rests on' (weight depends on), 'rests on rule' (rests on a reading rule or method premise), 'licenses' (opens the category), 'repairs' (fixes a weakness in), 'bounds' (limits how far it may be pushed), 'answers' (responds to an argument for the other view), 'supports' (adds weight to). If a premise is set aside: 'rests on' and 'rests on rule' fall if ANY target falls; 'licenses' falls only if ALL licensors fall; the others never carry a fall. Every id is validated against master.json at build time. An argument not traced to a premise is listed in open_questions with the question it raises, never given a guessed edge.",
+  "relations": {
+    "rests on": "draws its weight from",
+    "rests on rule": "rests on a reading rule or method",
+    "licenses": "opens the door for",
+    "repairs": "fixes a weakness in",
+    "bounds": "limits how far this may be pushed",
+    "answers": "responds to",
+    "supports": "adds weight to"
+  },
+  "edges": [
+    {
+      "from": "A5",
+      "rel": "licenses",
+      "to": "B1",
+      "why": "It establishes something narrower and prior: that the blanket move is closed."
+    },
+    {
+      "from": "A4",
+      "rel": "licenses",
+      "to": "B2",
+      "why": "What A4 removes is only the blanket objection"
+    },
+    {
+      "from": "A2",
+      "rel": "licenses",
+      "to": "B2",
+      "why": "A narrative element carries normative weight when at least one holds"
+    },
+    {
+      "from": "C1",
+      "rel": "licenses",
+      "to": "C1a",
+      "why": "These six entries say what that meaning contained."
+    },
+    {
+      "from": "C1c",
+      "rel": "rests on",
+      "to": "C10",
+      "why": "But the weight here is carried by C10, which makes the grammatical case at length."
+    },
+    {
+      "from": "C3",
+      "rel": "rests on",
+      "to": "C1",
+      "why": "The word carries three years of meaning before the Great Commission uses it"
+    },
+    {
+      "from": "C5",
+      "rel": "rests on",
+      "to": "C1",
+      "why": "The argument rests on what the word means, not on proof texts against attendance"
+    },
+    {
+      "from": "D5",
+      "rel": "repairs",
+      "to": "C1f",
+      "why": "where the Acts 13 sending turned out to commission apostles rather than ordinary members"
+    },
+    {
+      "from": "D6",
+      "rel": "repairs",
+      "to": "C1f",
+      "why": "The same three-link chain, to a group that was not the apostolic band."
+    },
+    {
+      "from": "C12",
+      "rel": "repairs",
+      "to": "C1b",
+      "why": "These texts move the same claim into Precept."
+    },
+    {
+      "from": "C12",
+      "rel": "rests on rule",
+      "to": "A5",
+      "why": "the imitation of people rests on the prior imitation of Christ, and cannot be separated from it"
+    },
+    {
+      "from": "C13",
+      "rel": "bounds",
+      "to": "E3",
+      "why": "We have been arguing against inner rings on grounds of wisdom."
+    },
+    {
+      "from": "C6",
+      "rel": "bounds",
+      "to": "E1",
+      "why": "No initiative may be framed as sorting real Christians from nominal ones."
+    },
+    {
+      "from": "C6",
+      "rel": "bounds",
+      "to": "C1d",
+      "why": "the cost is the fruit of grace, never its price"
+    },
+    {
+      "from": "C15",
+      "rel": "rests on rule",
+      "to": "A4",
+      "why": "The text says it to Peter. Bruce argues it holds of all"
+    },
+    {
+      "from": "C18",
+      "rel": "supports",
+      "to": "C4",
+      "why": "The sending is preceded by praying for sending."
+    },
+    {
+      "from": "C17",
+      "rel": "bounds",
+      "to": "C2",
+      "why": "That is a two-item list, and it is one item short of the catechism it appeals to."
+    },
+    {
+      "from": "C16",
+      "rel": "answers",
+      "to": "D1",
+      "why": "The baseline is every member."
+    },
+    {
+      "from": "C16",
+      "rel": "answers",
+      "to": "G1",
+      "why": "Our own polity requires elders to visit the people in their homes (BCO 8-3)."
+    },
+    {
+      "from": "D4",
+      "rel": "rests on",
+      "to": "C16",
+      "why": "The confession names discipline among Christ's ordinances, and our polity provides for it."
+    },
+    {
+      "from": "E2",
+      "rel": "rests on",
+      "to": "C1",
+      "why": "If C1 is right — that \"make disciples\" carries the content the Gospels spent three years loading into the term — then obedience requires delivering that content"
+    },
+    {
+      "from": "D5",
+      "rel": "repairs",
+      "to": "D3",
+      "why": "This carries what 2 Timothy 2:2 is usually made to carry and cannot"
+    },
+    {
+      "from": "C19",
+      "rel": "repairs",
+      "to": "C1a",
+      "why": "The objection would be decisive if the New Testament left the six with Jesus. It does not."
+    },
+    {
+      "from": "C19",
+      "rel": "rests on",
+      "to": "C12",
+      "why": "The human discipler is not a substitute for Christ's example."
+    },
+    {
+      "from": "A3",
+      "rel": "rests on rule",
+      "to": "A2",
+      "why": "Applying that rule yields three categories, not two."
+    },
+    {
+      "from": "C1",
+      "rel": "rests on rule",
+      "to": "rule-2",
+      "why": "Seventy uses by one author, followed by that author deploying the term in a command without definition, is as strong a *usus loquendi* case as the New Testament offers."
+    },
+    {
+      "from": "C1a",
+      "rel": "rests on rule",
+      "to": "rule-2",
+      "why": "Matthew first, per rule 2"
+    },
+    {
+      "from": "C1b",
+      "rel": "rests on rule",
+      "to": "rule-4",
+      "why": "Paul describes his own ministry in the same terms, which is what lifts this off the narrative and onto firmer ground"
+    },
+    {
+      "from": "C1d",
+      "rel": "rests on rule",
+      "to": "rule-3",
+      "why": "Luke 14:25–33 is addressed to great multitudes, and it thinned them."
+    },
+    {
+      "from": "C1e",
+      "rel": "rests on rule",
+      "to": "rule-4",
+      "why": "Correction and restoration are one motion in the Gospels, and the epistles command both to the church"
+    },
+    {
+      "from": "C1f",
+      "rel": "rests on rule",
+      "to": "A2",
+      "why": "For that, the better texts are Acts 8:4, where the scattered believers and explicitly not the apostles preach as they go, and Acts 18:26, where two tentmakers instruct a preacher."
+    },
+    {
+      "from": "C6",
+      "rel": "rests on rule",
+      "to": "rule-2",
+      "why": "It is the ordinary word for a member."
+    },
+    {
+      "from": "C10",
+      "rel": "rests on rule",
+      "to": "rule-1",
+      "why": "The object of the Commission's teaching is not the body of instruction Jesus delivered; it is the set of commands he issued."
+    },
+    {
+      "from": "C11",
+      "rel": "rests on rule",
+      "to": "rule-2",
+      "why": "in Matthew specifically, every other instance of the aorist participle of \"go\" before a main verb is clearly attendant circumstance"
+    },
+    {
+      "from": "C12",
+      "rel": "rests on rule",
+      "to": "rule-1",
+      "why": "where the verb is *skopeite*, to observe closely"
+    },
+    {
+      "from": "C13",
+      "rel": "rests on rule",
+      "to": "rule-3",
+      "why": "Paul's *every man, every man, every man* is aimed at exactly that."
+    },
+    {
+      "from": "C14",
+      "rel": "rests on rule",
+      "to": "rule-1",
+      "why": "*Hena hekaston*: each one individually."
+    },
+    {
+      "from": "D5",
+      "rel": "rests on rule",
+      "to": "A2",
+      "why": "The third is performed by a young congregation of ordinary believers"
+    },
+    {
+      "from": "D6",
+      "rel": "rests on rule",
+      "to": "rule-1",
+      "why": "*Heterous*: expressly a different group, anonymous, far larger, holding no continuing office and listed nowhere."
+    },
+    {
+      "from": "D2",
+      "rel": "rests on rule",
+      "to": "rule-1",
+      "why": "The reading turns on grammar, and the grammar is disputed on two points."
+    },
+    {
+      "from": "D3",
+      "rel": "rests on rule",
+      "to": "rule-3",
+      "why": "The context is ordination and church order (1:6; 1 Tim 3; Titus 1:5)."
+    }
+  ],
+  "spine": {
+    "title": "The main chain",
+    "note": "The argument's load-bearing path, in the order to read it, top to bottom. The rows are a reading order, not links: which argument rests on which is shown below, and on each argument's sheet.",
+    "layers": [
+      {
+        "label": "Method: may we read the Gospels for pattern at all?",
+        "ids": [
+          "A5",
+          "A4",
+          "A2"
+        ]
+      },
+      {
+        "label": "Sorting: which parts bind?",
+        "ids": [
+          "B2"
+        ]
+      },
+      {
+        "label": "Definition: Matthew has already told us what the word means",
+        "ids": [
+          "C10",
+          "C1"
+        ]
+      },
+      {
+        "label": "The six things a disciple received",
+        "ids": [
+          "C1a",
+          "C1b",
+          "C1c",
+          "C1d",
+          "C1e",
+          "C1f"
+        ]
+      },
+      {
+        "label": "Moved into precept, so they hold without the Gospels",
+        "ids": [
+          "C19",
+          "C12",
+          "C13"
+        ]
+      },
+      {
+        "label": "Not apostles-only: congregations and the seventy",
+        "ids": [
+          "D5",
+          "D6"
+        ]
+      },
+      {
+        "label": "Our own standards say the same",
+        "ids": [
+          "C16",
+          "C17"
+        ]
+      },
+      {
+        "label": "What follows: prayer, mission, equipping",
+        "ids": [
+          "C18",
+          "C4",
+          "D4"
+        ]
+      }
+    ]
+  },
+  "premises": [
+    {
+      "id": "rule-1",
+      "group": "rule",
+      "from": "A1",
+      "name": "Rule 1: grammatical-historical",
+      "say": "what the author meant his first readers to understand",
+      "anchor": "Grammatical-historical"
+    },
+    {
+      "id": "rule-2",
+      "group": "rule",
+      "from": "A1",
+      "name": "Rule 2: established usage",
+      "say": "a word means what the author's own repeated use of it means",
+      "anchor": "Usus loquendi"
+    },
+    {
+      "id": "rule-3",
+      "group": "rule",
+      "from": "A1",
+      "name": "Rule 3: context",
+      "say": "the passage, the book and the canon decide the meaning",
+      "anchor": "Context determines meaning"
+    },
+    {
+      "id": "rule-4",
+      "group": "rule",
+      "from": "A1",
+      "name": "Rule 4: Scripture interprets Scripture",
+      "say": "the letters help us read the narratives (WCF 1.9)",
+      "anchor": "Scripture interprets Scripture"
+    },
+    {
+      "id": "rule-5",
+      "group": "rule",
+      "from": "A1",
+      "name": "Rule 5: good and necessary consequence",
+      "say": "a duty may be deduced, not only read off a command (WCF 1.6)",
+      "anchor": "Good and necessary consequence"
+    },
+    {
+      "id": "A2",
+      "group": "rule",
+      "from": "A2",
+      "name": "The narrative rule (A2)",
+      "say": "a narrative binds only where Scripture commends it, commands it, repeats it, or grounds it"
+    },
+    {
+      "id": "A4",
+      "group": "rule",
+      "from": "A4",
+      "name": "Christ extends to later believers (A4)",
+      "say": "something passes from the Twelve to the church (John 17:20)"
+    },
+    {
+      "id": "A5",
+      "group": "fixed",
+      "from": "A5",
+      "name": "Christ's example commanded (A5)",
+      "say": "Scripture commands conformity to Christ (1 Pet 2:21; 1 John 2:6); held fixed, never set aside here"
+    },
+    {
+      "id": "kind-twelve",
+      "group": "kind",
+      "name": "Jesus' training of the Twelve as a pattern for a congregation",
+      "say": "every argument the author tags as needing Jesus' example to bind; those that only partly need it stay standing, and each sheet says which",
+      "members": {
+        "field": "survives",
+        "value": "No"
+      },
+      "partly": {
+        "field": "survives",
+        "value": "Partly",
+        "say": "Still standing, but only partly without Jesus’ example:"
+      }
+    },
+    {
+      "id": "kind-wisdom",
+      "group": "kind",
+      "name": "Arguments from wisdom",
+      "say": "commended, not commanded",
+      "members": {
+        "field": "band",
+        "value": "Prudence"
+      }
+    },
+    {
+      "id": "kind-evidence",
+      "group": "kind",
+      "name": "Evidence and history",
+      "say": "surveys, results and church history",
+      "members": {
+        "field": "band",
+        "value": "Evidence and history"
+      }
+    }
+  ],
+  "open_questions": [
+    {
+      "id": "C8",
+      "q": "C8's case draws on the daily meeting of Acts 2:46 (narrative), and its rejoinder says Heb 3:13, a precept, \"survives untouched.\" Does C8 fall if the narrative rule (A2) is set aside, or does its Heb 3:13 half stand on rule 1?"
+    },
+    {
+      "id": "C18",
+      "q": "C18 argues from how Jesus and the apostles formed people by prayer (narrative), and says its precept weight is carried by Acts 6:4 and Matt 9:38. Does it fall with the narrative rule (A2), or does the precept half stand on its own?"
+    },
+    {
+      "id": "C4",
+      "q": "C4's case draws on the sending of the seventy-two (Luke 10, narrative), and its rejoinder rests reproduction on Acts 8:4 and 18:26 and on two letters (2 Tim 2:2; Titus 2:3–5). Does C4 fall if the narrative rule (A2) is set aside, or does its precept half stand on its own?"
+    },
+    {
+      "id": "C2",
+      "q": "C2 argues from the confessional standards. Does it rest on one of the five reading rules, or should \"our standards\" be a premise of its own?"
+    },
+    {
+      "id": "C9",
+      "q": "C9 reads baptism through WCF 27.2 and 28.1. A reading rule, or the standards as their own premise?"
+    },
+    {
+      "id": "C16",
+      "q": "C16 reads BCO 8-3 closely. The five rules are for Scripture; is the Book of Church Order a premise of its own?"
+    },
+    {
+      "id": "C17",
+      "q": "C17 counts the means of grace in WSC 88. Same question: the standards as a premise of their own?"
+    },
+    {
+      "id": "C7",
+      "q": "C7 builds its definition of maturity from Col 1:28, Eph 4:13–16 and Heb 5:14. Rule 4 (Scripture interprets Scripture), or rule 1 read text by text?"
+    },
+    {
+      "id": "D1",
+      "q": "D1 (disciple-making reserved to officers) reads the shepherd texts plainly. Which rule does it rest on, if any one more than the others?"
+    },
+    {
+      "id": "D4",
+      "q": "D4 rests on C16 (our polity) and on Deut 6 and Eph 6:4 as commands. If C16 is answered by \"the standards\", is D4 traced through it, or does it need a rule of its own?"
+    },
+    {
+      "id": "rule-5",
+      "q": "No entry names rule 5 (good and necessary consequence) in its own words; the index states it in A1 and A5. B1 and B2 draw duties from what Jesus did, which is that rule’s work. Do they rest on it?"
+    }
+  ]
+}
