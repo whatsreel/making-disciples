@@ -416,7 +416,15 @@ function byId(id){for(var i=0;i<ARGS.length;i++) if(ARGS[i].id===id) return ARGS
 function cnt(k,v){return ARGS.filter(function(a){return a[k]===v;}).length;}
 // verdict keys stay Strong/Contested/Undecidable (CSS, sort, filters); readers see these words (Jon, 2026-10-04)
 var RWORD={Strong:'firm',Contested:'contested',Undecidable:'open'};
-function rl(v){return 'rated '+(RWORD[v]||v);}
+// an other-view argument's rating is the author's answer to it, not the claim on the card (Jon's "Firm?" threads, 2026-10-05)
+var ALT={}; ((F.alternative&&F.alternative.ids)||[]).forEach(function(id){ALT[id]=1;});
+function rl(v,id){return (ALT[id]?'author’s answer rated ':'rated ')+(RWORD[v]||v);}
+// the index's rating section keeps its reasoning; on an other-view argument its heading says whose answer it rates
+function ans(f){return 'The author’s answer to it: '+f.replace(/^(firm|contested|open)\b/i,function(w){return w.toLowerCase();});}   // one wording for tag and heading
+function secl(a,l){var m=/^Author['’]s rating:\s*/.exec(l); return (m&&ALT[a.id])?ans(l.slice(m[0].length)):l;}
+// the full rating, as the sheet, the chat corpus and In brief show it (one wording, so they cannot drift)
+function rfull(a){var f=String(a.verdictFull||RWORD[a.verdict]||a.verdict||'');   // never throws: corpus() and show() run it for every argument
+  return ALT[a.id]?ans(f):'Author’s rating: '+f;}
 function chip(id,extra){var a=byId(id); if(!a)return''; return '<button class="chip'+(extra||'')+'" data-id="'+esc(id)+'" data-v="'+esc(a.verdict)+'" title="'+esc(a.claim)+'">'+esc(id)+'</button>';}
 
 /* ---------- detail sheet ---------- */
@@ -443,11 +451,11 @@ function show(id){
   // "Use" (Lead / Support / ...) stays in the data for the Key arguments filter; shown, it read as presenter tactics (tone list item 2)
   var h='<div class="eid">'+esc(a.band)+'</div>'+
     '<h3 style="font-size:22px;font-weight:600;line-height:1.3;margin:0 0 10px">'+md(a.claim)+'</h3><div class="meta">'+
-    '<span class="tag v-'+esc(a.verdict)+'">'+'Author’s rating: '+esc(a.verdictFull||RWORD[a.verdict])+'</span>'+
+    '<span class="tag v-'+esc(a.verdict)+'">'+esc(rfull(a))+'</span>'+
     '<span class="tag">What it is: '+esc(a.what)+'</span><span class="tag">Who does it: '+esc(a.who)+'</span>'+
     '<span class="tag">Holds without Jesus\u2019 example: '+esc(a.survives)+'</span>'+(a.texts?'<span class="tag">'+esc(a.texts)+'</span>':'')+'</div>'+
     restsLine(a);
-  a.sections.forEach(function(s){ if(s.l&&/^Lands/.test(s.l)) return; h+='<div class="sec">'+(s.l?'<h4>'+esc(s.l)+'</h4>':'')+paras(s.t)+'</div>';});
+  a.sections.forEach(function(s){ if(s.l&&/^Lands/.test(s.l)) return; h+='<div class="sec">'+(s.l?'<h4>'+esc(secl(a,s.l))+'</h4>':'')+paras(s.t)+'</div>';});
   if(a.sup.length) h+='<div class="sec"><h4>Supports</h4><ul>'+a.sup.map(function(x){return '<li>'+md(x)+'</li>';}).join('')+'</ul></div>';
   if(a.risk) h+='<div class="sec"><h4>Limits of this argument</h4>'+paras(a.risk)+'</div>';
   if(a.up&&a.up.length){ h+='<div class="dep"><h4>This argument</h4>'+a.up.map(function(u){return '<div class="row"><span class="w"><em>'+esc(relw(u.rel))+'</em></span>'+pchip(u.id)+'<span class="w">\u2014 '+md(u.why)+'</span></div>';}).join('')+'</div>'; }
@@ -493,7 +501,7 @@ function brief(){
       '<p class="line">'+esc(c.line)+'</p>'+
       '<div class="verse">'+esc(c.verse)+'<span class="ref">'+esc(c.ref)+'</span></div>'+
       '<p class="ev">'+esc(c.evidence)+'</p>'+
-      '<button class="lead" data-id="'+esc(c.lead)+'"><span class="lt">Key argument &middot; '+esc(c.lead)+' &middot; '+esc(rl(c.leadVerdict))+'</span><span class="lc">'+md(c.leadClaim)+'</span></button>'+
+      '<button class="lead" data-id="'+esc(c.lead)+'"><span class="lt">Key argument &middot; '+esc(c.lead)+' &middot; '+esc(rl(c.leadVerdict,c.lead))+'</span><span class="lc">'+md(c.leadClaim)+'</span></button>'+
       '<div class="also"><span class="lbl">Also</span>'+c.also.map(function(id){return chip(id);}).join('')+
       (c.avoid&&c.avoid.length?'<span class="lbl" style="margin-left:6px">Rated contested &mdash; read before citing</span>'+c.avoid.map(function(id){return chip(id,' avoid');}).join(''):'')+
       '</div></div>';
@@ -502,10 +510,10 @@ function brief(){
   if(F.alternative){
     // the rating on an other-view argument rates the author's answer to it, not the claim shown (live v58, ported)
     h+='<h3 class="sh">'+esc(F.alternative.heading)+'</h3><p class="vsay">'+esc(F.alternative.line)+' The rating under each is the author’s rating of his answer to it, not of the argument itself.</p><div class="three">'+
-      F.alternative.ids.map(function(id){var a=byId(id); return '<button class="item" data-id="'+esc(id)+'"><span class="id">'+esc(id)+'</span><span class="c">'+md(a.claim)+'<span class="b">'+esc(a.band)+' &middot; The author’s answer to it: '+esc(a.verdictFull.replace(/^(firm|contested|open)\b/i,function(w){return w.toLowerCase();}))+'</span></span></button>';}).join('')+'</div>';
+      F.alternative.ids.map(function(id){var a=byId(id); return '<button class="item" data-id="'+esc(id)+'"><span class="id">'+esc(id)+'</span><span class="c">'+md(a.claim)+'<span class="b">'+esc(a.band)+' &middot; '+esc(rfull(a))+'</span></span></button>';}).join('')+'</div>';
   }
   h+='<h3 class="sh">If you read only three</h3><p class="vsay">'+esc(F.read_three_why)+'</p><div class="three">'+
-    F.read_three_items.map(function(r){return '<button class="item" data-id="'+esc(r.id)+'"><span class="id">'+esc(r.id)+'</span><span class="c">'+md(r.claim)+'<span class="b">'+esc(r.band)+' &middot; '+esc(rl(r.verdict))+'</span></span></button>';}).join('')+'</div>';
+    F.read_three_items.map(function(r){return '<button class="item" data-id="'+esc(r.id)+'"><span class="id">'+esc(r.id)+'</span><span class="c">'+md(r.claim)+'<span class="b">'+esc(r.band)+' &middot; '+esc(rl(r.verdict,r.id))+'</span></span></button>';}).join('')+'</div>';
   h+='<h3 class="sh">How strong is the case?</h3>'+axesBars(true);
   if(F.common_questions&&F.common_questions.length){   // moved here from Sources and method (Jon's comment; live v57, ported)
     h+='<h3 class="sh">Common questions</h3>'+F.common_questions.map(function(c){var ids=cqIds(c);
@@ -672,7 +680,7 @@ function board(){
   BANDS.forEach(function(b,i){
     var list=ARGS.filter(function(a){return a.bandIdx===i;});
     cols+='<div class="col'+(soft[b.h]?' soft':'')+'" style="--bc:var(--b'+i+')"><h4>'+esc(b.h)+' &middot; '+list.length+'</h4><p class="cs">'+esc(b.s)+'</p>'+list.map(function(a){return '<div class="bcard" data-id="'+esc(a.id)+'" data-v="'+esc(a.verdict)+'"><div class="cid">'+esc(a.id)+'</div><div class="cc">'+md(a.claim)+'</div></div>';}).join('')+'</div>';
-    acc+='<details class="col2"'+(i===0?' open':'')+' style="border-left:4px solid var(--b'+i+')"><summary><span>'+esc(b.h)+' <span class="k">&middot; '+list.length+'</span></span></summary><p class="cs">'+esc(b.s)+'</p><div class="cards">'+list.map(function(a){return '<button class="acard" data-id="'+esc(a.id)+'" data-v="'+esc(a.verdict)+'"><div class="top"><b>'+esc(a.id)+'</b><span>'+esc(rl(a.verdict))+'</span></div><div class="cl">'+md(a.claim)+'</div></button>';}).join('')+'</div></details>';
+    acc+='<details class="col2"'+(i===0?' open':'')+' style="border-left:4px solid var(--b'+i+')"><summary><span>'+esc(b.h)+' <span class="k">&middot; '+list.length+'</span></span></summary><p class="cs">'+esc(b.s)+'</p><div class="cards">'+list.map(function(a){return '<button class="acard" data-id="'+esc(a.id)+'" data-v="'+esc(a.verdict)+'"><div class="top"><b>'+esc(a.id)+'</b><span>'+esc(rl(a.verdict,a.id))+'</span></div><div class="cl">'+md(a.claim)+'</div></button>';}).join('')+'</div></details>';
   });
   var other=ARGS.filter(function(a){return a.who==='Officers'||a.what==='Word and sacrament, received';}).length;
   document.getElementById('v-board').innerHTML=
@@ -684,7 +692,7 @@ function board(){
       '<li><b>Start with the '+numWord(meth.length).toLowerCase()+' questions just below.</b> They are about how to read Scripture, and they come before any argument.</li>'+
     '</ol></section>'+
     '<section class="method"><h2>So we are not talking past each other</h2><p class="msub">'+numWord(meth.length)+' questions about how we read Scripture, worth settling before we open a single text. Tap one to read it.</p><div class="mcards">'+
-      meth.map(function(a){return '<button class="acard" data-id="'+esc(a.id)+'" data-v="'+esc(a.verdict)+'"><div class="top"><b>'+esc(a.id)+'</b><span>'+esc(rl(a.verdict))+'</span></div><div class="cl">'+md(a.claim)+'</div></button>';}).join('')+'</div></section>'+
+      meth.map(function(a){return '<button class="acard" data-id="'+esc(a.id)+'" data-v="'+esc(a.verdict)+'"><div class="top"><b>'+esc(a.id)+'</b><span>'+esc(rl(a.verdict,a.id))+'</span></div><div class="cl">'+md(a.claim)+'</div></button>';}).join('')+'</div></section>'+
     '<h2 class="vh">Every argument on the table</h2>'+
     '<p class="vsay">'+numWord(ARGS.length)+' arguments, each stated in its strongest form \u2014 including the '+numWord(other).toLowerCase()+' that argue for the other view.</p>'+
     '<details class="lets" style="margin:0 0 14px"><summary>Two questions run through every argument</summary><p><b>What discipleship is</b> \u2014 the ordinary means received, or modeling, equipping and being sent \u2014 and <b>who does it</b>, whether the work stops with the ordained or runs to every member under their oversight. An elder can land on one side of one question without landing on that side of the other.</p></details>'+
@@ -699,7 +707,7 @@ function board(){
 var SAMPLE=null, turns=[], ctl=null, asking=false;
 function corpus(){
   return ARGS.map(function(a){
-    return a.id+' \u2014 '+a.claim+'\n  Column: '+a.band+'. Author’s rating: '+(a.verdictFull||RWORD[a.verdict])+'. What it is: '+a.what+'. Who does it: '+a.who+'. Texts: '+(a.texts||'\u2014')+
+    return a.id+' \u2014 '+a.claim+'\n  Column: '+a.band+'. '+rfull(a)+'. What it is: '+a.what+'. Who does it: '+a.who+'. Texts: '+(a.texts||'\u2014')+
       '\n  Case: '+(a.caseCard||'')+'\n  Counter: '+(a.counterCard||'')+(a.risk?'\n  Limit: '+a.risk:'');
   }).join('\n\n');
 }
@@ -839,8 +847,8 @@ function showRef(ref){
 
 /* ---------- read ---------- */
 function fullBody(a){
-  var h='<div class="meta"><span class="tag v-'+esc(a.verdict)+'">'+'Author’s rating: '+esc(a.verdictFull||RWORD[a.verdict])+'</span>'+(a.texts?'<span class="tag">'+esc(a.texts)+'</span>':'')+'</div>';
-  a.sections.forEach(function(s){if(s.l&&/^Lands/.test(s.l))return; h+='<div class="sec">'+(s.l?'<h4>'+esc(s.l)+'</h4>':'')+paras(s.t)+'</div>';});
+  var h='<div class="meta"><span class="tag v-'+esc(a.verdict)+'">'+esc(rfull(a))+'</span>'+(a.texts?'<span class="tag">'+esc(a.texts)+'</span>':'')+'</div>';
+  a.sections.forEach(function(s){if(s.l&&/^Lands/.test(s.l))return; h+='<div class="sec">'+(s.l?'<h4>'+esc(secl(a,s.l))+'</h4>':'')+paras(s.t)+'</div>';});
   if(a.sup.length) h+='<div class="sec"><h4>Supports</h4><ul>'+a.sup.map(function(x){return '<li>'+md(x)+'</li>';}).join('')+'</ul></div>';
   if(a.risk) h+='<div class="sec"><h4>Limits of this argument</h4>'+paras(a.risk)+'</div>';
   return h;
@@ -861,7 +869,7 @@ function argsView(){
   document.getElementById('rdclose').onclick=function(){Array.prototype.forEach.call(document.querySelectorAll('#v-args details.rd'),function(d){d.open=false;});};
 }
 function row(a){
-  return '<details class="rd" data-v="'+esc(a.verdict)+'" id="e-'+esc(a.id)+'"><summary><span class="rid">'+esc(a.id)+'</span><span class="rcl">'+md(a.claim)+'<span class="rb">'+esc(a.band)+' &middot; '+esc(rl(a.verdict))+'</span></span></summary><div class="rbody">'+fullBody(a)+'</div></details>';
+  return '<details class="rd" data-v="'+esc(a.verdict)+'" id="e-'+esc(a.id)+'"><summary><span class="rid">'+esc(a.id)+'</span><span class="rcl">'+md(a.claim)+'<span class="rb">'+esc(a.band)+' &middot; '+esc(rl(a.verdict,a.id))+'</span></span></summary><div class="rbody">'+fullBody(a)+'</div></details>';
 }
 function drawArgs(){
   var s=q.toLowerCase();
@@ -904,7 +912,7 @@ function sourceView(){
   if(F.secondhand&&F.secondhand.length) h+='<h3 class="sh">Known secondhand</h3><ul class="srcs">'+F.secondhand.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';
   if(F.paper_note) h+='<p class="body">'+esc(F.paper_note)+'</p>';
   h+='<h3 class="sh">How it is kept honest</h3><p class="body">Every view on this page is generated from one file, built from the written index of '+s.n+' arguments ('+s.prose.toLocaleString()+' characters of prose, checked identical to the index). None is maintained by hand. Before any release a gate rebuilds the page and checks it: every argument rated, no count typed by hand, and no wording that sets one reader against another.</p>'+
-    '<h3 class="sh">What the labels mean</h3><dl class="kv"><dt>Column</dt><dd>What kind of argument it is. The columns group arguments by the ground they stand on: Grammar and lexicon, Precept, Confession and standards, What Jesus did, Prudence, and Evidence and history. A1–A5 are Method: they decide what counts as an answer.</dd><dt>Author’s rating</dt><dd>Firm, contested or open — the author’s own judgment, assigned when the argument was written.</dd><dt>What it is</dt><dd>Which answer the argument supports on the nature of discipleship.</dd><dt>Who does it</dt><dd>Which answer it supports on responsibility. A dash means silent, not neutral.</dd><dt>Holds without Jesus’ example</dt><dd>Whether the argument still holds without relying on Jesus’ example to bind: yes, partly or no. These are the author’s tags; a dash means the argument is not tagged.</dd></dl>';
+    '<h3 class="sh">What the labels mean</h3><dl class="kv"><dt>Column</dt><dd>What kind of argument it is. The columns group arguments by the ground they stand on: Grammar and lexicon, Precept, Confession and standards, What Jesus did, Prudence, and Evidence and history. A1–A5 are Method: they decide what counts as an answer.</dd><dt>Author’s rating</dt><dd>Firm, contested or open — the author’s own judgment, assigned when the argument was written.</dd><dt>The author’s answer to it</dt><dd>On the arguments that state the other view (listed in In brief), the rating is the author’s rating of his answer to the argument, not of the argument itself.</dd><dt>What it is</dt><dd>Which answer the argument supports on the nature of discipleship.</dd><dt>Who does it</dt><dd>Which answer it supports on responsibility. A dash means silent, not neutral.</dd><dt>Holds without Jesus’ example</dt><dd>Whether the argument still holds without relying on Jesus’ example to bind: yes, partly or no. These are the author’s tags; a dash means the argument is not tagged.</dd></dl>';
   document.getElementById('v-source').innerHTML=h; linkify(document.getElementById('v-source'));
 }
 
