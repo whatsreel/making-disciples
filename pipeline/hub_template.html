@@ -928,7 +928,7 @@ function setMoved(){
   el.classList.add('on');   // a class, not an inline style, so the Start-only rule above can still hide it
 }
 /* ---------- tabs ---------- */
-var VIEWS=[['start','Start'],['board','The board'],['brief','In brief'],['args','The positions'],['axes','Where it’s contested'],['rests','What if'],['ask','Ask'],['fits','How it fits'],['source','Sources and method'],['how','How this page works',true]];
+var VIEWS=[['start','Start'],['brief','In brief'],['args','The positions'],['rests','What if'],['fits','How it fits'],['board','The board'],['axes','Where it’s contested'],['ask','Ask'],['source','Sources and method'],['how','How this page works',true]];  // tab order follows the Start buttons (Jon, 2026-10-05, ported from a version published straight to the artifact); the views with no Start button sit before Sources
 // a third entry of true: a view with no tab (opened from Start only)
 function tabs(){document.getElementById('tabs').innerHTML=VIEWS.filter(function(v){return !v[2];}).map(function(v,i){return '<button role="tab" data-v="'+v[0]+'" aria-selected="'+(i===0)+'">'+esc(v[1])+'</button>';}).join('');}
 function hashView(){var h=String((location&&location.hash)||'').replace(/^#/,''); return document.getElementById('v-'+h)?h:'';}

@@ -176,7 +176,7 @@ Worth noting before the list: *cost* and *presence* are two of the six, and they
 
 ### C1c. "The teaching aimed at obedience, not at information transfer."
 
-**Case.** What he taught them was how to do things — pray like this, forgive like this, serve like this — and he demonstrated before he explained (John 13:15). The Commission then names obedience as the content of the teaching rather than its hoped-for result: "teaching them to observe," where keeping is the grammatical object of the teaching. The same method runs past the resurrection: "be ye followers of me" (1 Cor 11:1), and "what ye have both learned, and received, and heard, and seen in me, do" (Phil 4:9).
+**Case.** What he taught them was how to do things — pray like this, forgive like this, serve like this — and he demonstrated before he explained (John 13:15). The Commission then names obedience as the content of the teaching rather than its hoped-for result: "teaching them to observe," where what is taught is keeping. The same method runs past the resurrection: "be ye followers of me" (1 Cor 11:1), and "what ye have both learned, and received, and heard, and seen in me, do" (Phil 4:9).
 
 **Counter.** Preaching also aims at obedience, and the Spirit produces it. Nothing here requires a second structure.
 
@@ -359,9 +359,9 @@ And observe where the daily contact in Acts actually happened: *in their homes*,
 
 **Case.** The Greek is *didaskontes autous tērein panta hosa eneteilamēn hymin* — teaching them **to keep** all that I have **commanded** you. Two words carry the weight, and both are routinely softened in how the verse is used.
 
-The verb of content is *eneteilamēn*, from *entellomai* — to command, to give orders. Not *edidaxa*, "I taught." The object of the Commission's teaching is not the body of instruction Jesus delivered; it is the set of commands he issued. That difference decides what counts as success. If the object were teaching, a well-catechized member who obeys little has been given what the verse requires. It is not, so he has not.
+The verb of content is *eneteilamēn*, from *entellomai* — to command, to give orders. Not *edidaxa*, "I taught." The subject matter of the Commission's teaching is not the body of instruction Jesus delivered; it is the set of commands he issued. That difference decides what counts as success. If the subject matter were his teaching, a well-catechized member who obeys little has been given what the verse requires. It is not, so he has not.
 
-And the infinitive is *tērein* — keep, guard, obey. It is the object of *didaskontes*: the thing being taught is *keeping*. Grammatically, obedience is not the hoped-for result of the teaching; obedience is its content. The same verb runs through John: "if you love me, you will keep my commandments" (14:15); "whoever says 'I know him' but does not keep his commandments is a liar" (1 John 2:3–4). James states the failure mode directly — hearers who are not doers deceive themselves (1:22). Hebrews states the method — powers of discernment "trained by constant practice" (5:14).
+And the infinitive is *tērein* — keep, guard, obey. It states what *didaskontes* teaches: the thing being taught is *keeping*. Obedience is not the hoped-for result of the teaching; obedience is its content. The same verb runs through John: "if you love me, you will keep my commandments" (14:15); "whoever says 'I know him' but does not keep his commandments is a liar" (1 John 2:3–4). James states the failure mode directly — hearers who are not doers deceive themselves (1:22). Hebrews states the method — powers of discernment "trained by constant practice" (5:14).
 
 **Why this is not cognitive.** No one is taught to *do* a thing purely by being told it. This is why Paul's summary has four parts, not one: "what you have learned and received and heard and *seen in me* — practice these things" (Phil 4:9; cf. 3:17; 1 Cor 11:1; 2 Tim 3:10). Three of the four require presence. It is also why *teaching to observe* implies someone positioned to notice whether observing is happening. A command taught with no one watching for obedience is a command taught as information.
 
