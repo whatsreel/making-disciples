@@ -46,18 +46,26 @@ current tree.
 it, run the build and then each check in `verify/checks/` directly; each one prints its counts.
 
 ## Release
+This section describes the author's private working copy; the public page repo is exported from
+it and only receives the result of step 4.
+
 One loop, every time:
-1. Edit `sources/` (or `pipeline/` for how the page looks).
-2. `bash verify/run.sh` is green.
-3. Commit, then push. Once GitHub Pages is on, the push deploys the page.
-4. Before publishing, read the live artifact and compare it with the build. Port anything that
-   exists only on the live page into `sources/` first: other sessions have published to it
-   directly (versions 56–58), and a publish from here would otherwise undo their edits.
-   Until the move to Pages is finished, also publish `outputs/argument-map.html` to the existing
-   artifact URL (https://claude.ai/artifact/AV8daUJZkgov44mGA2aUsz) from the working session.
+1. First, read the live artifact and compare it with the last build. Port anything that exists only
+   on the live page into `sources/`: other sessions have published to it directly (versions 56–58
+   and 60–61), and the next publish would otherwise undo their edits.
+2. Edit `sources/` (or `pipeline/` for how the page looks).
+3. `bash verify/run.sh` is green on every check except 60 (live vs local).
+4. Commit, then push. Export (`python tools/export_public.py`), then commit and push the page repo:
+   only the page repo's push deploys the page. A push to the working copy deploys nothing.
+5. When its Pages run has finished, run the gate again. Now 60 must pass too: it compares the
+   live page with the build byte for byte, so it can only go green after the deploy (allow a few
+   minutes for the CDN).
+6. Publish `outputs/argument-map.html` to the existing artifact URL
+   (https://claude.ai/artifact/AV8daUJZkgov44mGA2aUsz) from the working session. It is a signpost
+   to the permanent home now, but it keeps getting each build so nobody who stays there reads old text.
    Publishing to that URL updates the page in place; never create a new artifact.
-5. Reply to and resolve any comment threads the change answers.
-6. Note the commit on the task it closes.
+7. Reply to and resolve any comment threads the change answers.
+8. Note the commit on the task it closes.
 
 Commit after every content change; the diff of `sources/` is the change log.
 
@@ -68,12 +76,12 @@ Commit after every content change; the diff of `sources/` is the change log.
 - Visible counts are computed, never typed. The gate fails on a typed count.
 
 ## Permanent home (GitHub Pages)
-Push to `main` and `.github/workflows/pages.yml` builds the page and publishes it.
+A push to `main` of the public page repo runs `.github/workflows/pages.yml`, which builds the page and publishes it. The workflow does nothing in the working copy.
 Enable Pages once in the repo: Settings → Pages → Source: GitHub Actions. The URL will be
 `https://<user>.github.io/<repo>/`. Then set `permanent_url` in `sources/front_door.json`
-to that address, rebuild, and publish the result to the artifact URL one last time: the artifact
-page will show a notice pointing readers to the permanent home. The gate then compares the live
-page with the local build byte for byte.
+to that address and rebuild: every copy served from anywhere else, the artifact included, shows a
+notice pointing readers to the permanent home. The gate then compares the live page with the local
+build byte for byte. (Done 2026-10-05: https://whatsreel.github.io/making-disciples/)
 
 Note: the in-page chat ("Ask") only works when hosted on claude.ai; on Pages the tab hides
 itself. Everything else, popovers included, works anywhere.

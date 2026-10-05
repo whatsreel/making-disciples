@@ -40,7 +40,8 @@ body[data-view="board"] .wrap{max-width:1240px}
 header{padding:4px 0 12px}
 h1{font-size:clamp(27px,6vw,36px); font-weight:600; line-height:1.12; margin:0 0 6px; letter-spacing:-.011em}
 .moved{display:none; margin:12px 0 0; padding:10px 14px; border:1px solid var(--officers); color:var(--ink); font-size:15px; line-height:1.5}
-.moved a{color:var(--officers); font-weight:600}
+.moved.on{display:block}   /* set by setMoved(); Start only: hidden with the kicker and notice on every other view */
+.moved a{color:var(--officers); font-weight:600; display:inline-flex; align-items:center; min-height:var(--tap)}   /* a 44px press area, like every other link */
 .kicker{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; color:var(--soft); margin:0 0 6px}
 /* filter buttons (were unstyled) */
 .controls{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
@@ -336,7 +337,7 @@ footer{margin-top:36px; padding-top:13px; border-top:1px solid var(--rule2); fon
 /* ---------- start: the first screen (an elder in his 70s, on a phone) ---------- */
 .homelink{color:inherit; text-decoration:none; display:inline-block; min-height:var(--tap)}
 .notice{margin:10px 0 0; font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; color:var(--ink); line-height:1.45}
-body:not(.home) header .kicker, body:not(.home) header .notice{display:none}
+body:not(.home) header .kicker, body:not(.home) header .notice, body:not(.home) header .moved{display:none}
 body:not(.home) header{padding:0 0 8px}
 body:not(.home) header h1{font-size:19px; margin:0}
 body.home nav{display:none}
@@ -912,9 +913,11 @@ function numWord(n){var w=['','One','Two','Three','Four','Five','Six','Seven','E
   if(n<20)return w[n]; return t[Math.floor(n/10)]+(n%10?'-'+w[n%10].toLowerCase():'');}
 function setMoved(){
   var el=document.getElementById('moved'); if(!el||!F.permanent_url) return;
+  if(!/^https:\/\/[^"'<>\s]+$/.test(F.permanent_url)) return;   // esc() does not cover quotes; only a plain https address goes in href
   if(location.href.indexOf(F.permanent_url)===0) return;   // already at the permanent home
-  el.innerHTML='This page now lives at <a href="'+esc(F.permanent_url)+'">'+esc(F.permanent_url)+'</a>. Please use that link; this one will not be updated.';
-  el.style.display='block';
+  // a new tab: on claude.ai the page runs inside a frame, which may not be allowed to navigate itself away
+  el.innerHTML='This page now lives at <a href="'+esc(F.permanent_url)+'" target="_blank" rel="noopener">'+esc(F.permanent_url)+'</a>. Please use that link.';   // no "will not be updated": every copy keeps getting each build
+  el.classList.add('on');   // a class, not an inline style, so the Start-only rule above can still hide it
 }
 /* ---------- tabs ---------- */
 var VIEWS=[['start','Start'],['board','The board'],['brief','In brief'],['args','The arguments'],['axes','Where it’s contested'],['rests','What if'],['ask','Ask'],['fits','How it fits'],['source','Sources and method'],['how','How this page works',true]];

@@ -6,12 +6,17 @@ for a church session. One source of truth (`master.json`, generated from `source
 view: the web page, a spreadsheet and an argument index. Push to `main` and GitHub Pages publishes
 the page.
 
+**This repo is a generated copy.** It is exported from the author's private working copy, and each
+export overwrites it, so an edit made here is undone by the next one. Make changes in the working
+copy. A session opened here runs the gate and its reviews; it does not edit `sources/` or `pipeline/`.
+
 **Audience: the whole session — elders holding either view, in good faith.** Everything visible
 must be readable by someone who disagrees without feeling argued against. This is the most
 important constraint, and the build enforces it with a tone guard (`pipeline/tone.py`).
 
 ## Rules (the build enforces most of these)
-1. Edit content in `sources/` only. `master.json` and everything in `outputs/` are generated.
+1. Content lives in `sources/` (edited in the working copy, per the paragraph above). `master.json`
+   and everything in `outputs/` are generated.
 2. An argument lives in two files: prose in `sources/argument-index.md`, fields in
    `sources/args.json`. The build fails if they disagree.
 3. Every ID in `front_door.json` and `dependencies.json` must exist. The build fails otherwise.
