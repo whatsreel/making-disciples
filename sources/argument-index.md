@@ -3,9 +3,9 @@
 
 Each entry: the claim, the case for it, the strongest counter, the rejoinder, and the author's rating. Authors appear only as shorthand for a line of argument. The rating is my assessment, not a verdict — argue with it.
 
-Sections run in the order the session document uses: the interpretive rules first and by themselves, then those rules applied to Jesus' ministry, then what discipleship is, then who does it, then models, then the evidence claims people bring to the table. Arguments from Scripture come first throughout; historical and confessional material appears only where the claim at issue is itself a historical claim.
+Sections run in the order the session document uses: the interpretive rules first and by themselves, then those rules applied to Jesus' ministry, then what discipleship is, then who does it, then models, then the evidence claims people bring to the table. Positions grounded in Scripture come first throughout; historical and confessional material appears only where the claim at issue is itself a historical claim.
 
-Ratings are the author's own: **firm** (one side clearly stronger) · **contested** (live dispute, honest people differ) · **open** (no evidence either way). Each entry also carries the tags used in the interactive map: which column it sits in, whether it holds without leaning on Jesus’ example, and which of the two questions it bears on — *what* discipleship is, and *who* does it. Many arguments bear on only one, or neither.
+Ratings are the author's own: **firm** (one side clearly stronger) · **contested** (live dispute, honest people differ) · **open** (no evidence either way). Each entry also carries the tags used in the interactive map: which column it sits in, whether it holds without leaning on Jesus’ example, and which of the two questions it bears on — *what* discipleship is, and *who* does it. Many positions bear on only one, or neither.
 
 ---
 
@@ -69,7 +69,7 @@ This section is deliberately silent on the substance of the debate. It states th
 
 **Case.** The standing objection to every Gospel argument in this paper is that the Twelve were apostles and nothing normative transfers. In the intercessory prayer Christ answers it in his own voice. Having prayed for the Eleven, he says: "**Neither pray I for these alone, but for them also which shall believe on me through their word**" (John 17:20). Bruce, summarizing, notes that Jesus "intimates that He desires for the parties next to be prayed for the same things He has already asked for his disciples: preservation in the truth, and from the evil in the world, and sanctification by the truth." The sending language sits in the same prayer — "as thou hast sent me into the world, even so have I also sent them into the world" (17:18).
 
-This belongs among the method questions rather than the arguments, because it is a **warrant for transfer** rather than one more instance of it. The transfer from the Twelve to the later church is not our inference. He makes it.
+This belongs among the method questions rather than the positions, because it is a **warrant for transfer** rather than one more instance of it. The transfer from the Twelve to the later church is not our inference. He makes it.
 
 **Counter.** What is extended in John 17 is preservation, protection and sanctification — not training methods, not structures, not practices. It licenses transfer in general and settles no particular case.
 
@@ -146,7 +146,7 @@ The verb *mathēteuō* itself appears only four times in the New Testament (Matt
 
 ### C1a–C1f. What the word carried: the six things a disciple received
 
-C1 establishes that *mathētēs* had a settled meaning before Matt 28:19. These six entries say what that meaning contained. They are not six new arguments; they are C1 itemized, and each can be made on its own. Taken together they are the answer to "what would you actually have us do?" — because each one names something a congregation either provides or does not.
+C1 establishes that *mathētēs* had a settled meaning before Matt 28:19. These six entries say what that meaning contained. They are not six new positions; they are C1 itemized, and each can stand on its own. Taken together they are the answer to "what would you actually have us do?" — because each one names something a congregation either provides or does not.
 
 Worth noting before the list: *cost* and *presence* are two of the six, and they are precisely the two elements TEAMS has no letter for. That is the honest test of the model, and it is a better use of these entries than treating them as a checklist.
 
@@ -264,9 +264,9 @@ Worth noting before the list: *cost* and *presence* are two of the six, and they
 
 **Counter.** This is a false dichotomy. Almost no one holds that attendance alone suffices; the means-centered position includes discipline, catechizing, family worship, and pastoral visitation. Arguing against "attendance only" answers a position few hold.
 
-**Rejoinder.** Agreed as to theory. The question is practice — whether a church's assignment of responsibility, time, and elder attention reflects anything beyond attendance. That is an empirical question about a church's own practice, not a theological one about a position.
+**Rejoinder.** Agreed as to theory. The question is practice — whether a church's assignment of responsibility, time, and elder attention reflects anything beyond attendance. That is an empirical question about a church's own practice, not a theological one about anyone's stated view.
 
-**Author's rating: firm theologically; the counter is right that few hold "attendance only," so the argument bears on a church's practice, not on a position.**
+**Author's rating: firm theologically; the counter is right that few hold "attendance only," so the argument bears on a church's practice, not on anyone's stated view.**
 
 *Column: Precept · Holds without Jesus’ example · What it is: Modeled, equipped, sent · Use: Support*
 
@@ -291,7 +291,7 @@ Worth noting before the list: *cost* and *presence* are two of the six, and they
 
 ### C7. "What are we aiming at? A definition of maturity."
 
-**Why it belongs here.** Every argument in this document drives toward "mature and equipped," and the phrase is useless until it is defined. Without a definition, the question "are our people mature?" cannot be answered, and any model gets to define its target after the fact.
+**Why it belongs here.** Every position in this document drives toward "mature and equipped," and the phrase is useless until it is defined. Without a definition, the question "are our people mature?" cannot be answered, and any model gets to define its target after the fact.
 
 **Scripture's own markers.** Paul's stated goal is "to present everyone mature in Christ" (Col 1:28), and he unpacks it: attaining "to the unity of the faith and of the knowledge of the Son of God, to mature manhood, to the measure of the stature of the fullness of Christ," so as to be no longer children tossed by every wind of doctrine, but "speaking the truth in love" and growing up into Christ, "when each part is working properly" (Eph 4:13–16). Hebrews adds a functional test: the mature are those "who have their powers of discernment trained by constant practice to distinguish good from evil" (5:14) — trained by practice, not by information. Peter adds that growth is in "grace and knowledge" together (2 Pet 3:18), and John that the test is love of the brothers (1 John 3:14).
 
@@ -394,9 +394,9 @@ And the infinitive is *tērein* — keep, guard, obey. It is the object of *dida
 
 ### C12. "Scripture commands formation by observed example."
 
-**Case.** This argument matters most because of where it sits. The epistles command Christians to be formed by watching particular people live, and command some to arrange their lives so as to be watched. Hebrews 13:7 — "Remember them which have the rule over you, who have spoken unto you the word of God: whose faith follow, **considering the end of their conversation**." Their speaking is named; their conduct is named separately, as its own object of attention. Philippians 3:17 — "be followers together of me, and **mark them which walk so** as ye have us for an ensample" — where the verb is *skopeite*, to observe closely, and the people to be observed are not apostles but ordinary believers in the congregation. Second Thessalonians 3:7–9 — Paul worked with his hands though he had every right not to, expressly "to make ourselves an ensample unto you to follow us." He arranged his life to be copied. Add 1 Corinthians 4:16–17, where Timothy is sent to remind them of Paul's *ways*, not merely his doctrine, and Hebrews 6:12.
+**Case.** This position matters most because of where it sits. The epistles command Christians to be formed by watching particular people live, and command some to arrange their lives so as to be watched. Hebrews 13:7 — "Remember them which have the rule over you, who have spoken unto you the word of God: whose faith follow, **considering the end of their conversation**." Their speaking is named; their conduct is named separately, as its own object of attention. Philippians 3:17 — "be followers together of me, and **mark them which walk so** as ye have us for an ensample" — where the verb is *skopeite*, to observe closely, and the people to be observed are not apostles but ordinary believers in the congregation. Second Thessalonians 3:7–9 — Paul worked with his hands though he had every right not to, expressly "to make ourselves an ensample unto you to follow us." He arranged his life to be copied. Add 1 Corinthians 4:16–17, where Timothy is sent to remind them of Paul's *ways*, not merely his doctrine, and Hebrews 6:12.
 
-**Why it changes the shape of the case.** Everything else we have about presence and modeling sits in the "What Jesus did" column, which an elder may contest argument by argument. These texts move the same claim into Precept. They hold for a man who reads Jesus' training of the Twelve as no template for a congregation — and they answer the concern that building on Jesus' ministry is the error, from the letters themselves.
+**Why it changes the shape of the case.** Everything else we have about presence and modeling sits in the "What Jesus did" column, which an elder may contest position by position. These texts move the same claim into Precept. They hold for a man who reads Jesus' training of the Twelve as no template for a congregation — and they answer the concern that building on Jesus' ministry is the error, from the letters themselves.
 
 **Counter.** Michaelis (*TDNT* 4:659–674) reads *mimētēs* in Paul as obedience to apostolic teaching rather than copying a life. This is a live scholarly position with a real history — see also D. M. Stanley, *Biblica* 40 (1959), and De Boer, *The Imitation of Paul* (1962) — and it is the counter a careful reader will reach for.
 
@@ -450,7 +450,7 @@ And the infinitive is *tērein* — keep, guard, obey. It is the object of *dida
 
 **Case.** Luke 22:31–32: "Satan hath desired to have you, that he may sift you as wheat: but I have prayed for thee, that thy faith fail not: **and when thou art converted, strengthen thy brethren**." The recovery is given a purpose, and the purpose is other people. Falling, being restored, and then strengthening others is one motion, with the last stated as the object of the first two.
 
-**Why it matters more than it looks.** A. B. Bruce, commenting on this verse, writes that "Jesus expects the frail disciple to become strong in grace, and so able and willing to help the weak," and — this is the load-bearing clause — "He cherishes this expectation **with respect to all**, but specially in regard to Peter." A Free Church professor of New Testament exegesis generalizing the expectation from Peter to every disciple is a Reformed voice on the *who* question, where the arguments are most evenly divided. It also supplies the link C1e was missing: correction and restoration are not terminal, they are aimed at reproduction.
+**Why it matters more than it looks.** A. B. Bruce, commenting on this verse, writes that "Jesus expects the frail disciple to become strong in grace, and so able and willing to help the weak," and — this is the load-bearing clause — "He cherishes this expectation **with respect to all**, but specially in regard to Peter." A Free Church professor of New Testament exegesis generalizing the expectation from Peter to every disciple is a Reformed voice on the *who* question, where the positions are most evenly divided. It also supplies the link C1e was missing: correction and restoration are not terminal, they are aimed at reproduction.
 
 **Counter.** It is said to Peter, about a member of the apostolic band, before Pentecost. The generalization to every disciple is Bruce's inference and not the text's plain statement.
 
@@ -462,7 +462,7 @@ And the infinitive is *tērein* — keep, guard, obey. It is the object of *dida
 
 ### D6. "The same commission was given twice, and the second group was not the Twelve."
 
-**Case.** This argument bears on the *who* question. It is structural rather than normative: it defeats an objection instead of making a positive claim.
+**Case.** This position bears on the *who* question. It is structural rather than normative: it defeats an objection instead of making a positive claim.
 
 The standing objection to every Gospel argument in this paper is that the Twelve were apostles, that their formation was apostolic, and that nothing transfers. We concede that repeatedly and rightly. **But the objection quarantines the Twelve, and Jesus did not.** Luke 10:1 — "the Lord appointed **other** seventy also, and sent them two and two before his face." *Heterous*: expressly a different group, anonymous, far larger, holding no continuing office and listed nowhere.
 
@@ -492,7 +492,7 @@ Alongside it: BCO 12-5.d charges every session "to promote obedience to the Grea
 
 **Rejoinder.** Both points are fair and neither removes the argument. On the first: the sentence sits immediately after a list that includes *instruct the ignorant* and *nourish and guard the children of the Church* — which are formation, not only charity — and immediately before *make disciples* is named outright. The law of love in 8-3 is doing discipling work. On the second: that 8-3 was amended in 2019 means the PCA, acting as a General Assembly, chose these words recently and deliberately. That is not a weakness. It is the denomination's current, considered position, and the other reading has to argue against it.
 
-**Author's rating: firm, and it is the first argument in this column that places the duty with every member.** This is the PCA's own constitution placing the baseline with private Christians.
+**Author's rating: firm, and it is the first position in this column that places the duty with every member.** This is the PCA's own constitution placing the baseline with private Christians.
 
 *Column: Confession and standards · Holds without Jesus' example · What it is: Modeled, equipped, sent · Who does it: Every member, under officers · Use: Lead*
 

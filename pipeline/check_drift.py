@@ -102,7 +102,8 @@ try:
     import re as _r
     _m = open(OUT+'/argument-map.html', encoding='utf-8').read()
     _n = len(set(_r.findall(r'"id":\s*"([A-G]\d+[a-z]?)"', _m)) | set(_r.findall(r'\{id:"([A-G]\d+[a-z]?)"', _m)))
-    _hard = _r.search(r"(?<!ARGS\.length\+)'All (\d+) arguments'", _m)
+    # the template writes the count as 'All '+ARGS.length; a typed 'All 45' in a string or in markup fails
+    _hard = _r.search(r"[>'\"]All (\d+)", _m)
     check('map count is derived, not hardcoded', _hard is None, f'hardcoded {_hard.group(1) if _hard else ""}')
 except Exception as _e:
     check('map count check ran', False, str(_e))
@@ -110,7 +111,7 @@ except Exception as _e:
 print('\nargument-map.xlsx  (matrix view)')
 try:
     from openpyxl import load_workbook
-    ws = load_workbook(OUT+'/argument-map.xlsx')['Arguments']
+    ws = load_workbook(OUT+'/argument-map.xlsx')['Positions']
     xids = {r[0] for r in ws.iter_rows(min_row=2, values_only=True) if r[0]}
     check('sheet ids match master', xids == ids, str(xids ^ ids))
 except Exception as e:

@@ -1,6 +1,6 @@
 {
-  "_note": "Editorial judgment, kept as a source file so it is reviewed and checked like the arguments. Every id is validated against master.json at build time.",
-  "thesis": "This paper argues that making disciples, as Scripture and our own standards define it, is more than attendance at worship and a study. A disciple is formed to pray, to be sent, and to reproduce; and that formation is the calling of every member, under the elders, not of the elders alone. Below are the three changes that follow, and the arguments that carry each.",
+  "_note": "Editorial judgment, kept as a source file so it is reviewed and checked like the positions. Every id is validated against master.json at build time.",
+  "thesis": "This paper argues that making disciples, as Scripture and our own standards define it, is more than attendance at worship and a study. A disciple is formed to pray, to be sent, and to reproduce; and that formation is the calling of every member, under the elders, not of the elders alone. Below are the three changes that follow, and the positions that carry each.",
   "honest_limit": "What follows shows what Scripture and our standards require. It does not show what is thin at any particular church. That is something a church can only learn about itself, honestly, by looking.",
   "changes": [
     {
@@ -37,7 +37,7 @@
       "key": "equipping",
       "title": "Equipping",
       "line": "A disciple is formed to reproduce. Scripture commands formation by watched example, and reports a whole congregation becoming the example to others.",
-      "evidence": "Well-evidenced, with one caution: the two verses usually quoted for this, Ephesians 4:12 and 2 Timothy 2:2, are the two rated contested. The arguments below carry it more safely.",
+      "evidence": "Well-evidenced, with one caution: the two verses usually quoted for this, Ephesians 4:12 and 2 Timothy 2:2, are the two rated contested. The positions below carry it more safely.",
       "lead": "C12",
       "also": [
         "C19",
@@ -63,7 +63,7 @@
   "read_three_why": "One from precept, two from our own standards. All three rated firm by the author, all three hold whatever view one takes of Jesus' example, and between them they carry all three changes.",
   "alternative": {
     "heading": "The other view, fairly stated",
-    "line": "Not everyone reads it this way. Some hold that worship, preaching and the sacraments on Sunday are all that the Great Commission asks of a congregation, and that making disciples is the elders' work rather than every member's. Those arguments are here too, made as well as we could make them. Tap any to read it.",
+    "line": "Not everyone reads it this way. Some hold that worship, preaching and the sacraments on Sunday are all that the Great Commission asks of a congregation, and that making disciples is the elders' work rather than every member's. Those positions are here too, made as well as we could make them. Tap any to read it.",
     "ids": [
       "C2",
       "D1",
@@ -74,10 +74,10 @@
   },
   "author": "Jonathan Stamberg",
   "credit": "using Claude Fable & Opus for research, writing, and coding assistance",
-  "ratings_note": "The ratings — firm, contested, open — are the author’s own, assigned when each argument was written, and are offered as a starting point rather than a verdict.",
-  "purpose": "Prepared for a church session: elders who hold either view, in good faith. It sets out what Scripture and our standards say about making disciples and whose work it is, with every argument stated in its strongest form and every counter given.",
+  "ratings_note": "The ratings — firm, contested, open — are the author’s own, assigned when each position was written, and are offered as a starting point rather than a verdict.",
+  "purpose": "Prepared for a church session: elders who hold either view, in good faith. It sets out what Scripture and our standards say about making disciples and whose work it is, with every position stated in its strongest form and every counter given.",
   "notice": "Best read on a laptop or desktop screen. It works on a phone too.",
-  "_start_note": "Jon, 2026-10-05: two lines under the Start buttons (draft + comments; what the page is, with a link to How this page works). comment_here shows on claude.ai, where readers can comment; comment_elsewhere shows on the public copy, which has no comments. In how.steps[].text only, {n} is filled with the computed argument count; nowhere else is it substituted.",
+  "_start_note": "Jon, 2026-10-05: two lines under the Start buttons (draft + comments; what the page is, with a link to How this page works). comment_here shows on claude.ai, where readers can comment; comment_elsewhere shows on the public copy, which has no comments. In how.steps[].text only, {n} is filled with the computed position count; nowhere else is it substituted.",
   "start_note": {
     "draft": "A draft for discussion, not a settled position.",
     "comment_here": "Thoughts or questions are welcome: select any words on this page to leave a comment.",
@@ -89,23 +89,23 @@
     "title": "How this page works",
     "intro": "This page comes from one piece of research on what it means to make disciples, and whose work it is. It is laid out so you can read the same material in the way that suits you.",
     "steps": [
-      {"label": "The research", "text": "{n} arguments, each with its Scripture, its strongest counter and the author's rating."},
-      {"label": "Written down once", "text": "Every argument lives in one source file. Nothing on this page is kept up by hand."},
+      {"label": "The research", "text": "{n} positions, each with its Scripture, its strongest counter and the author's rating."},
+      {"label": "Written down once", "text": "Every position lives in one source file. Nothing on this page is kept up by hand."},
       {"label": "Shown several ways", "text": "Each part of the page shows that same source differently. Tap one to open it."}
     ],
     "views": {
       "brief": "The case in brief, and the changes it supports",
-      "args": "Every argument in full, with its counter and rating",
-      "rests": "Set aside a reading rule or a kind of argument and see what falls",
-      "fits": "Which arguments rest on which",
-      "board": "Every argument, grouped by the ground it stands on",
+      "args": "Every position in full, with its counter and rating",
+      "rests": "Set aside a reading rule or a kind of reasoning and see what falls",
+      "fits": "Which positions rest on which",
+      "board": "Every position, grouped by the ground it stands on",
       "source": "Who wrote it, the sources, and what the labels mean"
     },
     "also": "The same source also produces a spreadsheet and a longer paper for the session. Neither is published here.",
     "draft": "This is a draft for discussion, not a settled position, and it can be revised as the conversation goes on."
   },
   "paper_note": "A longer paper was written for the session itself. It is not published here.",
-  "_sources_note": "Each source is cited in the published arguments; 'match' must appear in argument-index.md or args.json, or the build fails. Citations copy the corpus's own wording.",
+  "_sources_note": "Each source is cited in the published positions; 'match' must appear in argument-index.md or args.json, or the build fails. Citations copy the corpus's own wording.",
   "sources": [
     {"cite": "The Holy Bible, King James Version: every quotation and every verse popover", "match": "KJV"},
     {"cite": "The Westminster Confession of Faith and the Larger and Shorter Catechisms", "match": "WSC 88"},
@@ -122,9 +122,9 @@
     "Michaelis, TDNT 4:659–674; D. M. Stanley, Biblica 40 (1959); De Boer, The Imitation of Paul (1962). These are known from other works' citations and were not consulted directly.",
     "A. B. Bruce, The Training of the Twelve, chapters 8, 12 §II, 14 §II and 29 have not yet been read for this work."
   ],
-  "_common_note": "Replaces the in-page chat where it cannot run (Pages). Each answer names the arguments that answer it. 'ids' are checked against master; 'computed' lists are built on the page from the data: not_firm = rated contested or open, survives = holds without Jesus' example.",
+  "_common_note": "Replaces the in-page chat where it cannot run (Pages). Each answer names the positions that answer it. 'ids' are checked against master; 'computed' lists are built on the page from the data: not_firm = rated contested or open, survives = holds without Jesus' example.",
   "common_questions": [
-    {"q": "What is the strongest argument that discipleship is more than attendance?",
+    {"q": "What is the strongest case that discipleship is more than attendance?",
      "a": "The summary leads with C4: being sent and reproducing is part of what a disciple is, not an add-on. C3 and C5 make the attendance point directly: the word means an attached learner, and the commands that make up a disciple's life cannot be done from a pew.",
      "ids": ["C4", "C3", "C5"]},
     {"q": "What is the best case that making disciples is the elders' work?",
@@ -134,9 +134,9 @@
      "a": "C17 rests it on our own standards: WSC 88 and WLC 154 name prayer as one of three ordinary means, with the Word and sacraments. C18 adds the Scripture, starting from Luke 11:1 and Acts 6:4. C16 notes that BCO 8-3 charges elders to pray with and for the people.",
      "ids": ["C17", "C18", "C16"]},
     {"q": "What does this case concede?",
-     "a": "Every argument the author rates contested or open is listed here. The summary also states its limit: this shows what Scripture and our standards require, not what is thin at any particular church.",
+     "a": "Every position the author rates contested or open is listed here. The summary also states its limit: this shows what Scripture and our standards require, not what is thin at any particular church.",
      "computed": "not_firm"},
-    {"q": "Which arguments don't need Jesus' example to bind?",
+    {"q": "Which positions don't need Jesus' example to bind?",
      "a": "By the author’s tags, these hold on other grounds (a command, our standards, the words themselves), even where they describe what Jesus did. For the narrower question, whether his training of the Twelve is a pattern for a congregation, tick that box on What if.",
      "computed": "survives"}
   ],

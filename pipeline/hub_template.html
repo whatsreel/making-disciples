@@ -131,7 +131,7 @@ h3.sh.big{font-family:Spectral,Georgia,serif; font-size:22px; letter-spacing:-.0
 .chip:active{background:var(--ink); color:var(--paper)}
 .chips{display:flex; flex-wrap:wrap; gap:10px}
 
-/* ---------- cards (every argument) ---------- */
+/* ---------- cards (every position) ---------- */
 .cards{display:grid; gap:8px; grid-template-columns:minmax(0,1fr)}
 .acard{overflow-wrap:anywhere}
 .acard{border:1px solid var(--rule2); background:var(--cell2); padding:12px 14px; cursor:pointer; text-align:left;
@@ -254,7 +254,7 @@ table.grid td.heat .n{color:var(--ink); font-weight:600}
 .msg.me{background:var(--cell); border-color:var(--rule)}
 .msg .who{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:15px; font-weight:600; color:var(--soft); margin-bottom:4px}
 .msg p{margin:0 0 8px} .msg p:last-child{margin:0}
-/* an argument id inside a chat answer reads as a link in the sentence, with the same 44px press area as a scripture reference */
+/* a position id inside a chat answer reads as a link in the sentence, with the same 44px press area as a scripture reference */
 .msg .chip{display:inline-block; border:none; background:none; min-height:0; min-width:var(--tap); text-align:center; padding:13px 6px; margin:-13px 1px; text-decoration:underline dotted; text-underline-offset:2px}
 .msg .chip:active{background:none; color:var(--officers)}
 .askrow{display:flex; gap:8px; align-items:flex-end}
@@ -416,26 +416,26 @@ function byId(id){for(var i=0;i<ARGS.length;i++) if(ARGS[i].id===id) return ARGS
 function cnt(k,v){return ARGS.filter(function(a){return a[k]===v;}).length;}
 // verdict keys stay Strong/Contested/Undecidable (CSS, sort, filters); readers see these words (Jon, 2026-10-04)
 var RWORD={Strong:'firm',Contested:'contested',Undecidable:'open'};
-// an other-view argument's rating is the author's answer to it, not the claim on the card (Jon's "Firm?" threads, 2026-10-05)
+// an other-view position's rating is the author's answer to it, not the claim on the card (Jon's "Firm?" threads, 2026-10-05)
 var ALT={}; ((F.alternative&&F.alternative.ids)||[]).forEach(function(id){ALT[id]=1;});
 function rl(v,id){return (ALT[id]?'author’s answer rated ':'rated ')+(RWORD[v]||v);}
-// the index's rating section keeps its reasoning; on an other-view argument its heading says whose answer it rates
+// the index's rating section keeps its reasoning; on an other-view position its heading says whose answer it rates
 function ans(f){return 'The author’s answer to it: '+f.replace(/^(firm|contested|open)\b/i,function(w){return w.toLowerCase();});}   // one wording for tag and heading
 function secl(a,l){var m=/^Author['’]s rating:\s*/.exec(l); return (m&&ALT[a.id])?ans(l.slice(m[0].length)):l;}
 // the full rating, as the sheet, the chat corpus and In brief show it (one wording, so they cannot drift)
-function rfull(a){var f=String(a.verdictFull||RWORD[a.verdict]||a.verdict||'');   // never throws: corpus() and show() run it for every argument
+function rfull(a){var f=String(a.verdictFull||RWORD[a.verdict]||a.verdict||'');   // never throws: corpus() and show() run it for every position
   return ALT[a.id]?ans(f):'Author’s rating: '+f;}
 function chip(id,extra){var a=byId(id); if(!a)return''; return '<button class="chip'+(extra||'')+'" data-id="'+esc(id)+'" data-v="'+esc(a.verdict)+'" title="'+esc(a.claim)+'">'+esc(id)+'</button>';}
 
 /* ---------- detail sheet ---------- */
-// What an argument rests on, in the same terms as What if: each premise that makes it fall when
+// What a position rests on, in the same terms as What if: each premise that makes it fall when
 // set aside alone; then any premises that make it fall only together; then the kind it is one of,
 // and any premise it states or is. Being one of a kind is not resting on it (E1 IS from wisdom).
 function restsLine(a){
   var r=a.restsOn||[], j=a.restsJointly||[], s=a.states||[], k=a.kinds||[], h='';
   if(r.length) h+='<div class="restson"><span class="lbl">Rests on</span>'+r.map(pchip).join('')+'</div>';
   j.forEach(function(set){ h+='<div class="restson"><span class="lbl">Falls only if '+(set.length===2?'both':'all')+' are set aside:</span>'+set.map(pchip).join('<span class="lbl">and</span>')+'</div>'; });
-  if(k.length) h+='<div class="restson"><span class="lbl">Kind of argument:</span>'+k.map(pchip).join('')+'</div>';
+  if(k.length) h+='<div class="restson"><span class="lbl">Kind of reasoning:</span>'+k.map(pchip).join('')+'</div>';
   if(s.indexOf(a.id)>=0) h+='<div class="restson"><span class="lbl">'+(PREM[a.id].group==='fixed'?'A premise held fixed on What if':'A premise in its own right: set it aside on What if')+'</span></div>';
   else if(s.length) h+='<div class="restson'+(s.length>2?' stack':'')+'"><span class="lbl">'+(s.every(function(p){return PREM[p]&&PREM[p].group==='rule';})?'States the reading rules:':'States:')+'</span>'+s.map(pchip).join('')+'</div>';
   if(h) return h;
@@ -448,7 +448,7 @@ function relw(r){ return r==='rests on rule'?'rests on':r; }
 function pmid(id){ var n=pname(id); return /^The /.test(n)?'the'+n.slice(3):n; }
 function show(id){
   var a=byId(id); if(!a) return;
-  // "Use" (Lead / Support / ...) stays in the data for the Key arguments filter; shown, it read as presenter tactics (tone list item 2)
+  // "Use" (Lead / Support / ...) stays in the data for the Key positions filter; shown, it read as presenter tactics (tone list item 2)
   var h='<div class="eid">'+esc(a.band)+'</div>'+
     '<h3 style="font-size:22px;font-weight:600;line-height:1.3;margin:0 0 10px">'+md(a.claim)+'</h3><div class="meta">'+
     '<span class="tag v-'+esc(a.verdict)+'">'+esc(rfull(a))+'</span>'+
@@ -457,8 +457,8 @@ function show(id){
     restsLine(a);
   a.sections.forEach(function(s){ if(s.l&&/^Lands/.test(s.l)) return; h+='<div class="sec">'+(s.l?'<h4>'+esc(secl(a,s.l))+'</h4>':'')+paras(s.t)+'</div>';});
   if(a.sup.length) h+='<div class="sec"><h4>Supports</h4><ul>'+a.sup.map(function(x){return '<li>'+md(x)+'</li>';}).join('')+'</ul></div>';
-  if(a.risk) h+='<div class="sec"><h4>Limits of this argument</h4>'+paras(a.risk)+'</div>';
-  if(a.up&&a.up.length){ h+='<div class="dep"><h4>This argument</h4>'+a.up.map(function(u){return '<div class="row"><span class="w"><em>'+esc(relw(u.rel))+'</em></span>'+pchip(u.id)+'<span class="w">\u2014 '+md(u.why)+'</span></div>';}).join('')+'</div>'; }
+  if(a.risk) h+='<div class="sec"><h4>Limits of this position</h4>'+paras(a.risk)+'</div>';
+  if(a.up&&a.up.length){ h+='<div class="dep"><h4>This position</h4>'+a.up.map(function(u){return '<div class="row"><span class="w"><em>'+esc(relw(u.rel))+'</em></span>'+pchip(u.id)+'<span class="w">\u2014 '+md(u.why)+'</span></div>';}).join('')+'</div>'; }
   if(a.down&&a.down.length){ h+='<div class="dep"><h4>Linked from</h4>'+a.down.map(function(u){return '<div class="row">'+chip(u.id)+'<span class="w"><em>'+esc(relw(u.rel))+' this</em> \u2014 '+md(u.why)+'</span></div>';}).join('')+'</div>'; }
   document.getElementById('detailInner').innerHTML=h; linkify(document.getElementById('detailInner'));
   document.getElementById('dtitle').textContent=a.id;
@@ -468,7 +468,7 @@ function show(id){
 function hide(){document.getElementById('detail').classList.remove('on'); document.getElementById('scrim').classList.remove('on');}
 
 /* ---------- start: big, plain buttons; nothing else to read ---------- */
-var GO=[['brief','Read the summary'],['args','See every argument'],['rests','Test what holds'],['fits','See how it fits'],['board','See the board'],['source','Sources and method']];
+var GO=[['brief','Read the summary'],['args','See every position'],['rests','Test what holds'],['fits','See how it fits'],['board','See the board'],['source','Sources and method']];
 // Comments exist only on claude.ai (window.claude is its runtime); the public copy has none, so it says who to talk to instead.
 function commentLine(){ var s=F.start_note||{}; return (window.claude?s.comment_here:s.comment_elsewhere)||''; }
 function home(){
@@ -501,15 +501,15 @@ function brief(){
       '<p class="line">'+esc(c.line)+'</p>'+
       '<div class="verse">'+esc(c.verse)+'<span class="ref">'+esc(c.ref)+'</span></div>'+
       '<p class="ev">'+esc(c.evidence)+'</p>'+
-      '<button class="lead" data-id="'+esc(c.lead)+'"><span class="lt">Key argument &middot; '+esc(c.lead)+' &middot; '+esc(rl(c.leadVerdict,c.lead))+'</span><span class="lc">'+md(c.leadClaim)+'</span></button>'+
+      '<button class="lead" data-id="'+esc(c.lead)+'"><span class="lt">Key position &middot; '+esc(c.lead)+' &middot; '+esc(rl(c.leadVerdict,c.lead))+'</span><span class="lc">'+md(c.leadClaim)+'</span></button>'+
       '<div class="also"><span class="lbl">Also</span>'+c.also.map(function(id){return chip(id);}).join('')+
       (c.avoid&&c.avoid.length?'<span class="lbl" style="margin-left:6px">Rated contested &mdash; read before citing</span>'+c.avoid.map(function(id){return chip(id,' avoid');}).join(''):'')+
       '</div></div>';
   });
   h+='<div class="limit"><strong>What this does not show.</strong> '+esc(F.honest_limit)+'</div>';
   if(F.alternative){
-    // the rating on an other-view argument rates the author's answer to it, not the claim shown (live v58, ported)
-    h+='<h3 class="sh">'+esc(F.alternative.heading)+'</h3><p class="vsay">'+esc(F.alternative.line)+' The rating under each is the author’s rating of his answer to it, not of the argument itself.</p><div class="three">'+
+    // the rating on an other-view position rates the author's answer to it, not the claim shown (live v58, ported)
+    h+='<h3 class="sh">'+esc(F.alternative.heading)+'</h3><p class="vsay">'+esc(F.alternative.line)+' The rating under each is the author’s rating of his answer to it, not of the position itself.</p><div class="three">'+
       F.alternative.ids.map(function(id){var a=byId(id); return '<button class="item" data-id="'+esc(id)+'"><span class="id">'+esc(id)+'</span><span class="c">'+md(a.claim)+'<span class="b">'+esc(a.band)+' &middot; '+esc(rfull(a))+'</span></span></button>';}).join('')+'</div>';
   }
   h+='<h3 class="sh">If you read only three</h3><p class="vsay">'+esc(F.read_three_why)+'</p><div class="three">'+
@@ -520,11 +520,11 @@ function brief(){
       return '<div class="cq"><h4>'+esc(c.q)+'</h4><p>'+esc(c.a)+'</p><div class="chips">'+ids.map(function(id){return chip(id);}).join('')+'</div></div>';}).join('');
   }
   h+='<h3 class="sh">Go deeper</h3><div class="explore">'+
-    '<button data-go="args"><span class="t">The arguments</span><span class="d">All '+ARGS.length+' in full, with counters and limits. Search and sort.</span></button>'+
+    '<button data-go="args"><span class="t">The positions</span><span class="d">All '+ARGS.length+' in full, with counters and limits. Search and sort.</span></button>'+
     '<button data-go="axes"><span class="t">Where it\u2019s contested</span><span class="d">What is settled and what is not.</span></button>'+
-    '<button data-go="rests"><span class="t">What if</span><span class="d">Set aside a reading rule, a method or a kind of argument, and see what falls and why.</span></button>'+
-    '<button data-go="ask" id="goask"><span class="t">Ask a question</span><span class="d">Put a question to the material. Answers cite the arguments and state the counter.</span></button>'+
-    '<button data-go="fits"><span class="t">How it fits</span><span class="d">Which arguments rest on which. The main chain, top to bottom.</span></button>'+
+    '<button data-go="rests"><span class="t">What if</span><span class="d">Set aside a reading rule, a method or a kind of reasoning, and see what falls and why.</span></button>'+
+    '<button data-go="ask" id="goask"><span class="t">Ask a question</span><span class="d">Put a question to the material. Answers cite the positions and state the counter.</span></button>'+
+    '<button data-go="fits"><span class="t">How it fits</span><span class="d">Which positions rest on which. The main chain, top to bottom.</span></button>'+
     '<button data-go="board"><span class="t">The board</span><span class="d">Sorted by how little a reader must grant.</span></button>'+
     '<button data-go="source"><span class="t">Sources and method</span><span class="d">Who wrote this, how Scripture is read here, and what is cited.</span></button></div>';
   document.getElementById('v-brief').innerHTML=h; linkify(document.getElementById('v-brief'));
@@ -544,12 +544,12 @@ function bar(key,ord,title,say){
 function axesBars(short){
   var mS=cnt('what','Modeled, equipped, sent'), mW=cnt('what','Word and sacrament, received'),
       oM=cnt('who','Every member, under officers'), oO=cnt('who','Officers'), sil=cnt('who','\u2014');
-  return bar('what',WHATS,'What discipleship is','Lopsided. '+mS+' arguments say it is being modeled, equipped and sent; '+mW+' say it is Word and sacrament received.')+
+  return bar('what',WHATS,'What discipleship is','Lopsided. '+mS+' positions say it is being modeled, equipped and sent; '+mW+' say it is Word and sacrament received.')+
          bar('who',WHOS,'Who is responsible','Closer. '+oM+' say every member under the elders, '+oO+' say the elders \u2014 and '+sil+' of the '+ARGS.length+' say nothing about it.');
 }
 function axes(){
-  var h='<h2 class="vh">Where it\u2019s contested</h2><p class="vsay">The arguments sorted on the two questions that matter: what discipleship is, and who is responsible for it. One is close to settled. The other is not.</p>'+axesBars(false);
-  h+='<p class="hint">Rows: what it is. Columns: who does it. A dash means the argument is silent on that question. Scroll sideways on a phone.</p>';
+  var h='<h2 class="vh">Where it\u2019s contested</h2><p class="vsay">The positions sorted on the two questions that matter: what discipleship is, and who is responsible for it. One is close to settled. The other is not.</p>'+axesBars(false);
+  h+='<p class="hint">Rows: what it is. Columns: who does it. A dash means the position is silent on that question. Scroll sideways on a phone.</p>';
   var MX=0; WHATS.forEach(function(w1){WHOS.forEach(function(w2){MX=Math.max(MX,ARGS.filter(function(a){return a.what===w1&&a.who===w2;}).length);});});
   h+='<div class="scroller"><table class="grid"><thead><tr><th class="corner"></th>';
   WHOS.forEach(function(w){h+='<th>'+esc(w==='\u2014'?'Silent on who':w)+'</th>';});
@@ -583,27 +583,27 @@ function fellNow(mask){
   return out;
 }
 function rests(){
-  // an argument that is itself the premise (A2, A4) is not counted as taken "with it"
-  // nor are a kind's own members: they ARE the kind, not arguments taken with it
+  // a position that is itself the premise (A2, A4) is not counted as taken "with it"
+  // nor are a kind's own members: they ARE the kind, not positions taken with it
   function with_(p){ return (D.falls[p]||[]).filter(function(i){return i!==p && ((byId(i)||{}).kinds||[]).indexOf(p)<0;}).length; }
   var nMost=Math.max.apply(null,[0].concat(PORDER.map(with_)));
   var most=PORDER.filter(function(p){return nMost>0 && with_(p)===nMost;});
   var open=(D.deps.open_questions||[]).filter(function(q){return byId(q.id);}).length;
   // what can fall here at all: every box ticked
   var canFall=Object.keys(fellNow(Math.pow(2,PORDER.length)-1)).length;
-  var groups=[['rule','Set aside a reading rule or method'],['kind','Set aside a kind of argument']];
+  var groups=[['rule','Set aside a reading rule or method'],['kind','Set aside a kind of reasoning']];
   // a box that removes nothing says so, or a reader ticks it, sees no change, and suspects the page
   function idle(p){ return !(D.falls[p]||[]).length && !ARGS.some(function(a){return (a.restsJointly||[]).some(function(s){return s.indexOf(p)>=0;});}); }
   document.getElementById('v-rests').innerHTML=
-    '<h2 class="vh">What if</h2><p class="vsay">Set aside a reading rule, a method or a kind of argument, and see which arguments fall with it and what the two questions look like without them. '+canFall+' of the '+ARGS.length+' can fall here; the rest hold whatever is ticked.</p>'+
+    '<h2 class="vh">What if</h2><p class="vsay">Set aside a reading rule, a method or a kind of reasoning, and see which positions fall with it and what the two questions look like without them. '+canFall+' of the '+ARGS.length+' can fall here; the rest hold whatever is ticked.</p>'+
     '<div class="standbar" id="standbar" aria-live="polite"></div>'+
     '<div class="score" id="score"></div>'+
-    (nMost?'<p class="hint">Set aside on its own, no rule or kind takes more than '+nMost+' arguments with it ('+esc(most.map(pname).join('; '))+').</p>':'')+
+    (nMost?'<p class="hint">Set aside on its own, no rule or kind takes more than '+nMost+' positions with it ('+esc(most.map(pname).join('; '))+').</p>':'')+
     groups.map(function(g){ var ps=PORDER.filter(function(p){return PREM[p].group===g[0];});
       return '<h3 class="sh">'+esc(g[1])+'</h3><div class="panel">'+ps.map(function(p){
         return '<label class="c"><input type="checkbox" data-c="'+esc(p)+'"><span>'+esc(pname(p))+'<span class="sub">'+esc(PREM[p].say)+(idle(p)?'. Nothing is traced to it yet, so setting it aside changes nothing.':'')+'</span></span></label>';}).join('')+'</div>';}).join('')+
     '<div id="fell"></div>'+
-    (open?'<p class="hint">'+(open===1?'One argument is':open+' arguments are')+' not yet traced to a rule, a method or a kind. They are listed with their questions on How it fits, and nothing here removes them.</p>':'');
+    (open?'<p class="hint">'+(open===1?'One position is':open+' positions are')+' not yet traced to a rule, a method or a kind. They are listed with their questions on How it fits, and nothing here removes them.</p>':'');
   navHeight();
   scoreboard();
 }
@@ -645,9 +645,9 @@ function scoreboard(){
     var why=kind.length?'is one of a kind set aside: '+kind.map(pname).join('; ')
            :alone.length?'rested on '+alone.map(pmid).join('; and on '):joint?'rested on '+joint.map(pmid).join(' and ')+', together':'fell with what it rests on';
     return '<div class="fellrow">'+chip(a.id)+'<span class="w">'+esc(why)+'</span></div>';}).join('');
-  // a kind may name, in its 'partly' entry, the arguments it leaves standing only in part (the Twelve
+  // a kind may name, in its 'partly' entry, the positions it leaves standing only in part (the Twelve
   // kind takes the No's; the Partly's stay, and its description promises they are named). One list per
-  // distinct label, each argument once, whichever kinds are ticked.
+  // distinct label, each position once, whichever kinds are ticked.
   var partly={};
   PORDER.forEach(function(p){ var q=PREM[p].partly; if(!on[p]||!q) return;
     var L=partly[q.say]||(partly[q.say]=[]);
@@ -660,7 +660,7 @@ function scoreboard(){
 
 /* ---------- board ---------- */
 var BF={};
-var BFILTERS=[['use','Lead','Key arguments'],['survives','Yes','Holds without Jesus\u2019 example'],['verdict','Strong','Rated firm'],['verdict','Contested','Rated contested'],['what','Modeled, equipped, sent','Modeled and sent'],['what','Word and sacrament, received','Word and sacrament'],['who','Every member, under officers','Every member'],['who','Officers','The elders']];
+var BFILTERS=[['use','Lead','Key positions'],['survives','Yes','Holds without Jesus\u2019 example'],['verdict','Strong','Rated firm'],['verdict','Contested','Rated contested'],['what','Modeled, equipped, sent','Modeled and sent'],['what','Word and sacrament, received','Word and sacrament'],['who','Every member, under officers','Every member'],['who','Officers','The elders']];
 function bfOn(a){ var ks=Object.keys(BF).filter(function(k){return BF[k];}); return ks.every(function(k){var kv=k.split('|'); return a[kv[0]]===kv[1];}); }
 function boardFilters(){
   var on=Object.keys(BF).filter(function(k){return BF[k];}).length;
@@ -686,19 +686,19 @@ function board(){
   document.getElementById('v-board').innerHTML=
     // a plain guide for a first-time reader (Jon's comment "the board won't make sense to a newcomer"; live v56, ported)
     '<section class="guide"><h2 class="vh">How to read the board</h2><ol>'+
-      '<li><b>Each card is one argument.</b> Tap it to read the argument, the Scripture behind it, and the strongest reply against it.</li>'+
-      '<li><b>The groups sort arguments by the kind of ground they stand on</b> (columns on a computer, sections on a phone). First come what the words mean, what Scripture commands outright, and what we have vowed. Last: Jesus’ example, practical wisdom, and history. The later the group, the more you must already agree before it persuades.</li>'+
+      '<li><b>Each card is one position.</b> Tap it to read the position, the Scripture behind it, and the strongest reply against it.</li>'+
+      '<li><b>The groups sort positions by the kind of ground they stand on</b> (columns on a computer, sections on a phone). First come what the words mean, what Scripture commands outright, and what we have vowed. Last: Jesus’ example, practical wisdom, and history. The later the group, the more you must already agree before it persuades.</li>'+
       '<li><b>The colored edge on each card is the author’s own rating:</b> green firm, orange contested, gray open. It is a starting point, not a verdict.</li>'+
-      '<li><b>Start with the '+numWord(meth.length).toLowerCase()+' questions just below.</b> They are about how to read Scripture, and they come before any argument.</li>'+
+      '<li><b>Start with the '+numWord(meth.length).toLowerCase()+' questions just below.</b> They are about how to read Scripture, and they come before any position.</li>'+
     '</ol></section>'+
     '<section class="method"><h2>So we are not talking past each other</h2><p class="msub">'+numWord(meth.length)+' questions about how we read Scripture, worth settling before we open a single text. Tap one to read it.</p><div class="mcards">'+
       meth.map(function(a){return '<button class="acard" data-id="'+esc(a.id)+'" data-v="'+esc(a.verdict)+'"><div class="top"><b>'+esc(a.id)+'</b><span>'+esc(rl(a.verdict,a.id))+'</span></div><div class="cl">'+md(a.claim)+'</div></button>';}).join('')+'</div></section>'+
-    '<h2 class="vh">Every argument on the table</h2>'+
-    '<p class="vsay">'+numWord(ARGS.length)+' arguments, each stated in its strongest form \u2014 including the '+numWord(other).toLowerCase()+' that argue for the other view.</p>'+
-    '<details class="lets" style="margin:0 0 14px"><summary>Two questions run through every argument</summary><p><b>What discipleship is</b> \u2014 the ordinary means received, or modeling, equipping and being sent \u2014 and <b>who does it</b>, whether the work stops with the ordained or runs to every member under their oversight. An elder can land on one side of one question without landing on that side of the other.</p></details>'+
+    '<h2 class="vh">Every position on the table</h2>'+
+    '<p class="vsay">'+numWord(ARGS.length)+' positions, each stated in its strongest form \u2014 including the '+numWord(other).toLowerCase()+' that make the case for the other view.</p>'+
+    '<details class="lets" style="margin:0 0 14px"><summary>Two questions run through every position</summary><p><b>What discipleship is</b> \u2014 the ordinary means received, or modeling, equipping and being sent \u2014 and <b>who does it</b>, whether the work stops with the ordained or runs to every member under their oversight. An elder can land on one side of one question without landing on that side of the other.</p></details>'+
     boardFilters()+
     '<div class="legend"><span>Author’s rating:</span><span><i class="sw" style="background:var(--strong)"></i>firm</span><span><i class="sw" style="background:var(--contested)"></i>contested</span><span><i class="sw" style="background:var(--undec)"></i>open</span><span><i class="sw" style="width:22px;height:0;border-top:3px dashed var(--b3);background:none"></i>dashed columns: persuade only the already-convinced</span></div>'+
-    '<details class="lets"><summary>What do the letters mean?</summary><p>They cross-reference the written index, which is grouped by subject rather than by type \u2014 so a letter tells you where an argument lives in the paper, not where it sits on this page. <b>A</b> how we read Scripture &middot; <b>B</b> Jesus\u2019 ministry &middot; <b>C</b> what discipleship is &middot; <b>D</b> who does it &middot; <b>E</b> models and structure &middot; <b>F</b> evidence &middot; <b>G</b> history.</p></details>'+
+    '<details class="lets"><summary>What do the letters mean?</summary><p>They cross-reference the written index, which is grouped by subject rather than by type \u2014 so a letter tells you where a position lives in the paper, not where it sits on this page. <b>A</b> how we read Scripture &middot; <b>B</b> Jesus\u2019 ministry &middot; <b>C</b> what discipleship is &middot; <b>D</b> who does it &middot; <b>E</b> models and structure &middot; <b>F</b> evidence &middot; <b>G</b> history.</p></details>'+
     '<div class="scroller board-scroller" style="margin-top:14px"><div class="board">'+cols+'</div></div><div class="acc" style="margin-top:14px">'+acc+'</div>';
   applyBoardFilter();
 }
@@ -712,7 +712,7 @@ function corpus(){
   }).join('\n\n');
 }
 function instructions(){
-  return 'You are a reference assistant for a paper prepared for a Presbyterian (PCA) church session on what it means to make disciples. Answer ONLY from the arguments below. Rules: (1) Cite argument IDs in square brackets, e.g. [C4], whenever you draw on one. (2) When an argument has a counter, state it; do not present a contested point as settled. (3) Use a neutral, courteous voice addressed to any elder weighing the question. Never speak of opponents, sides to beat, or winning; the people reading this hold both views in good faith. (4) If the question is not covered by the arguments, say so plainly rather than inventing an answer. (5) Keep answers short: two to five sentences for simple questions, a short list for comparisons. Scripture quotations below are KJV.\n\n=== THE ARGUMENTS ===\n\n'+corpus();
+  return 'You are a reference assistant for a paper prepared for a Presbyterian (PCA) church session on what it means to make disciples. Answer ONLY from the positions below. Rules: (0) Call the entries positions, never arguments. (1) Cite position IDs in square brackets, e.g. [C4], whenever you draw on one. (2) When a position has a counter, state it; do not present a contested point as settled. (3) Use a neutral, courteous voice addressed to any elder weighing the question. Never speak of opponents, sides to beat, or winning; the people reading this hold both views in good faith. (4) If the question is not covered by the positions, say so plainly rather than inventing an answer. (5) Keep answers short: two to five sentences for simple questions, a short list for comparisons. Scripture quotations below are KJV.\n\n=== THE POSITIONS ===\n\n'+corpus();
 }
 function linkIds(text){
   return esc(text).replace(/\[([A-G]\d+[a-z]?)\]/g,function(m,id){var a=byId(id); return a?'<button class="chip" data-id="'+id+'" data-v="'+esc(a.verdict)+'">'+id+'</button>':m;});
@@ -729,10 +729,10 @@ function copyFor(code){
        : code==='cancelled'?'' : 'Something went wrong. Try asking again.';
 }
 function askView(){
-  document.getElementById('v-ask').innerHTML='<h2 class="vh">Ask a question</h2><p class="vsay">Put a question to the material. Answers draw only on the arguments here, cite them by ID, and state the counter where there is one. Each question uses a little of your own Claude usage; the first one asks your permission.</p>'+
+  document.getElementById('v-ask').innerHTML='<h2 class="vh">Ask a question</h2><p class="vsay">Put a question to the material. Answers draw only on the positions here, cite them by ID, and state the counter where there is one. Each question uses a little of your own Claude usage; the first one asks your permission.</p>'+
     '<div class="starters" id="starters"></div><div class="msgs" id="msgs"></div>'+
-    '<div class="askrow"><textarea class="ask" id="askbox" rows="2" placeholder="Ask about any argument, text, or objection\u2026"></textarea><button class="go" id="askgo">Ask</button></div>'+
-    '<p class="asknote" id="asknote">Tap any argument ID in an answer to read it in full.</p>';
+    '<div class="askrow"><textarea class="ask" id="askbox" rows="2" placeholder="Ask about any position, text, or objection\u2026"></textarea><button class="go" id="askgo">Ask</button></div>'+
+    '<p class="asknote" id="asknote">Tap any position ID in an answer to read it in full.</p>';
   var st=(F.common_questions||[]).map(function(c){return c.q;});   // one list: the same questions are answered without AI in In brief
   document.getElementById('starters').innerHTML=st.map(function(q){return '<button data-q="'+esc(q)+'">'+esc(q)+'</button>';}).join('');
   document.getElementById('askgo').onclick=function(){ask(document.getElementById('askbox').value);};
@@ -748,7 +748,7 @@ async function ask(q){
   if(!SAMPLE){document.getElementById('asknote').textContent='Asking is not available in this view.'; return;}
   turns.push({role:'user',content:q}); document.getElementById('askbox').value='';
   renderMsgs(''); setBusy(true);
-  var input=[{role:'user',content:instructions()},{role:'assistant',content:'Understood. I will answer only from these arguments, cite IDs, and state counters.'}].concat(turns.slice(-8));
+  var input=[{role:'user',content:instructions()},{role:'assistant',content:'Understood. I will answer only from these positions, cite IDs, and state counters.'}].concat(turns.slice(-8));
   ctl=new AbortController();
   try{
     var r=await SAMPLE(input,{cache:false, signal:ctl.signal, onText:function(t){renderMsgs(t.text);}});
@@ -772,19 +772,19 @@ function initAsk(){
 /* ---------- how it fits ---------- */
 function fitsView(){
   var dep=D.deps, R=dep.relations;
-  var h='<h2 class="vh">How it fits together</h2><p class="vsay">Which arguments rest on which. These links are authored, not detected \u2014 each one can be pointed to in the index. The chain below is the load-bearing path. After it: what each reading rule, method and kind of argument carries, the arguments not yet traced, and every link, grouped by kind.</p>';
+  var h='<h2 class="vh">How it fits together</h2><p class="vsay">Which positions rest on which. These links are authored, not detected \u2014 each one can be pointed to in the index. The chain below is the load-bearing path. After it: what each reading rule, method and kind of reasoning carries, the positions not yet traced, and every link, grouped by kind.</p>';
   h+='<h3 class="sh">'+esc(dep.spine.title)+'</h3><p class="hint">'+esc(dep.spine.note)+'</p><div class="spine">';
   dep.spine.layers.forEach(function(L,i){
     if(i) h+='<div class="arrow">\u2193</div>';
     h+='<div class="layer"><p class="ll">'+esc(L.label)+'</p><div class="chips">'+L.ids.map(function(id){return chip(id);}).join('')+'</div></div>';
   });
   h+='</div>';
-  // Each premise with the arguments that rest on it, in What if's terms (falls when it alone is set
+  // Each premise with the positions that rest on it, in What if's terms (falls when it alone is set
   // aside), then those that fall only with another premise. Rules, kinds and the fixed premise apart.
   var oq=dep.open_questions||[], qOf={}; oq.forEach(function(q){qOf[q.id]=q.q;});
-  [['rule','What each reading rule and method carries','Every argument that falls when this alone is set aside, directly or through an argument it rests on. The links themselves, each quoting the index, are under Every link below and on each sheet.'],
-   ['kind','What each kind of argument carries','The arguments of each kind, and any that rest on them.'],
-   ['fixed','Held fixed','Never set aside on What if; these arguments rest on it.']].forEach(function(g){
+  [['rule','What each reading rule and method carries','Every position that falls when this alone is set aside, directly or through a position it rests on. The links themselves, each quoting the index, are under Every link below and on each sheet.'],
+   ['kind','What each kind of reasoning carries','The positions of each kind, and any that rest on them.'],
+   ['fixed','Held fixed','Never set aside on What if; these positions rest on it.']].forEach(function(g){
     var ps=dep.premises.filter(function(p){return p.group===g[0];}); if(!ps.length) return;
     h+='<h3 class="sh" style="margin-top:22px">'+esc(g[1])+'</h3><p class="hint">'+esc(g[2])+'</p>';
     ps.forEach(function(p){
@@ -795,10 +795,10 @@ function fitsView(){
       // with the Twelve kind), so this heading agrees with What if's count for the same box
       var via=(D.falls[p.id]||[]).filter(function(i){return i!==p.id && mem.indexOf(i)<0 && ids.indexOf(i)<0;});
       function n(k,one,many){ return k===1?one:k+' '+many; }
-      var head=mem.length?n(mem.length,'one argument of this kind','arguments of this kind')+(ids.length?'; '+n(ids.length,'one more rests on it','more rest on it'):'')
-              :ids.length?n(ids.length,'one argument rests on it','arguments rest on it')
-              :via.length?n(via.length,'one argument falls with it','arguments fall with it')
-              :jt.length?'no argument rests on it alone':'no argument is traced to it yet';
+      var head=mem.length?n(mem.length,'one position of this kind','positions of this kind')+(ids.length?'; '+n(ids.length,'one more rests on it','more rest on it'):'')
+              :ids.length?n(ids.length,'one position rests on it','positions rest on it')
+              :via.length?n(via.length,'one position falls with it','positions fall with it')
+              :jt.length?'no position rests on it alone':'no position is traced to it yet';
       // "more" only after a count it adds to
       if(via.length && (mem.length||ids.length)) head+='; '+n(via.length,'one more falls with it','more fall with it');
       h+='<div class="relgroup"><h4>'+esc(p.name)+' \u2014 '+head+'</h4>'+
@@ -809,7 +809,7 @@ function fitsView(){
   });
   var oqa=oq.filter(function(q){return byId(q.id);});
   if(oqa.length){
-    h+='<h3 class="sh" style="margin-top:22px">Not yet traced \u2014 '+oqa.length+(oqa.length===1?' argument':' arguments')+'</h3><p class="hint">Arguments not yet traced to a rule, a method or a kind, each with the question the author has not yet settled. None is given a guessed link.</p>';
+    h+='<h3 class="sh" style="margin-top:22px">Not yet traced \u2014 '+oqa.length+(oqa.length===1?' position':' positions')+'</h3><p class="hint">Positions not yet traced to a rule, a method or a kind, each with the question the author has not yet settled. None is given a guessed link.</p>';
     oqa.forEach(function(q){ h+='<div class="edge"><div class="pair">'+chip(q.id)+'</div><p class="why">'+esc(q.q)+'</p></div>'; });
   }
   h+='<h3 class="sh" style="margin-top:22px">Every link, by kind</h3>';
@@ -850,14 +850,14 @@ function fullBody(a){
   var h='<div class="meta"><span class="tag v-'+esc(a.verdict)+'">'+esc(rfull(a))+'</span>'+(a.texts?'<span class="tag">'+esc(a.texts)+'</span>':'')+'</div>';
   a.sections.forEach(function(s){if(s.l&&/^Lands/.test(s.l))return; h+='<div class="sec">'+(s.l?'<h4>'+esc(secl(a,s.l))+'</h4>':'')+paras(s.t)+'</div>';});
   if(a.sup.length) h+='<div class="sec"><h4>Supports</h4><ul>'+a.sup.map(function(x){return '<li>'+md(x)+'</li>';}).join('')+'</ul></div>';
-  if(a.risk) h+='<div class="sec"><h4>Limits of this argument</h4>'+paras(a.risk)+'</div>';
+  if(a.risk) h+='<div class="sec"><h4>Limits of this position</h4>'+paras(a.risk)+'</div>';
   return h;
 }
-/* ---------- the arguments: "Read the case" and "Every argument" merged (Jon, 2026-10-04) ---------- */
+/* ---------- the positions: "Read the case" and "Every position" merged (Jon, 2026-10-04) ---------- */
 var q='', sortBy='kind';
 function argsView(){
-  document.getElementById('v-args').innerHTML='<h2 class="vh">The arguments</h2><p class="vsay">All '+ARGS.length+'. Each line shows the claim; tap it to open the case, the counter and the limits. Tap again to close.</p>'+
-    '<div class="toolbar"><input class="search" id="q" type="search" placeholder="Search any word\u2026" aria-label="Search the arguments" value="'+esc(q)+'">'+
+  document.getElementById('v-args').innerHTML='<h2 class="vh">The positions</h2><p class="vsay">All '+ARGS.length+'. Each line shows the claim; tap it to open the case, the counter and the limits. Tap again to close.</p>'+
+    '<div class="toolbar"><input class="search" id="q" type="search" placeholder="Search any word\u2026" aria-label="Search the positions" value="'+esc(q)+'">'+
     '<select class="sort" id="sort" aria-label="Order"><option value="kind">Grouped by kind</option><option value="id">By letter and number</option><option value="verdict">By the author\u2019s rating</option><option value="who">By who does it</option></select></div>'+
     '<div class="rdtools"><button id="rdopen">Expand all</button><button id="rdclose">Collapse all</button></div>'+
     '<p class="count" id="cnt"></p><div id="argslist"></div>';
@@ -876,7 +876,7 @@ function drawArgs(){
   var rows=ARGS.filter(function(a){ if(!s)return true; return (a.id+' '+a.claim+' '+a.band+' '+a.verdictFull+' '+a.what+' '+a.who+' '+a.texts+' '+a.sections.map(function(x){return x.t;}).join(' ')).toLowerCase().indexOf(s)>=0;});
   var h='';
   if(sortBy==='kind'){
-    var groups=[{h:'Method \u2014 how we read, before anything is argued',ids:rows.filter(function(a){return a.bandIdx===-1;})}];
+    var groups=[{h:'Method \u2014 how we read, before any position',ids:rows.filter(function(a){return a.bandIdx===-1;})}];
     BANDS.forEach(function(b,i){groups.push({h:b.h,s:b.s,ids:rows.filter(function(a){return a.bandIdx===i;})});});
     groups.forEach(function(g){
       if(!g.ids.length) return;
@@ -904,15 +904,15 @@ function sourceView(){
   var h='<h2 class="vh">Sources and method</h2>';
   if(F.author) h+='<p class="body">By '+esc(F.author)+', '+esc(F.credit)+'.</p>';
   h+='<p class="body">'+esc(F.purpose)+'</p>';
-  h+='<h3 class="sh">The two questions</h3><p class="body">Every argument here bears on one, both or neither: <b>what discipleship is</b> — the ordinary means received, or being modeled, equipped and sent — and <b>who does it</b>, whether the work rests with the ordained or runs to every member under their oversight.</p>';
-  h+='<h3 class="sh">How Scripture is read here</h3><p class="body">The reading rules, stated before any text is argued:</p><ol class="rules">'+M.rules.map(function(r){return '<li>'+md(r)+'</li>';}).join('')+'</ol><div class="chips"><span class="sans" style="font-size:15px;color:var(--soft);align-self:center">In full:</span>'+chip(M.rulesFrom)+'</div>';
+  h+='<h3 class="sh">The two questions</h3><p class="body">Every position here bears on one, both or neither: <b>what discipleship is</b> — the ordinary means received, or being modeled, equipped and sent — and <b>who does it</b>, whether the work rests with the ordained or runs to every member under their oversight.</p>';
+  h+='<h3 class="sh">How Scripture is read here</h3><p class="body">The reading rules, stated before any text is weighed:</p><ol class="rules">'+M.rules.map(function(r){return '<li>'+md(r)+'</li>';}).join('')+'</ol><div class="chips"><span class="sans" style="font-size:15px;color:var(--soft);align-self:center">In full:</span>'+chip(M.rulesFrom)+'</div>';
   h+='<p class="body" style="margin-top:18px">'+numWord(M.bins.length)+' categories for anything observed in Scripture, applied before deciding what binds:</p><ol class="rules">'+M.bins.map(function(r){return '<li>'+md(r)+'</li>';}).join('')+'</ol><div class="chips"><span class="sans" style="font-size:15px;color:var(--soft);align-self:center">In full:</span>'+chip(M.binsFrom)+'</div>';
   h+='<h3 class="sh">The author’s ratings</h3><p class="body">'+esc(F.ratings_note)+' The count: '+esc(Object.keys(s.verdicts).map(function(k){return (RWORD[k]||k)+' '+s.verdicts[k];}).join(', '))+'.</p>';
   h+='<h3 class="sh">Sources cited</h3><ul class="srcs">'+(F.sources||[]).map(function(x){return '<li>'+esc(x.cite)+'</li>';}).join('')+'</ul>';
   if(F.secondhand&&F.secondhand.length) h+='<h3 class="sh">Known secondhand</h3><ul class="srcs">'+F.secondhand.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';
   if(F.paper_note) h+='<p class="body">'+esc(F.paper_note)+'</p>';
-  h+='<h3 class="sh">How it is kept honest</h3><p class="body">Every view on this page is generated from one file, built from the written index of '+s.n+' arguments ('+s.prose.toLocaleString()+' characters of prose, checked identical to the index). None is maintained by hand. Before any release a gate rebuilds the page and checks it: every argument rated, no count typed by hand, and no wording that sets one reader against another.</p>'+
-    '<h3 class="sh">What the labels mean</h3><dl class="kv"><dt>Column</dt><dd>What kind of argument it is. The columns group arguments by the ground they stand on: Grammar and lexicon, Precept, Confession and standards, What Jesus did, Prudence, and Evidence and history. A1–A5 are Method: they decide what counts as an answer.</dd><dt>Author’s rating</dt><dd>Firm, contested or open — the author’s own judgment, assigned when the argument was written.</dd><dt>The author’s answer to it</dt><dd>On the arguments that state the other view (listed in In brief), the rating is the author’s rating of his answer to the argument, not of the argument itself.</dd><dt>What it is</dt><dd>Which answer the argument supports on the nature of discipleship.</dd><dt>Who does it</dt><dd>Which answer it supports on responsibility. A dash means silent, not neutral.</dd><dt>Holds without Jesus’ example</dt><dd>Whether the argument still holds without relying on Jesus’ example to bind: yes, partly or no. These are the author’s tags; a dash means the argument is not tagged.</dd></dl>';
+  h+='<h3 class="sh">How it is kept honest</h3><p class="body">Every view on this page is generated from one file, built from the written index of '+s.n+' positions ('+s.prose.toLocaleString()+' characters of prose, checked identical to the index). None is maintained by hand. Before any release a gate rebuilds the page and checks it: every position rated, no count typed by hand, and no wording that sets one reader against another.</p>'+
+    '<h3 class="sh">What the labels mean</h3><dl class="kv"><dt>Column</dt><dd>The ground a position stands on. The columns are: Grammar and lexicon, Precept, Confession and standards, What Jesus did, Prudence, and Evidence and history. A1–A5 are Method: they decide what counts as an answer.</dd><dt>Author’s rating</dt><dd>Firm, contested or open — the author’s own judgment, assigned when the position was written.</dd><dt>The author’s answer to it</dt><dd>On the positions that state the other view (listed in In brief), the rating is the author’s rating of his answer to the position, not of the position itself.</dd><dt>What it is</dt><dd>Which answer the position supports on the nature of discipleship.</dd><dt>Who does it</dt><dd>Which answer it supports on responsibility. A dash means silent, not neutral.</dd><dt>Holds without Jesus’ example</dt><dd>Whether the position still holds without relying on Jesus’ example to bind: yes, partly or no. These are the author’s tags; a dash means the position is not tagged.</dd></dl>';
   document.getElementById('v-source').innerHTML=h; linkify(document.getElementById('v-source'));
 }
 
@@ -928,7 +928,7 @@ function setMoved(){
   el.classList.add('on');   // a class, not an inline style, so the Start-only rule above can still hide it
 }
 /* ---------- tabs ---------- */
-var VIEWS=[['start','Start'],['board','The board'],['brief','In brief'],['args','The arguments'],['axes','Where it’s contested'],['rests','What if'],['ask','Ask'],['fits','How it fits'],['source','Sources and method'],['how','How this page works',true]];
+var VIEWS=[['start','Start'],['board','The board'],['brief','In brief'],['args','The positions'],['axes','Where it’s contested'],['rests','What if'],['ask','Ask'],['fits','How it fits'],['source','Sources and method'],['how','How this page works',true]];
 // a third entry of true: a view with no tab (opened from Start only)
 function tabs(){document.getElementById('tabs').innerHTML=VIEWS.filter(function(v){return !v[2];}).map(function(v,i){return '<button role="tab" data-v="'+v[0]+'" aria-selected="'+(i===0)+'">'+esc(v[1])+'</button>';}).join('');}
 function hashView(){var h=String((location&&location.hash)||'').replace(/^#/,''); return document.getElementById('v-'+h)?h:'';}

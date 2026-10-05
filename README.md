@@ -9,7 +9,7 @@ sources/      hand-edited: the only files you change for content
   args.json           structured fields: column, rating, what/who axes, limits, card text
   front_door.json     the summary tab: thesis, three changes, key arguments, author line
   dependencies.json   authored links between arguments (rests on / repairs / licenses / bounds / answers)
-  map_frame.txt       instructions for the in-page chat
+  map_frame.txt       a separate text of the chat instructions; it is public and gate checks 20, 25, 45 and 50 scan it, but the chat does not use it, and it has drifted from the chat's prompt in pipeline/hub_template.html
 pipeline/     the build; tone.py, ratings.py and paper.py are each one rule shared by the build and the gate
 kjv/          local KJV text used for the scripture popovers
 verify/       the release gate: run.sh and its checks

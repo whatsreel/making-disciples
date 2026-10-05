@@ -259,7 +259,7 @@
   ],
   "spine": {
     "title": "The main chain",
-    "note": "The argument's load-bearing path, in the order to read it, top to bottom. The rows are a reading order, not links: which argument rests on which is shown below, and on each argument's sheet.",
+    "note": "The paper's load-bearing path, in the order to read it, top to bottom. The rows are a reading order, not links: which position rests on which is shown below, and on each position's sheet.",
     "layers": [
       {
         "label": "Method: may we read the Gospels for pattern at all?",
@@ -391,7 +391,7 @@
       "id": "kind-twelve",
       "group": "kind",
       "name": "Jesus' training of the Twelve as a pattern for a congregation",
-      "say": "every argument the author tags as needing Jesus' example to bind; those that only partly need it stay standing, and each sheet says which",
+      "say": "every position the author tags as needing Jesus' example to bind; those that only partly need it stay standing, and each sheet says which",
       "members": {
         "field": "survives",
         "value": "No"
@@ -405,7 +405,7 @@
     {
       "id": "kind-wisdom",
       "group": "kind",
-      "name": "Arguments from wisdom",
+      "name": "Practical wisdom",
       "say": "commended, not commanded",
       "members": {
         "field": "band",

@@ -27,10 +27,10 @@ try {
   console.log('start buttons: ' + goes.length + ' (' + goes.join(', ') + '); other start links: ' + (all.length - goes.length));
   if (goes.length < 5) miss.push('Start has fewer than five buttons');
   all.filter(g => !r.views['v-' + g]).forEach(g => miss.push('Start control opens a missing view: ' + g));
-  // The arguments tab lists every argument
+  // The positions tab lists every position
   const rows = ((r.lists && r.lists.argslist) || '').match(/<details class="rd" data-v=/g) || [];
   console.log('arguments listed: ' + rows.length + ' of ' + Object.keys(r.sheets).length);
-  if (rows.length !== Object.keys(r.sheets).length) miss.push('The arguments tab does not list every argument');
+  if (rows.length !== Object.keys(r.sheets).length) miss.push('The positions tab does not list every position');
   // Sources and method carries the byline and the sources; the common questions live in In brief
   // (moved on Jon's comment "this doesn't belong in this tab", the evening of 2026-10-04)
   const src = r.views['v-source'] || '';

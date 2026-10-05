@@ -50,7 +50,7 @@ def scan_answers(texts, alt):
     if brief != len(alt):
         bad.append(f'v-brief: {brief} answer ratings, expected {len(alt)}')
     print(f'COUNT answer-framed sheets {sum(1 for i in alt if sheets.get(i, "").count(ANS_FULL) >= 2)}/{len(alt)} (tag and heading); '
-          f'short labels board {labels["v-board"]}, The arguments {labels["list argslist"]}; In brief {brief} (expected {len(alt)} each)')
+          f'short labels board {labels["v-board"]}, The positions {labels["list argslist"]}; In brief {brief} (expected {len(alt)} each)')
     for b in bad[:12]:
         print('SAMPLE ' + b)
     return not bad
